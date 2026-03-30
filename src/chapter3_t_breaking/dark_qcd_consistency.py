@@ -137,7 +137,7 @@ print()
 print("  In dark QCD: if there's a dark CP phase,")
 print("  ⟨σ⟩/f_σ = θ_d is set by the dark vacuum angle.")
 print()
-print("  FOR θ_d = arcsin(1/3) = 19.47°:")
+print("  FOR θ_d = arctan(1/3) = 18.43°:")
 print("  This would require the dark vacuum angle to be ~0.34 rad.")
 print("  In QCD, θ_QCD < 10⁻¹⁰ (from neutron EDM).")
 print("  There's no reason θ_d should be small in the dark sector!")
@@ -145,13 +145,13 @@ print("  No dark neutron EDM to constrain it.")
 print()
 
 # Can A₄ SET the dark vacuum angle?
-print("  Can A₄ SET θ_d = arcsin(1/3)?")
+print("  Can A₄ SET θ_d = arctan(1/3)?")
 print("  YES — if A₄ is the flavor symmetry of dark quarks,")
 print("  the vacuum alignment determines θ_d through CG coefficients.")
 print("  This is EXACTLY what we already showed!")
 print()
 print("  The two pictures are COMPATIBLE:")
-print("  • Group theory (A₄): θ = arcsin(1/3) from CG ratios")  
+print("  • Group theory (A₄): θ = arctan(1/3) from CG ratios")  
 print("  • Dark QCD: θ = ⟨σ⟩/f_σ from vacuum alignment")
 print("  • Connection: A₄ vacuum alignment → dark vacuum angle")
 print()
@@ -426,12 +426,12 @@ HOW σ COUPLES TO DM:
     y_p,total = y_p(A₄) + m_χ⟨σ⟩/(f × ⟨φ⟩)
   
   But ⟨σ⟩/f is the dark vacuum angle = θ_dark
-  Set by A₄: θ_dark = arcsin(1/3) ← from flavon VEV alignment
+  Set by A₄: θ_dark = arctan(1/3) ← from flavon VEV alignment
   
   So: σ doesn't CHANGE the CP ratio. It FLUCTUATES around
   the A₄-determined value. The dark pion oscillates:
     θ(x) = θ₀ + σ(x)/f
-  where θ₀ = arcsin(1/3) is the A₄ minimum.
+  where θ₀ = arctan(1/3) is the A₄ minimum.
 
 WHAT GENERATES DE:
   σ = dark pion, m_σ = Λ_d²/f ~ H₀
@@ -498,7 +498,7 @@ CHECK 1 (Group theory):
 
 CHECK 2 (CP ratio):
   [PASS] g_p/g_s = 1/3 from A₄ is PRESERVED
-  σ fluctuates around the A₄-determined θ₀ = arcsin(1/3)
+  σ fluctuates around the A₄-determined θ₀ = arctan(1/3)
 
 CHECK 3 (BBN/N_eff):
   [!] SU(2)_d: marginal if ever thermalized (ΔN_eff ~ 0.3)

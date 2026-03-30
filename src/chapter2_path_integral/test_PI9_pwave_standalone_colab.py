@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-PI-9 STANDALONE: P-wave Suppression via T-breaking (θ=19.47°) — Relic Fix?
+PI-9 STANDALONE: P-wave Suppression via T-breaking (θ=18.43°) — Relic Fix?
 ============================================================================
 Self-contained — runs on Google Colab, Replit, Kaggle, or any Python 3.8+
 with numpy only.  NO project dependencies.
 
 HYPOTHESIS:
-  The universal angle θ_relic = arctan(1/√8) = 19.47°  from A₄ group theory
+  The universal angle θ_relic = arctan(1/3) = 18.43°  from A₄ group theory
   introduces a pseudoscalar coupling y_p alongside the scalar y_s:
 
       y_s = y·cos(θ),   y_p = y·sin(θ)
@@ -188,12 +188,12 @@ def analytic_pwave_summary():
 
 def main():
     print("=" * 74)
-    print("  PI-9: P-WAVE FROM T-BREAKING θ=19.47°  — RELIC FIX?")
+    print("  PI-9: P-WAVE FROM T-BREAKING θ=18.43°  — RELIC FIX?")
     print("  (standalone — no project dependencies)")
     print("=" * 74)
 
-    print(f"\n  θ_relic = {math.degrees(THETA_RELIC):.4f}°  =  arctan(1/√8)")
-    print(f"  αp/αs   = tan²θ = 1/8  =  {TAN2_THETA:.6f}")
+    print(f"\n  θ_relic = {math.degrees(THETA_RELIC):.4f}°  =  arctan(1/3)")
+    print(f"  αp/αs   = tan²θ = 1/9  =  {TAN2_THETA:.6f}")
 
     analytic_pwave_summary()
 
@@ -261,7 +261,7 @@ def main():
         print(f"\n  Ωh²:")
         print(f"    naive (s-wave, PI-8):  {omega_naive:.4f}  (D needed = {D_needed:.2f}×)")
         print(f"    s-wave (full xf):      {omega_s:.4f}")
-        print(f"    s+p-wave (θ=19.47°):   {omega_sp:.4f}")
+        print(f"    s+p-wave (θ=18.43°):   {omega_sp:.4f}")
         print(f"    target:                {OMEGA_TARGET:.4f}")
         print(f"    still off by:          {D_achieved:.2f}×")
         print(f"    improvement from PI-8: {(omega_naive - omega_sp)/omega_naive*100:.2f}%")
@@ -283,7 +283,7 @@ def main():
         print(f"\n  TO REACH Ωh²=0.12 (via p-wave boost alone):")
         print(f"    Need b = {b_cm_needed:.3e} cm³/s")
         print(f"    Need αp = {alpha_p_needed:.4e}  (current = {alpha_p:.4e})")
-        print(f"    Need αp/αs = tan²θ = {tan2_needed:.4f}  (current = {TAN2_THETA:.4f} = 1/8)")
+        print(f"    Need αp/αs = tan²θ = {tan2_needed:.4f}  (current = {TAN2_THETA:.4f} = 1/9)")
         if tan2_needed > 0:
             print(f"    Need θ = {math.degrees(math.atan(math.sqrt(tan2_needed))):.1f}°  "
                   f"(current = {math.degrees(THETA_RELIC):.1f}°)")
@@ -329,7 +329,7 @@ def main():
   The factor of 2.94 needed for MAP requires a boost of +194%.
   The p-wave can only deliver +5%.  Missing by a factor of ~38×.
 
-  Root cause: tan²(θ_relic) = 1/8 was chosen to reproduce the
+  Root cause: tan²(θ_relic) = 1/9 was chosen to reproduce the
   correct relic at θ=0 (s-wave). It was NOT chosen to maximize
   p-wave.  The angle that maximizes p-wave would be θ=90° (pure
   pseudoscalar), but that kills SIDM (αs=0).

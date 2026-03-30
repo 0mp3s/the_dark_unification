@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 14:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 16:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -841,9 +841,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/omerp/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 [2]
-Overfull \hbox (0.71425pt too wide) in paragraph at lines 39--39
-[][][]\T1/cmr/bx/n/14.4 III Dark Elec-tro-mag-netic Du-al-ity: Dark En-ergy as 
-T-Breaking[][] 
+Overfull \hbox (6.25185pt too wide) in paragraph at lines 39--39
+[][][]\T1/cmr/bx/n/14.4 III Dark Elec-tro-mag-netic Anal-ogy: Dark En-ergy as T
+-Breaking[][] 
  []
 
 
@@ -1013,7 +1013,7 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 44875512C8866511239980C3D9236209;16960.
+(rerunfilecheck)             Checksum: 7CB72662A2C2B87B2D8D57D97D3C29D2;16960.
  ) 
 Here is how much of TeX's memory you used:
  24230 strings out of 467871
@@ -1069,9 +1069,9 @@ merp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
 /cm/cmsy8.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/
 amsfonts/symbols/msam10.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (47 pages, 3747334 bytes).
+Output written on main.pdf (47 pages, 3747947 bytes).
 PDF statistics:
- 1843 PDF objects out of 2073 (max. 8388607)
+ 1844 PDF objects out of 2073 (max. 8388607)
  294 named destinations out of 1000 (max. 500000)
  688 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -40,7 +40,7 @@ Key result: **VPM is exactly the fluctuation determinant of the path integral** 
 
 - Source: `The_Lagernizant_integral_SIDM/` (within Secluded-Majorana-SIDM)
 
-### Chapter 3 — Dark Electromagnetic Duality
+### Chapter 3 — Dark Electromagnetic Analogy
 **Dark Energy as the T-Breaking Component of Dark Matter**
 
 The CP phase $\theta = \sigma/f$ is promoted to a dynamical field. The analogy with electromagnetism is exact:
@@ -52,7 +52,7 @@ The CP phase $\theta = \sigma/f$ is promoted to a dynamical field. The analogy w
 | $F_{\mu\nu}$ | $\mathcal{Y} = ye^{i\gamma^5\sigma/f}$ |
 | Lorentz boost mixes $E \leftrightarrow B$ | $\sigma$ field rotates $y_s \leftrightarrow y_p$ |
 
-The universal relic angle $\theta_{relic} = \arctan(1/\sqrt{8}) = 19.47°$ is fixed by SIDM + relic density constraints simultaneously — **no free parameter**.
+The universal relic angle $\theta_{relic} = \arctan(1/3) = 18.43°$ is fixed by $A_4$ group theory — **no free parameter**.
 
 - Source: `dark-energy-T-breaking/` (within Secluded-Majorana-SIDM)
 

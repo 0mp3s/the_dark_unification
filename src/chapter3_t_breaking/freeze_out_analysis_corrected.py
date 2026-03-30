@@ -73,13 +73,13 @@ print("PART 1: CW POTENTIAL LANDSCAPE (CORRECTED)")
 print("="*78)
 
 print(f"\n  V_CW(0°)     = {V_CW(0.01):.6e} GeV⁴")
-print(f"  V_CW(19.47°) = {V_CW(theta_relic):.6e} GeV⁴")
+print(f"  V_CW(18.43°) = {V_CW(theta_relic):.6e} GeV⁴")
 print(f"  V_CW(45°)    = {V_CW(np.pi/4):.6e} GeV⁴")
 print(f"  V_CW(90°)    = {V_CW(np.pi/2-0.01):.6e} GeV⁴")
 print(f"\n  ΔV = V(0°) - V(90°) = {V_CW(0.01) - V_CW(np.pi/2-0.01):.6e} GeV⁴")
 print(f"  → θ=0 has HIGHER V → θ=0 is CW MAXIMUM")
 print(f"  → θ=π/2 has LOWER V → θ=π/2 is CW MINIMUM")
-print(f"  → CW pushes σ from θ_relic (19.47°) TOWARD θ=90° (pure pseudoscalar)")
+print(f"  → CW pushes σ from θ_relic (18.43°) TOWARD θ=90° (pure pseudoscalar)")
 
 # ΔV as fraction of ρ_Λ
 DeltaV = abs(V_CW(0.01) - V_CW(np.pi/2-0.01))

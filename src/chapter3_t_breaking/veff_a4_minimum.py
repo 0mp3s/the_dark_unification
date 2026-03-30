@@ -161,14 +161,14 @@ theta_r = theta_relic
 cos_r = np.cos(theta_r)
 cos3r = np.cos(3*theta_r)
 
-# d²V/dθ² = A cosθ - 9B cos(3θ)  [with A = (23/3)B]
+# d²V/dθ² = A cosθ - 9B cos(3θ)  [with A = (39/5)B]
 d2V = A_over_B * cos_r - 9 * cos3r  # in units of Λ₂⁴
 
 print(f"  VERIFICATION (minimum test):")
 print(f"    θ_relic = {np.degrees(theta_r):.4f}°")
 print(f"    cos(θ_relic) = {cos_r:.6f} = 2√2/3 = {2*np.sqrt(2)/3:.6f}")
 print(f"    cos(3θ_relic) = {cos3r:.6f}")
-print(f"    d²V/dθ² = (23/3)Λ₂⁴ × {cos_r:.4f} - 9Λ₂⁴ × {cos3r:.4f}")
+print(f"    d²V/dθ² = (39/5)Λ₂⁴ × {cos_r:.4f} - 9Λ₂⁴ × {cos3r:.4f}")
 print(f"             = Λ₂⁴ × ({A_over_B*cos_r:.4f} - {9*cos3r:.4f})")
 print(f"             = Λ₂⁴ × {d2V:.4f}")
 print(f"    d²V/dθ² > 0?  {'YES [PASS] — TRUE MINIMUM' if d2V > 0 else 'NO [FAIL]'}")

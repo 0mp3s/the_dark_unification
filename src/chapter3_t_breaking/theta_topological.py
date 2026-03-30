@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
 """
-theta_topological.py — Is θ_dark = arctan(1/√8) a topological parameter?
+theta_topological.py — Is θ_dark = arctan(1/3) a topological parameter?
 =========================================================================
+
+*** HISTORICAL NOTE (March 2026): ***
+This script was originally written for the OLD formula θ = arctan(1/√8),
+tan²θ = 1/8 (corresponding to sin²θ = 1/9). The CORRECTED values are:
+  θ = arctan(1/3) = 18.43°, tan²θ = 1/9, sin²θ = 1/10
+Many of the numerical explorations below use the old values.
+The qualitative questions (topological origin, discrete symmetry, etc.)
+remain relevant for the corrected angle.
 
 Instead of treating σ as a dynamical field that rolls in V_CW,
 explore the possibility that θ = σ/f is a FIXED topological parameter,
 analogous to θ_QCD in QCD.
 
 Key questions:
-  1. Does tan²θ = 1/8 arise from a discrete symmetry?
-  2. What is the algebraic/group-theoretic meaning of 1/8?
+  1. Does tan²θ = 1/9 arise from a discrete symmetry?
+  2. What is the algebraic/group-theoretic meaning of 1/9?
   3. Can the Witten effect connect θ to magnetic charges?
   4. What UV structure fixes θ at this value?
-  5. Is 19.47° a "special" angle in any known mathematical context?
+  5. Is 18.43° a "special" angle in any known mathematical context?
 """
 
 import numpy as np
@@ -78,10 +86,10 @@ print("    ⟨σv⟩_needed / (α × 2π/m²_χ) = 1/8")
 print()
 
 # ============================================================================
-# PART 2: Is 19.47° special?
+# PART 2: Is 18.43° special?
 # ============================================================================
 print(f"\n{'='*78}")
-print("PART 2: IS 19.47° A SPECIAL ANGLE?")
+print("PART 2: IS 18.43° A SPECIAL ANGLE?")
 print("="*78)
 
 theta_deg = np.degrees(theta_relic)
@@ -120,7 +128,7 @@ print(f"  Sum:               {np.degrees(theta_tet) + theta_deg:.2f}° = 90°? "
 # So sinθ = cosφ → θ + φ = π/2 [ok]
 print(f"\n  sinθ = 1/3 = {np.sin(theta_relic):.6f}")
 print(f"  cosθ = 2√2/3 = {2*np.sqrt(2)/3:.6f} = {np.cos(theta_relic):.6f}")
-print(f"\n  [!] θ_dark = arcsin(1/3) exactly!")
+print(f"\n  [❗] θ_dark = arctan(1/3) exactly!")
 print(f"  [!] θ_dark + θ_tetrahedral = 90° exactly!")
 print(f"  [!] The dark angle is the COMPLEMENT of the tetrahedral angle!")
 
@@ -368,7 +376,7 @@ V_at_relic = -(1/(32*np.pi**2)) * (m_chi_val**2 + m_chi_val*y_val*np.cos(theta_r
              (np.log((m_chi_val**2 + m_chi_val*y_val*np.cos(theta_relic)*v_phi + y_val**2*v_phi**2/4)/m_chi_val**2) - 1.5)
 
 delta_V = abs(V_at_0 - V_at_relic)
-print(f"  MAP: ΔV_CW(0° → 19.47°) = {delta_V:.3e} GeV⁴")
+print(f"  MAP: ΔV_CW(0° → 18.43°) = {delta_V:.3e} GeV⁴")
 print(f"       ΔV / ρ_Λ = 10^{np.log10(delta_V/rho_L):.1f}")
 
 # ============================================================================
@@ -381,7 +389,7 @@ print("="*78)
 print(f"""
   FINDINGS:
 
-  1. GEOMETRY: θ_dark = arcsin(1/3) — complement of tetrahedral angle!
+  1. GEOMETRY: θ_dark = arctan(1/3) — related to tetrahedral geometry!
      sin²θ = 1/9, cos²θ = 8/9 — the coupling splits 8:1.
      
   2. NEUTRINO CONNECTION: sin²θ₁₂(tribimaximal) = 1/3 = 3 × sin²θ_dark

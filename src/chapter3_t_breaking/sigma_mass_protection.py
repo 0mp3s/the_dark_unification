@@ -302,7 +302,7 @@ print("\n\n" + "="*70)
 print("  STEP 3: THE TWIST — WHAT IF θ ISN'T DYNAMICAL?")
 print("="*70)
 print("""
-We showed (Test 10c, research journal) that θ = arcsin(1/3) is a GROUP
+We showed (Test 10c, research journal) that θ = arctan(1/3) is a GROUP
 THEORY CONSTANT from A₄. It's NOT a dynamical field.
 
 If θ is discrete → there is NO σ → m_σ is meaningless.

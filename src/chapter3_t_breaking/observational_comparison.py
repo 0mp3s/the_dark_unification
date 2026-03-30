@@ -7,7 +7,7 @@ Starting from the global best fit of background_cosmology.py:
     Lambda_d = 1.45 meV, theta_i = 1.512 rad, f = 3.0 M_Pl
 
 This script:
-  1. Fine-tune grid: finds H0 = 67.4 +/- 0.5 precisely
+  1. Parameter scan: finds H0 = 67.4 +/- 0.5
   2. Pantheon+ SN Ia: computes mu(z) = 5 log10(d_L/10pc), chi2 vs data
   3. BAO: r_d/d_V(z) at SDSS+DESI redshifts
   4. Publication figures

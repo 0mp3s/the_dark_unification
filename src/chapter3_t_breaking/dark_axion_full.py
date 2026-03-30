@@ -120,11 +120,11 @@ for name, bp in BPs.items():
     alpha_p = y_sq * np.sin(theta)**2 / (4 * np.pi)
     
     print(f"  {name}: α = {alpha:.4e}")
-    print(f"    θ = arctan(1/√8) = {np.degrees(theta):.2f}°  (universal!)")
+    print(f"    θ = arctan(1/3) = {np.degrees(theta):.2f}°  (universal!)")
     print(f"    y = {y:.5f},  y² = {y_sq:.5e}")
     print(f"    α_s = {alpha_s:.4e} (should be {alpha:.4e})")
-    print(f"    α_p = {alpha_p:.4e} (should be {alpha/8:.4e})")
-    print(f"    α_s × α_p = {alpha_s*alpha_p:.4e} (should be {alpha**2/8:.4e})")
+    print(f"    α_p = {alpha_p:.4e} (should be {alpha/9:.4e})")
+    print(f"    α_s × α_p = {alpha_s*alpha_p:.4e} (should be {alpha**2/9:.4e})")
     print()
 
 theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
@@ -419,7 +419,7 @@ print("PART 4: CRITICAL CONSISTENCY — IS θ_relic A MINIMUM OF V(θ)?")
 print("="*78)
 print()
 print("The BIG question: does the CW potential naturally have its")
-print("minimum at θ_relic = arctan(1/√8)?  Or do we need to tune V_bare(σ)")
+print("minimum at θ_relic = arctan(1/3)?  Or do we need to tune V_bare(σ)")
 print("to force σ to sit at the right angle?")
 print()
 
@@ -432,7 +432,7 @@ print()
 # At θ = 0: cos²θ = 1, all coupling is scalar (no CP violation)
 # At θ = π/2: sin²θ = 1, all coupling is pseudoscalar (maximal CP violation)
 #
-# θ_relic = arctan(1/√8) ≈ 19.5° is NOT at either extremum!
+# θ_relic = arctan(1/3) ≈ 18.4° is NOT at either extremum!
 #
 # d²V/dθ²: 
 # At θ=0: M² is maximized (for positive v) → V is minimized (CW is negative)
@@ -490,7 +490,7 @@ print(f"   Relic angle: θ = {np.degrees(theta_relic):.1f}° (universal)")
 print(f"   SIDM constraint: y = √(4πα)/cosθ")
 print()
 print("2. V_eff(σ): CW potential pulls σ to θ=0 (pure scalar).")
-print("   Need V_bare(σ) to stabilize at θ_relic ≈ 19.5°.")
+print("   Need V_bare(σ) to stabilize at θ_relic ≈ 18.4°.")
 print("   This is NOT automatic — requires UV input.")
 print()
 print("3. SCALE: With f ~ 0.2 M_Pl:")

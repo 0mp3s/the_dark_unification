@@ -104,7 +104,7 @@ Self-contained scripts, no CSV input. Each tests one aspect of the dark EM duali
 
 | Script | What it computes | Key output |
 |--------|-----------------|------------|
-| `a4_dark_sector_model.py` | A₄ symmetry group, CGC tables | θ_relic = 19.47° |
+| `a4_dark_sector_model.py` | A₄ symmetry group, CGC tables | θ_relic = 18.43° |
 | `dark_axion_full.py` | Full dark axion potential V_bare(σ) | f, m_σ, w_DE |
 | `dark_qcd_consistency.py` | Dark QCD confinement, ΔN_eff | Λ_d ~ 2.05 meV |
 | `qcd_scale_coincidence.py` | Why Λ_d ~ √(H₀ M_Pl) | numerical coincidence table |
