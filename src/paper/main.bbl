@@ -1,5 +1,30 @@
 \begin{thebibliography}{10}
 
+\bibitem{Tulin2018}
+S.~Tulin and H.-B. Yu.
+\newblock Dark matter self-interactions and small scale structure.
+\newblock {\em Phys.\ Rep.}, 730:1--57, 2018.
+
+\bibitem{Kaplinghat2016}
+M.~Kaplinghat, S.~Tulin, and H.-B. Yu.
+\newblock Dark matter halos as particle colliders.
+\newblock {\em Phys. Rev. Lett.}, 116:041302, 2016.
+
+\bibitem{Kahlhoefer2017}
+F.~Kahlhoefer, K.~Schmidt-Hoberg, J.~Kummer, and S.~Sarber.
+\newblock On the interpretation of dark matter self-interactions in abell 3827.
+\newblock {\em MNRAS}, 452:L54--L58, 2015.
+
+\bibitem{Kamenshchik2001}
+A.~Kamenshchik, U.~Moschella, and V.~Pasquier.
+\newblock An alternative to quintessence.
+\newblock {\em Phys.\ Lett.\ B}, 511:265--268, 2001.
+
+\bibitem{Berezhiani2015}
+L.~Berezhiani and J.~Khoury.
+\newblock Theory of dark matter superfluidity.
+\newblock {\em Phys.\ Rev.\ D}, 92:103510, 2015.
+
 \bibitem{SIDMcode2026}
 Omer P.
 \newblock Secluded majorana sidm, 2026.
@@ -19,11 +44,6 @@ S.~Tulin, H.-B. Yu, and K.~M. Zurek.
 D.~Foreman-Mackey, D.~W. Hogg, D.~Lang, and J.~Goodman.
 \newblock emcee: The mcmc hammer.
 \newblock {\em PASP}, 125:306, 2013.
-
-\bibitem{Kaplinghat2016}
-M.~Kaplinghat, S.~Tulin, and H.-B. Yu.
-\newblock Dark matter halos as particle colliders.
-\newblock {\em Phys. Rev. Lett.}, 116:041302, 2016.
 
 \bibitem{Read2019}
 J.~I. Read, M.~G. Walker, and P.~Steger.
