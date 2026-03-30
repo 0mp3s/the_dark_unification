@@ -53,23 +53,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =============================================================================
-# Constants
+# Constants (from centralized config)
 # =============================================================================
-GeV = 1.0
-MeV = 1e-3 * GeV
-eV  = 1e-9 * GeV
-M_Pl  = 2.435e18 * GeV
-H_0   = 1.44e-42 * GeV
-rho_L = 2.58e-47 * GeV**4
+from config import GeV, MeV, eV, M_Pl, H_0, rho_L, BENCHMARKS
 
-# Benchmark points
-BPs = {
-    "BP1":       {"m_chi": 20.69, "m_phi": 11.34e-3, "alpha": 1.048e-3},
-    "BP9":       {"m_chi": 42.53, "m_phi": 10.92e-3, "alpha": 2.165e-3},
-    "BP16":      {"m_chi": 63.81, "m_phi": 11.78e-3, "alpha": 3.253e-3},
-    "MAP":       {"m_chi": 94.07, "m_phi": 11.10e-3, "alpha": 5.734e-3},
-    "MAP_relic": {"m_chi": 85.84, "m_phi": 15.35e-3, "alpha": 5.523e-3},
-}
+BPs = BENCHMARKS
 
 print("="*78)
 print("DARK AXION σ — FULL V_eff(σ) ANALYSIS")

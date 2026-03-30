@@ -21,20 +21,16 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =============================================================================
-# Constants
+# Constants (from centralized config)
 # =============================================================================
-GeV = 1.0; MeV = 1e-3; eV = 1e-9
-M_Pl = 2.435e18  # reduced Planck mass [GeV]
-# Today's entropy density s₀ and critical density ρ_c/h²
-# Ω h² = m Y_∞ × s₀/(ρ_c/h²) = m Y_∞ × 2.742e8 GeV⁻¹
-OMEGA_FACTOR = 2.742e8  # s₀/(ρ_c/h²) in GeV⁻¹
+from config import (GeV, MeV, eV, M_Pl, OMEGA_FACTOR, g_star_BBN,
+                    MAP, theta_relic, cos2_theta, y_MAP)
 
-# MAP benchmark (from MCMC)
-m_chi = 94.07 * GeV
-m_phi = 11.10 * MeV
-alpha = 5.734e-3
-theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
-y = np.sqrt(4 * np.pi * alpha / np.cos(theta_relic)**2)
+# MAP benchmark
+m_chi = MAP["m_chi"]
+m_phi = MAP["m_phi"]
+alpha = MAP["alpha"]
+y = y_MAP
 
 # Dark sector temperature ratio ξ = T_d/T_SM
 # From ΔN_eff = 0.153 constraint (test20_portal_coupling.py):
@@ -43,8 +39,8 @@ y = np.sqrt(4 * np.pi * alpha / np.cos(theta_relic)**2)
 xi_default = 0.46  # gives overclosure ~128,000× matching audit
 
 # SM effective d.o.f. at T ~ 10 MeV
-g_star_SM = 10.75
-g_star_s_SM = 10.75
+g_star_SM = g_star_BBN
+g_star_s_SM = g_star_BBN
 
 print("=" * 78)
 print("  MEDIATOR φ CANNIBAL BOLTZMANN — OVERCLOSURE RESOLUTION")

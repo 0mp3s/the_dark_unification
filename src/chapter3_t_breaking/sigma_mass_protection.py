@@ -7,18 +7,15 @@ Can any known mechanism protect m_σ?
 We compute m_σ from CW precisely, then test 5 protection mechanisms.
 """
 import numpy as np
-
-# ============= Constants ==============
-GeV = 1.0; MeV = 1e-3; eV = 1e-9
-M_Pl = 2.435e18
-H_0 = 1.44e-42   # 67.4 km/s/Mpc
+from config import (GeV, MeV, eV, M_Pl, H_0,
+                    MAP, theta_relic, cos2_theta, y_MAP)
 
 # MAP benchmark
-m_chi = 94.07   # GeV
-m_phi = 11.10e-3   # GeV (mediator mass, NOT the VEV)
-alpha = 5.734e-3
-theta = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
-y = np.sqrt(4*np.pi*alpha / np.cos(theta)**2)
+m_chi = MAP["m_chi"]
+m_phi = MAP["m_phi"]
+alpha = MAP["alpha"]
+theta = theta_relic
+y = y_MAP
 
 print("="*70)
 print("  σ MASS PROTECTION MECHANISMS")

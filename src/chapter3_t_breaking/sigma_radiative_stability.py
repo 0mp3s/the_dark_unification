@@ -30,22 +30,11 @@ import numpy as np
 # =============================================================================
 # Constants
 # =============================================================================
-GeV = 1.0
-MeV = 1e-3 * GeV
-eV  = 1e-9 * GeV
+from config import GeV, MeV, eV, M_Pl, H_0, rho_L, BENCHMARKS
 
-M_Pl  = 2.435e18 * GeV        # reduced Planck mass
-H_0   = 1.44e-42  * GeV       # Hubble constant today
-rho_L = 2.58e-47  * GeV**4    # observed dark energy density
 m_sigma_target = H_0           # ~ 10⁻³³ eV — what we need
 
-# Benchmark points from SIDM pipeline
-BPs = {
-    "BP1":       {"m_chi": 20.69*GeV,  "m_phi": 11.34*MeV, "alpha": 1.048e-3},
-    "BP9":       {"m_chi": 42.53*GeV,  "m_phi": 10.92*MeV, "alpha": 2.165e-3},
-    "MAP":       {"m_chi": 94.07*GeV,  "m_phi": 11.10*MeV, "alpha": 5.734e-3},
-    "MAP_relic": {"m_chi": 85.84*GeV,  "m_phi": 15.35*MeV, "alpha": 5.523e-3},
-}
+BPs = BENCHMARKS
 
 print("="*75)
 print("σ RADIATIVE STABILITY ANALYSIS")

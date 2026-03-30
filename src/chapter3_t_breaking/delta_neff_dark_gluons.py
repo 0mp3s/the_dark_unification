@@ -36,46 +36,17 @@ Date: March 2026
 import numpy as np
 
 # ============================================================
-# Constants
+# Constants (from centralized config)
 # ============================================================
-M_Pl = 1.2209e19       # GeV (Planck mass)
-m_H = 125.1            # GeV (Higgs boson mass)
-v_EW = 246.22          # GeV (electroweak VEV)
-Gamma_H_SM = 4.07e-3   # GeV (SM Higgs total width)
+from config import (M_Pl_full as M_Pl, m_H, v_EW, Gamma_H_SM,
+                    MAP, Lambda_d, g_gluons, g_phi_boson,
+                    BR_inv_limit, sigma_Planck, sigma_Simons, sigma_CMBS4,
+                    _SM_T, _SM_g)
 
-# Model parameters (MAP benchmark)
-m_chi = 94.1            # GeV (DM Majorana mass)
-m_phi = 11.0e-3         # GeV = 11 MeV (mediator mass)
-Lambda_d = 2.0e-12      # GeV = 2 meV (1 meV = 1e-3 eV = 1e-12 GeV)
+# MAP benchmark
+m_chi = MAP["m_chi"]
+m_phi = MAP["m_phi"]
 
-# Dark sector d.o.f.
-g_gluons = 6            # SU(2): N²-1 = 3 gluons × 2 polarizations
-g_phi_boson = 1         # real scalar mediator
-
-# Experimental bounds
-BR_inv_limit = 0.11     # H → invisible BR limit (Planck + LHC)
-sigma_Planck = 0.17     # Planck+BAO 1σ (N_eff = 2.99 ± 0.17)
-sigma_Simons = 0.05     # Simons Observatory sensitivity
-sigma_CMBS4 = 0.027     # CMB-S4 sensitivity
-
-
-# ============================================================
-# SM entropy d.o.f. g*_S(T000)
-# ============================================================
-# Interpolation nodes: (T [GeV], g*_S)
-# Based on Borsanyi et al. (2016) lattice QCD + standard thresholds
-_SM_T = np.array([
-    1e-5,  5e-4,  1e-3,  5e-3,  0.01,  0.02,
-    0.10,  0.15,  0.17,  0.20,  0.30,  0.50,
-    1.0,   2.0,   4.0,   5.0,  80.0, 170.0,
-    300.0, 1e4,   1e8,   1e12,  1e16
-])
-_SM_g = np.array([
-    3.91,  3.91, 10.75, 10.75, 10.75, 10.75,
-    17.25, 25.0,  40.0, 61.75, 61.75, 61.75,
-    61.75, 75.75, 86.25, 86.25, 96.25, 106.75,
-    106.75, 106.75, 106.75, 106.75, 106.75
-])
 
 def g_star_SM(T_GeV):
     """SM entropy d.o.f. g*_S(T) via log-linear interpolation."""

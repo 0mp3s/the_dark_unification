@@ -14,17 +14,17 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-GeV = 1.0; MeV = 1e-3; eV = 1e-9
-M_Pl = 2.435e18; H_0 = 1.44e-42; rho_L = 2.58e-47
-g_star = 10.75
+from config import (GeV, MeV, eV, M_Pl, H_0, rho_L, g_star_BBN,
+                    MAP, theta_relic, cos2_theta, y_MAP)
+
+g_star = g_star_BBN
 
 # MAP benchmark
-m_chi = 94.07 * GeV
-m_phi = 11.10 * MeV
-alpha = 5.734e-3
-theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
-y_sq = 4 * np.pi * alpha / np.cos(theta_relic)**2
-y = np.sqrt(y_sq)
+m_chi = MAP["m_chi"]
+m_phi = MAP["m_phi"]
+alpha = MAP["alpha"]
+y_sq = 4 * np.pi * alpha / cos2_theta
+y = y_MAP
 v_phi = 0.5 * m_phi
 x_fo = 20.0
 T_fo = m_chi / x_fo

@@ -14,7 +14,7 @@ Solves the coupled ODE system:
 where N = ln(a), theta = sigma/f, pi_theta = d theta / dN.
 
 Potential:  V_A4(theta) = -A cos(theta) + B cos(3 theta)
-with A/B = 23/3 (from A4 group theory) and B = Lambda_d^4.
+with A/B = 39/5 (from A4 group theory) and B = Lambda_d^4.
 
 Inputs:  { Lambda_d, theta_i, f }  +  Omega_chi h^2 = 0.120  (from Paper 1)
 Outputs: H_0, H(z), w(z), Omega_DE(z), d_L(z)
@@ -26,14 +26,19 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # =============================================================================
-# Physical constants (natural units)
+# Physical constants (from centralized config)
 # =============================================================================
-M_PL = 2.435e18          # reduced Planck mass [GeV]
-T_CMB_GEV = 2.7255 * 8.617e-14   # CMB temp [GeV]
-H_100_GEV = 2.1332e-42   # 100 km/s/Mpc in GeV
-OMEGA_B_H2 = 0.02237     # baryon density (Planck 2018)
-N_EFF = 3.044
-eV = 1e-9  # GeV
+from config import (M_Pl as _M_Pl_cfg, H_100_GEV as _H100_cfg,
+                    OMEGA_B_H2 as _OB_cfg, N_EFF as _NEFF_cfg,
+                    T_CMB_eV, eV as _eV_cfg, H0_PLANCK_KMS as _H0KMS_cfg,
+                    theta_relic as _theta_cfg, AB_RATIO)
+
+M_PL = _M_Pl_cfg
+T_CMB_GEV = T_CMB_eV * _eV_cfg
+H_100_GEV = _H100_cfg
+OMEGA_B_H2 = _OB_cfg
+N_EFF = _NEFF_cfg
+eV = _eV_cfg
 
 # Radiation density
 _RHO_GAMMA = np.pi**2 / 15.0 * T_CMB_GEV**4
@@ -42,11 +47,11 @@ _RHO_UNIT = 3.0 * M_PL**2 * H_100_GEV**2        # rho_crit / h^2
 OMEGA_R_H2 = _RHO_GAMMA * _NU_FACTOR / _RHO_UNIT  # ~4.15e-5
 
 # Reference values
-H0_PLANCK_KMS = 67.4
+H0_PLANCK_KMS = _H0KMS_cfg
 H0_PLANCK_GEV = H0_PLANCK_KMS / 100.0 * H_100_GEV
 
 # Theta relic from A4 CG coefficients: g_p/g_s = 1/3
-THETA_RELIC = np.arctan(1.0 / 3.0)  # = 18.4349 deg, sin^2 = 1/10
+THETA_RELIC = _theta_cfg  # = 18.4349 deg, sin^2 = 1/10
 
 # =============================================================================
 # A4 Potential: V(theta) = -A cos(theta) + B cos(3 theta)

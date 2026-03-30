@@ -12,24 +12,26 @@ Numerical checks:
 """
 
 import numpy as np
+from config import MAP, Lambda_QCD, Lambda_QCD_lattice, T_QCD_crossover, MeV, \
+                   m_pion_neutral, m_pion_charged, m_muon
 
 # ============================================================
-# 1. PARAMETERS
+# 1. PARAMETERS (all in MeV for this script)
 # ============================================================
-# MAP values from MCMC
-m_chi   = 94.07e3  # MeV (= 94.07 GeV) — dark matter mass
-m_phi   = 11.10   # MeV  — mediator mass
-alpha_D = 5.734e-3  # dark fine structure constant
+# MAP values — convert from GeV to MeV for local use
+m_chi   = MAP["m_chi"] / MeV   # MeV
+m_phi   = MAP["m_phi"] / MeV   # MeV
+alpha_D = MAP["alpha"]
 
-# QCD scale
-Lambda_QCD = 200.0  # MeV  (standard Λ_QCD from MS-bar scheme, ~200 MeV)
-Lambda_QCD_lattice = 210.0  # MeV  (lattice QCD, crossover T ~ 155 MeV)
-T_QCD_crossover = 155.0  # MeV  (Borsanyi et al. 2010, lattice QCD crossover)
+# QCD scales — convert from GeV to MeV
+Lambda_QCD = Lambda_QCD / MeV           # MeV
+Lambda_QCD_lattice = Lambda_QCD_lattice / MeV  # MeV
+T_QCD_crossover = T_QCD_crossover / MeV  # MeV
 
-# Known SM particle masses for reference
-m_pion_neutral = 134.97  # MeV  π⁰
-m_pion_charged = 139.57  # MeV  π±
-m_muon         = 105.66  # MeV  μ
+# SM masses — convert from GeV to MeV
+m_pion_neutral = m_pion_neutral / MeV
+m_pion_charged = m_pion_charged / MeV
+m_muon = m_muon / MeV
 
 print("=" * 65)
 print("TEST 19: QCD SCALE COINCIDENCE — NUMERICAL CHECK")

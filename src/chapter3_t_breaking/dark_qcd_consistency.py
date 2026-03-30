@@ -12,19 +12,15 @@ Questions:
   5. Does the full picture hold together?
 """
 import numpy as np
-
-GeV = 1.0; MeV = 1e-3; eV = 1e-9; keV = 1e-6
-M_Pl = 2.435e18
-H_0 = 1.44e-42
-T_BBN = 1.0 * MeV   # BBN temperature ~ 1 MeV
-T_CMB = 2.725 * 8.617e-5 * eV  # 2.725 K in eV → GeV
+from config import (GeV, MeV, eV, keV, M_Pl, H_0, T_BBN, T_CMB,
+                    MAP, theta_relic, cos2_theta, y_MAP)
 
 # MAP benchmark
-m_chi = 94.07
-m_phi = 11.10e-3
-alpha = 5.734e-3
-theta = np.arctan(1.0/3.0)  # 18.43°, sin²θ = 1/10
-y = np.sqrt(4*np.pi*alpha / np.cos(theta)**2)
+m_chi = MAP["m_chi"]
+m_phi = MAP["m_phi"]
+alpha = MAP["alpha"]
+theta = theta_relic
+y = y_MAP
 
 print("="*70)
 print("  DARK QCD CONSISTENCY CHECK")

@@ -20,10 +20,7 @@ from fractions import Fraction
 import warnings
 warnings.filterwarnings('ignore')
 
-MeV = 1e-3; GeV = 1.0; eV = 1e-9
-M_Pl = 2.435e18; rho_L = 2.58e-47
-
-theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
+from config import MeV, GeV, eV, M_Pl, rho_L, theta_relic
 
 print("="*78)
 print("θ_dark AS TOPOLOGICAL PARAMETER — EXPLORATION")
