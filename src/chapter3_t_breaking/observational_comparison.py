@@ -35,7 +35,7 @@ from background_cosmology import (
 # --- Pantheon+ compressed Hubble diagram (Brout et al. 2022) ---
 # Binned distance moduli mu(z) in 40 redshift bins
 # Format: z_eff, mu_obs, sigma_mu
-# From Table 7 of Brout et al. 2022 (1701 SNe Ia, 40 bins)
+# From Brout et al. 2022 data release (1701 SNe Ia, 40 bins)
 PANTHEON_PLUS_BINNED = np.array([
     [0.01036, 32.951, 0.063],
     [0.01240, 33.334, 0.046],
@@ -92,7 +92,7 @@ PANTHEON_PLUS_BINNED = np.array([
 BAO_DV_RD = [
     # z_eff, D_V/r_d, sigma, label
     # D_V/r_d = [z * (D_M/r_d)^2 * (D_H/r_d)]^{1/3}  computed from published D_M, D_H
-    (0.106,  3.05,  0.18, "6dFGS"),            # Beutler+2011 (isotropic D_V)
+    (0.106,  3.10,  0.18, "6dFGS"),            # Beutler+2011: D_V=456 Mpc → 456/147.09=3.10
     (0.150,  4.47,  0.17, "SDSS MGS"),         # Ross+2015 (isotropic D_V)
     (0.295,  7.93,  0.15, "DESI BGS"),         # DESI DR1 (isotropic D_V)
     # BOSS DR12 (Alam+2017): D_M/r_d, D_H/r_d → D_V/r_d
@@ -258,8 +258,8 @@ def pantheon_comparison(result_dict, Ld_meV, th_i, f_MPl):
     mu_pan = PANTHEON_PLUS_BINNED[:, 1]
     sig_pan = PANTHEON_PLUS_BINNED[:, 2]
 
-    # Only use bins within our z range
-    z_max_model = z_s.max()
+    # Only use bins within our z range (cap at z=3 to avoid ODE extrapolation)
+    z_max_model = min(z_s.max(), 3.0)
     mask = z_pan < z_max_model * 0.95
     z_pan_use = z_pan[mask]
     mu_pan_use = mu_pan[mask]
@@ -303,7 +303,7 @@ def pantheon_comparison(result_dict, Ld_meV, th_i, f_MPl):
     mu_lcdm_offset = mu_lcdm + M_lcdm
     residuals_lcdm = mu_fit - mu_lcdm_offset
     chi2_lcdm = np.sum(residuals_lcdm**2 / sig_fit**2)
-    chi2_red_lcdm = chi2_lcdm / (len(z_fit) - 2)  # 2 params (H0, Omega_m)
+    chi2_red_lcdm = chi2_lcdm / (len(z_fit) - 3)  # 2 params (H0, Omega_m) + 1 nuisance (M_lcdm)
 
     # Also get full LCDM for all z for plotting
     _, _, _, _, mu_lcdm_all, _ = compute_LCDM_distances(z_pan_use, H0_kms=67.4, Omega_m=0.315)
