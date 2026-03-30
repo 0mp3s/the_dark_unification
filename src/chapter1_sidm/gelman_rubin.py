@@ -156,12 +156,12 @@ def main():
     for i, (name, label) in enumerate(zip(PARAM_NAMES, PARAM_LABELS)):
         r = rhat[i]
         if r < 1.01:
-            status = "✓ CONVERGED"
+            status = "[ok] CONVERGED"
         elif r < 1.05:
             status = "~ acceptable"
             all_pass_strict = False
         else:
-            status = "✗ NOT converged"
+            status = "[x] NOT converged"
             all_pass_strict = False
             all_pass_acceptable = False
         print(f"  {name:<30}  {r:8.4f}  {status:>12}")

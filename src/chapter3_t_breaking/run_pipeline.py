@@ -78,7 +78,7 @@ def run_step(step: dict, dry_run: bool = False) -> bool:
     label  = f"{step['Test']} — {step['Description']}"
 
     if not script.exists():
-        print(f"  ⚠  SKIP  {label}  (script not found: {script.name})")
+        print(f"  [!]  SKIP  {label}  (script not found: {script.name})")
         return False
 
     out_path = _output_path(step["Script"])
@@ -126,11 +126,11 @@ def run_step(step: dict, dry_run: bool = False) -> bool:
 
         if result.returncode != 0:
             status = "FAILED"
-            print(f"\n  ✗ FAILED (exit {result.returncode})")
+            print(f"\n  [x] FAILED (exit {result.returncode})")
             if result.stderr:
                 print(result.stderr[-1000:])
         else:
-            print(f"\n  ✓ OK  ({elapsed}s)")
+            print(f"\n  [ok] OK  ({elapsed}s)")
 
         # try to extract last non-empty stdout line as key_result
         lines = [l.strip() for l in result.stdout.splitlines() if l.strip()]
@@ -140,11 +140,11 @@ def run_step(step: dict, dry_run: bool = False) -> bool:
     except subprocess.TimeoutExpired:
         elapsed = round(time.monotonic() - t0, 2)
         status = "TIMEOUT"
-        print(f"\n  ✗ TIMEOUT after {elapsed}s")
+        print(f"\n  [x] TIMEOUT after {elapsed}s")
     except Exception as e:
         elapsed = round(time.monotonic() - t0, 2)
         status = "FAILED"
-        print(f"\n  ✗ ERROR: {e}")
+        print(f"\n  [x] ERROR: {e}")
 
     # log the run
     log_run(
@@ -159,7 +159,7 @@ def run_step(step: dict, dry_run: bool = False) -> bool:
     )
 
     # Telegram (silent for individual steps)
-    icon = "✅" if status == "OK" else "❌"
+    icon = "[PASS]" if status == "OK" else "[FAIL]"
     notify(
         f"{icon} {step['Test']} | {step['Description']}\n"
         f"status={status}  t={elapsed}s\n"
@@ -237,8 +237,8 @@ def main():
     elapsed_total = round(time.monotonic() - t_total, 1)
 
     summary = (
-        f"🔬 dark-energy pipeline done\n"
-        f"✅ {passed} passed  ❌ {failed} failed  ⏭ {skipped} skipped\n"
+        f" dark-energy pipeline done\n"
+        f"[PASS] {passed} passed  [FAIL] {failed} failed  ⏭ {skipped} skipped\n"
         f"Total: {elapsed_total}s"
     )
     print(f"\n{'='*60}")

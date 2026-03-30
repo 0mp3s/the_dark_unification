@@ -225,6 +225,6 @@ try:
     import sys as _sys, os as _os
     _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'core'))
     from tg_notify import notify
-    notify(f"✅ benchmark_extractor done!\n{len(df_final):,} benchmarks saved\nelapsed={elapsed_total:.0f}s")
+    notify(f"[PASS] benchmark_extractor done!\n{len(df_final):,} benchmarks saved\nelapsed={elapsed_total:.0f}s")
 except Exception:
     pass

@@ -230,7 +230,7 @@ def main():
     valid_fc = {k: v for k, v in f_cross_all.items() if v is not None}
     n_valid = len(valid_fc)
 
-    print(f"\n  ⚠️  RESULT: {n_valid}/4 benchmarks have finite f₀_cross")
+    print(f"\n  [!]  RESULT: {n_valid}/4 benchmarks have finite f₀_cross")
     if n_valid == 0:
         print("  ERROR: No benchmark can reach Ωh²=0.12. Check parameters!")
         return
@@ -275,7 +275,7 @@ def main():
             log_err = abs(math.log10(ratio))
 
             ok = log_err < 0.5  # within factor 3
-            mark = "✅" if ok else ""
+            mark = "[PASS]" if ok else ""
 
             if abs(N - round(N_exact)) <= 1:
                 print(f"  {q:>3}  {N:>4}  {qN:>14.3e}  {f_de_calc:>16.3e}  "
@@ -311,7 +311,7 @@ def main():
     print(f"    m_σ(f_DE) = Λ_d²/f_DE = {m_sigma_de:.3e} GeV")
     print(f"    ρ_σ(θ_i=1) = Λ_d⁴(1−cos1) = {rho_sigma:.3e} GeV⁴")
     print(f"    ρ_Λ = {RHO_LAMBDA:.3e} GeV⁴")
-    print(f"    The Clockwork fixes f, not Λ_d. f_DE ≈ target ✅")
+    print(f"    The Clockwork fixes f, not Λ_d. f_DE ≈ target [PASS]")
 
     # ══════════════════════════════════════════════════════════════════════
     #  TEST ג: Heavy mode spectrum — masses > m_χ?
@@ -342,7 +342,7 @@ def main():
         ok_tev = M1 > 1000.0
 
         print(f"  {LCW:>12.1f}  {M1:>10.1f}  {MN:>10.1f}  "
-              f"{'✅' if ok_mchi else '✗':>10}  {'✅' if ok_tev else '✗':>12}")
+              f"{'[PASS]' if ok_mchi else '[x]':>10}  {'[PASS]' if ok_tev else '[x]':>12}")
 
         if ok_mchi and Lambda_CW_min is None:
             Lambda_CW_min = LCW
@@ -364,7 +364,7 @@ def main():
     # ΔN_eff
     T_fo = m_chi_max / 25.0
     d_neff = delta_neff_heavy_modes(N_best, M1_use, T_fo)
-    print(f"    ΔN_eff ≈ {d_neff:.3e}  ({'✅ ≪ 0.3' if d_neff < 0.3 else '⚠️'})")
+    print(f"    ΔN_eff ≈ {d_neff:.3e}  ({'[PASS] ≪ 0.3' if d_neff < 0.3 else '[!]'})")
 
     # ══════════════════════════════════════════════════════════════════════
     #  TEST ד: FULL CONSISTENCY CHECK
@@ -387,7 +387,7 @@ def main():
         oh2_map = 99.0
     ok1 = abs(oh2_map - OMEGA_TARGET) / OMEGA_TARGET < 0.05
     checks.append(ok1)
-    print(f"  {'Ωh²(MAP) = 0.120':>45s}  {oh2_map:>16.4f}  {'|Δ|/Ω < 5%':>20}  {'✅' if ok1 else '✗':>8}")
+    print(f"  {'Ωh²(MAP) = 0.120':>45s}  {oh2_map:>16.4f}  {'|Δ|/Ω < 5%':>20}  {'[PASS]' if ok1 else '[x]':>8}")
 
     # 2. Perturbativity: y_P < 1
     if fc_map is not None:
@@ -396,24 +396,24 @@ def main():
         y_P_map = 99.0
     ok2 = y_P_map < 1.0
     checks.append(ok2)
-    print(f"  {'y_P = 2m_χ/f₀ < 1 (perturbative)':>45s}  {y_P_map:>16.4f}  {'< 1':>20}  {'✅' if ok2 else '✗':>8}")
+    print(f"  {'y_P = 2m_χ/f₀ < 1 (perturbative)':>45s}  {y_P_map:>16.4f}  {'< 1':>20}  {'[PASS]' if ok2 else '[x]':>8}")
 
     # 3. f_DE within factor 3
     f_de_cw = clockwork_f_de(f0_ref, q_best, N_best)
     ratio_de = f_de_cw / F_DE_GEV
     ok3 = 0.3 < ratio_de < 3.0
     checks.append(ok3)
-    print(f"  {'f_DE = q^N f₀ ≈ f_target':>45s}  {f_de_cw:>16.3e}  {'factor < 3':>20}  {'✅' if ok3 else '✗':>8}")
+    print(f"  {'f_DE = q^N f₀ ≈ f_target':>45s}  {f_de_cw:>16.3e}  {'factor < 3':>20}  {'[PASS]' if ok3 else '[x]':>8}")
 
     # 4. M_1 > m_chi(MAP)
     ok4 = M1_use > m_chi_max
     checks.append(ok4)
-    print(f"  {'M₁ > m_χ(MAP) (no new channels)':>45s}  {M1_use:>16.1f}  {'> {:.1f}'.format(m_chi_max):>20}  {'✅' if ok4 else '✗':>8}")
+    print(f"  {'M₁ > m_χ(MAP) (no new channels)':>45s}  {M1_use:>16.1f}  {'> {:.1f}'.format(m_chi_max):>20}  {'[PASS]' if ok4 else '[x]':>8}")
 
     # 5. ΔN_eff < 0.3
     ok5 = d_neff < 0.3
     checks.append(ok5)
-    print(f"  {'ΔN_eff < 0.3 (BBN/CMB)':>45s}  {d_neff:>16.3e}  {'< 0.3':>20}  {'✅' if ok5 else '✗':>8}")
+    print(f"  {'ΔN_eff < 0.3 (BBN/CMB)':>45s}  {d_neff:>16.3e}  {'< 0.3':>20}  {'[PASS]' if ok5 else '[x]':>8}")
 
     # 6. SIDM unaffected
     if fc_map is not None:
@@ -427,20 +427,20 @@ def main():
         ratio_today = 99.0
     ok6 = ratio_today < 0.01
     checks.append(ok6)
-    print(f"  {'σv(σ)/σv(φ) today < 1%':>45s}  {ratio_today:>16.3e}  {'< 0.01':>20}  {'✅' if ok6 else '✗':>8}")
+    print(f"  {'σv(σ)/σv(φ) today < 1%':>45s}  {ratio_today:>16.3e}  {'< 0.01':>20}  {'[PASS]' if ok6 else '[x]':>8}")
 
     # 7. Λ_CW/f₀ natural
     ratio_LCW = Lambda_CW_use / f0_ref
     ok7 = 0.01 < ratio_LCW < 100
     checks.append(ok7)
-    print(f"  {'Λ_CW/f₀ = O(1) (naturalness)':>45s}  {ratio_LCW:>16.2f}  {'0.01 < x < 100':>20}  {'✅' if ok7 else '✗':>8}")
+    print(f"  {'Λ_CW/f₀ = O(1) (naturalness)':>45s}  {ratio_LCW:>16.2f}  {'0.01 < x < 100':>20}  {'[PASS]' if ok7 else '[x]':>8}")
 
     # 8. φ-only Ωh²(MAP) > 0.12 (mechanism prerequisite)
     a_phi_m = phi_channel_a(bp_map["m_chi"], bp_map["alpha_s"])
     oh2_phi_map, _ = omega_KT(bp_map["m_chi"], a_phi_m, 0.0)
     ok8 = oh2_phi_map > OMEGA_TARGET
     checks.append(ok8)
-    print(f"  {'Ωh²_φ(MAP) > 0.12 (σ can tune down)':>45s}  {oh2_phi_map:>16.4f}  {'> 0.12':>20}  {'✅' if ok8 else '✗':>8}")
+    print(f"  {'Ωh²_φ(MAP) > 0.12 (σ can tune down)':>45s}  {oh2_phi_map:>16.4f}  {'> 0.12':>20}  {'[PASS]' if ok8 else '[x]':>8}")
 
     all_pass = all(checks)
     n_pass = sum(checks)
@@ -543,7 +543,7 @@ def main():
         a_phi = phi_channel_a(m_test, a_test)
         oh2_phi, _ = omega_KT(m_test, a_phi, 0.0)
         above = oh2_phi > OMEGA_TARGET
-        marker = "  ✅" if above else ""
+        marker = "  [PASS]" if above else ""
         print(f"  {m_test:>10.1f}  {a_test:>12.3e}  {oh2_phi:>12.4f}  {'YES' if above else 'NO':>7}{marker}")
 
         if m_prev is not None and oh2_prev < OMEGA_TARGET and oh2_phi >= OMEGA_TARGET:
@@ -581,7 +581,7 @@ def main():
     #  VERDICT
     # ══════════════════════════════════════════════════════════════════════
     print(f"\n{'═' * 78}")
-    print(f"  PI-12 v2 VERDICT:  {n_pass}/{len(checks)} CHECKS PASS {'✅' if all_pass else '⚠️'}")
+    print(f"  PI-12 v2 VERDICT:  {n_pass}/{len(checks)} CHECKS PASS {'[PASS]' if all_pass else '[!]'}")
     print(f"{'═' * 78}")
     print()
     print(f"  WHAT CHANGED from v1:")

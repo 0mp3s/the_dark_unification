@@ -262,7 +262,7 @@ def main():
     print("  │                                                              │")
     print("  │  Margin of safety:  > 10⁸ (conservative)                    │")
     print("  │                                                              │")
-    print("  │  RESULT: ✅ FERMI-LAT dSph BOUNDS TRIVIALLY SATISFIED      │")
+    print("  │  RESULT: [PASS] FERMI-LAT dSph BOUNDS TRIVIALLY SATISFIED      │")
     print("  │                                                              │")
     print("  │  The secluded dark sector is the key feature:               │")
     print("  │  no Higgs portal → no SM final states → no γ-ray signal    │")
@@ -275,7 +275,7 @@ def main():
     fermi_bp1 = interpolate_fermi_limit(M_CHI_BP1)
     
     if sv_bp1 > fermi_bp1:
-        print(f"  ⚠  COUNTERFACTUAL: If Higgs portal were active, BP1 would be")
+        print(f"  [!]  COUNTERFACTUAL: If Higgs portal were active, BP1 would be")
         print(f"     EXCLUDED by Fermi-LAT (⟨σv⟩/UL = {sv_bp1/fermi_bp1:.1f}).")
         print(f"     The secluded framework is ESSENTIAL for viability.")
     else:

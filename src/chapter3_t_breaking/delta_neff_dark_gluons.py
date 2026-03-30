@@ -269,7 +269,7 @@ def main():
         dn = delta_neff(td, g_chi_fermionic=6, include_phi=True)
         sig = dn / sigma_CMBS4
         planck_lim = 2 * sigma_Planck
-        status = f"✓ Planck OK" if dn < planck_lim else "✗ EXCLUDED"
+        status = f"[ok] Planck OK" if dn < planck_lim else "[x] EXCLUDED"
         print(f"    {td_label:20s}:  ΔN_eff = {dn:.3f}   "
               f"CMB-S4: {sig:.1f}σ   {status}")
     
@@ -283,7 +283,7 @@ def main():
         dn = delta_neff(td, g_chi_fermionic=gchi, include_phi=True)
         sig = dn / sigma_CMBS4
         planck_lim = 2 * sigma_Planck
-        status = "✓ Planck OK" if dn < planck_lim else "✗ EXCLUDED by Planck"
+        status = "[ok] Planck OK" if dn < planck_lim else "[x] EXCLUDED by Planck"
         print(f"    {td_label:35s}:  ΔN_eff = {dn:.3f}   "
               f"CMB-S4: {sig:.1f}σ   {status}")
     

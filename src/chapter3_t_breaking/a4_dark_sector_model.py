@@ -403,7 +403,7 @@ print(f"  For sin²θ = 1/9:")
 print(f"    v_T²/(v_S²/3 + v_T²) = 1/9")
 print(f"    → v_S = {ratio_needed:.4f} v_T = 2√6 v_T")
 print()
-print(f"  ❌ This requires a specific ratio v_S/v_T = 2√6 ≈ 4.899")
+print(f"  [FAIL] This requires a specific ratio v_S/v_T = 2√6 ≈ 4.899")
 print(f"     Not obviously natural. The ratio is a free parameter.")
 print()
 
@@ -449,7 +449,7 @@ print(f"    y_s = y,  y_p = y/3")
 print(f"    sin²θ = y_p²/(y_s²+y_p²) = (1/9)/(1+1/9) = 1/10 = {sin2_theta:.6f}")
 print(f"    θ = {theta_deg:.2f}°")
 print()
-print(f"  ❌ This gives sin²θ = 1/10, not 1/9.")
+print(f"  [FAIL] This gives sin²θ = 1/10, not 1/9.")
 print(f"     The extra '1' in the denominator comes from the identity part.")
 print()
 
@@ -561,7 +561,7 @@ print()
 
 print("  For DM = χ₁ (after A₄ → Z₃ breaking via ⟨ξ⟩=(1,0,0)):")
 print("    Only (χ̄₁χ₁)₁ contributes → PURE scalar → θ = 0")
-print("    ❌ No pseudoscalar component")
+print("    [FAIL] No pseudoscalar component")
 print()  
 print("  For DM = (1,1,1)/√3 (S-invariant state):")
 print("    (χ̄χ)₁ = (χ̄χ)₁' = (χ̄χ)₁'' = 1 → equal weights → θ = ?")
@@ -718,7 +718,7 @@ print(f"  Target:  sin²θ = {1/9:.6f},  θ = {math.degrees(math.asin(1/3)):.2f}
 print()
 
 if abs(sin2_a4 - 1/9) < 0.001:
-    print(f"  ✅ EXACT MATCH! A₄ CG gives sin²θ = 1/9 = sin²(arcsin(1/3))!")
+    print(f"  [PASS] EXACT MATCH! A₄ CG gives sin²θ = 1/9 = sin²(arcsin(1/3))!")
 else:
     print(f"  Discrepancy: {abs(sin2_a4-1/9)*100:.2f}%")
 

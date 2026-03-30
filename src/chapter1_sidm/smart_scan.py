@@ -207,7 +207,7 @@ if __name__ == '__main__':
     # --- Display results ---
     print("\n" + "=" * 70)
     if len(viable) == 0:
-        print("  ❌ NO VIABLE POINTS FOUND on this grid.")
+        print("  [FAIL] NO VIABLE POINTS FOUND on this grid.")
         print("  Consider refining the grid or relaxing cuts.")
 
         # Show near-misses
@@ -223,7 +223,7 @@ if __name__ == '__main__':
                     r['m_chi_GeV'], r['m_phi_GeV']*1e3, r['alpha'],
                     r['omega_h2'], r['sigma_m_30'], r['sigma_m_1000'], r['lambda']))
     else:
-        print(f"  ✅ {len(viable)} GOLDEN POINTS FOUND!")
+        print(f"  [PASS] {len(viable)} GOLDEN POINTS FOUND!")
         print("=" * 70)
         n_show = min(10, len(viable))
         print(f"\n  TOP-{n_show} (sorted by σ/m(1000) ascending):")
@@ -281,6 +281,6 @@ if __name__ == '__main__':
     try:
         import sys as _sys; _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'core'))
         from tg_notify import notify
-        notify(f"✅ smart_scan done!\nviable={len(viable)} / {len(all_results)}\nelapsed={t_total:.0f}s ({t_total/60:.1f} min)")
+        notify(f"[PASS] smart_scan done!\nviable={len(viable)} / {len(all_results)}\nelapsed={t_total:.0f}s ({t_total/60:.1f} min)")
     except Exception:
         pass

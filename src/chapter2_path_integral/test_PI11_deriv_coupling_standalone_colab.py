@@ -47,10 +47,10 @@ RELIC DENSITY:
   x_f from iterative Kolb-Turner eq. 5.45.
 
 SUCCESS CRITERIA (from research journal):
-  ✓ Necessary:  ∃ f ∈ [0.05, 2] M_Pl  such that  Ωh² = 0.120 ± 10%
-  ✓ Sufficient: same f works for all BPs (universality)
-  ✓ Bonus:      f ≈ 0.24 M_Pl (= f_DE from dark energy mechanism)
-  ✗ Failure:    f_needed ≫ M_Pl  or  f differs by >10× between BPs
+  [ok] Necessary:  ∃ f ∈ [0.05, 2] M_Pl  such that  Ωh² = 0.120 ± 10%
+  [ok] Sufficient: same f works for all BPs (universality)
+  [ok] Bonus:      f ≈ 0.24 M_Pl (= f_DE from dark energy mechanism)
+  [x] Failure:    f_needed ≫ M_Pl  or  f differs by >10× between BPs
 
 To run on Colab:
   1. https://colab.research.google.com → New Notebook
@@ -302,7 +302,7 @@ def main():
               f"{f_need:>11.3e}  {f_ratio:>10.2e}  {y_P:>7.4f}  {alpha_p:>10.3e}")
 
     print(f"\n  → All f_needed are O(1 TeV), far below f_DE ~ 10^{{18}} GeV.")
-    print(f"  → y_P < 1: perturbative regime ✓")
+    print(f"  → y_P < 1: perturbative regime [ok]")
 
     # ══════════════════════════════════════════════════════════════════════
     # DETAILED f-SCAN FOR EACH BENCHMARK
@@ -347,7 +347,7 @@ def main():
             oh2 = omega_h2(xf, a_phi, b_sig)
 
             ok = abs(oh2 - OMEGA_TARGET) / OMEGA_TARGET < 0.10
-            mark = "← ✅" if ok else ""
+            mark = "← [PASS]" if ok else ""
 
             if oh2 < 100:
                 print(f"  {f_gev:>12.3e}  {f_gev/M_PL_RED_GEV:>10.2e}  "
@@ -368,8 +368,8 @@ def main():
             print(f"    f_cross  = {f_cross:.4e} GeV")
             print(f"    f/M_Pl   = {f_cross/M_PL_RED_GEV:.4e}")
             print(f"    y_P      = 2m_χ/f = {y_P:.6f}   "
-                  f"({'perturbative ✓' if y_P < 1.0 else 'NON-PERTURBATIVE ⚠️'})")
-            print(f"    α_P      = {alpha_p:.4e}   ({'< 1 ✓' if alpha_p < 1 else '⚠️'})")
+                  f"({'perturbative [ok]' if y_P < 1.0 else 'NON-PERTURBATIVE [!]'})")
+            print(f"    α_P      = {alpha_p:.4e}   ({'< 1 [ok]' if alpha_p < 1 else '[!]'})")
             print(f"    b_σ      = {b_sig:.4e} GeV⁻²")
             print(f"    b_σ·cm   = {b_sig*GEV2_TO_CM3S:.4e} cm³/s")
             print(f"    3b_σ/x_f = {3*b_sig*GEV2_TO_CM3S/xf:.4e} cm³/s  "
@@ -382,10 +382,10 @@ def main():
             print(f"\n    COMPARISON WITH DARK ENERGY:")
             print(f"    f_cross / f_DE = {f_cross/F_DE_GEV:.2e}")
             if abs(math.log10(f_cross / F_DE_GEV)) < 1:
-                print(f"    ✅ SAME ORDER as dark energy scale!")
+                print(f"    [PASS] SAME ORDER as dark energy scale!")
             else:
                 gap = abs(math.log10(f_cross / F_DE_GEV))
-                print(f"    ✗ f_cross ≠ f_DE  — differ by 10^{gap:.0f}")
+                print(f"    [x] f_cross ≠ f_DE  — differ by 10^{gap:.0f}")
                 print(f"      f_needed  = {f_cross:.2e} GeV")
                 print(f"      f_DE      = {F_DE_GEV:.2e} GeV")
 
@@ -397,7 +397,7 @@ def main():
                   f"= {m_sigma_cross/1e-18:.1f} × 10⁻¹⁸ GeV")
             print(f"    m_σ(f_DE)    = {m_sigma_de:.3e} GeV")
             print(f"    m_σ ≪ m_χ?   "
-                  f"{'✓ (by 10^' + str(int(math.log10(m_chi/m_sigma_cross))) + ')' if m_sigma_cross > 0 and m_sigma_cross < m_chi else '⚠️'}")
+                  f"{'[ok] (by 10^' + str(int(math.log10(m_chi/m_sigma_cross))) + ')' if m_sigma_cross > 0 and m_sigma_cross < m_chi else '[!]'}")
 
             # Today's σv
             v2_today = 1.0e-6   # v ~ 10⁻³ c
@@ -405,7 +405,7 @@ def main():
             print(f"\n    TODAY (v² ~ 10⁻⁶):")
             print(f"    σv(φ)  = {a_phi_cm:.3e} cm³/s")
             print(f"    σv(σ)  = {sv_sig_today:.3e} cm³/s  (v²-suppressed)")
-            print(f"    ratio  = {sv_sig_today/a_phi_cm:.2e}  → SIDM unaffected ✓")
+            print(f"    ratio  = {sv_sig_today/a_phi_cm:.2e}  → SIDM unaffected [ok]")
 
             results_all[label] = {
                 "oh2_phi": oh2_phi,
@@ -415,7 +415,7 @@ def main():
                 "alpha_P": alpha_p,
             }
         else:
-            print(f"\n  ⚠️ NO CROSSING FOUND")
+            print(f"\n  [!] NO CROSSING FOUND")
             results_all[label] = {"oh2_phi": oh2_phi, "f_cross": None}
 
     # ══════════════════════════════════════════════════════════════════════
@@ -442,13 +442,13 @@ def main():
             print(f"  {label:>6}  {r['oh2_phi']:>8.4f}  {fc:>12.2e}  "
                   f"{fc/M_PL_RED_GEV:>10.2e}  {r['y_P']:>7.4f}  "
                   f"{r['alpha_P']:>9.3e}  {r['oh2_final']:>9.4f}  "
-                  f"{'✅' if ok else '✗':>5}")
+                  f"{'[PASS]' if ok else '[x]':>5}")
             if not ok:
                 all_pass = False
         else:
             all_pass = False
             print(f"  {label:>6}  {r['oh2_phi']:>8.4f}  {'N/A':>12}  "
-                  f"{'N/A':>10}  {'N/A':>7}  {'N/A':>9}  {'N/A':>9}  {'✗':>5}")
+                  f"{'N/A':>10}  {'N/A':>7}  {'N/A':>9}  {'N/A':>9}  {'[x]':>5}")
 
     # ── Universality check ──────────────────────────────────────────────
     if len(valid_f) >= 2:
@@ -458,7 +458,7 @@ def main():
         print(f"\n  UNIVERSALITY:")
         print(f"  f range: [{f_min:.3e}, {f_max:.3e}] GeV")
         print(f"  f_max / f_min = {ratio:.2f}  "
-              f"({'NEAR-UNIVERSAL ✅' if ratio < 3 else 'NOT UNIVERSAL ✗'})")
+              f"({'NEAR-UNIVERSAL [PASS]' if ratio < 3 else 'NOT UNIVERSAL [x]'})")
 
     # ── f_DE comparison ─────────────────────────────────────────────────
     if valid_f:
@@ -469,9 +469,9 @@ def main():
         print(f"  f_DE          = {F_DE_GEV:.3e} GeV")
         print(f"  gap           = 10^{gap_oom:.1f}")
         if gap_oom < 1:
-            print(f"  ✅ UNIFIED: same f gives both DE and relic!")
+            print(f"  [PASS] UNIFIED: same f gives both DE and relic!")
         else:
-            print(f"  ✗ f_relic ≠ f_DE — {gap_oom:.0f} orders of magnitude apart")
+            print(f"  [x] f_relic ≠ f_DE — {gap_oom:.0f} orders of magnitude apart")
 
     # ══════════════════════════════════════════════════════════════════════
     # VERDICT
@@ -479,16 +479,16 @@ def main():
     print(f"\n{'═' * 78}")
     if all_pass and valid_f:
         f_geo = math.exp(sum(math.log(f) for f in valid_f) / len(valid_f))
-        print(f"  PI-11 RESULT:  MECHANISM WORKS ✅ (with caveats)")
+        print(f"  PI-11 RESULT:  MECHANISM WORKS [PASS] (with caveats)")
         print(f"")
         print(f"  WHAT WORKS:")
         print(f"  • ∃ f ≈ {f_geo:.0f} GeV such that Ωh² = 0.120")
         print(f"  • f is universal (same for all BPs to within a factor "
               f"{max(valid_f)/min(valid_f):.1f})")
-        print(f"  • y_P = 2m_χ/f ≈ 0.2 → perturbative ✓")
-        print(f"  • SIDM completely unaffected (σ-channel is v²-suppressed) ✓")
-        print(f"  • No CMB constraint (σσ is dark sector) ✓")
-        print(f"  • No 5th force (σ couples only to dark sector) ✓")
+        print(f"  • y_P = 2m_χ/f ≈ 0.2 → perturbative [ok]")
+        print(f"  • SIDM completely unaffected (σ-channel is v²-suppressed) [ok]")
+        print(f"  • No CMB constraint (σσ is dark sector) [ok]")
+        print(f"  • No 5th force (σ couples only to dark sector) [ok]")
         print(f"")
         print(f"  WHAT DOESN'T WORK:")
         print(f"  • f_relic ≈ {f_geo:.0f} GeV ≠ f_DE ≈ {F_DE_GEV:.1e} GeV")

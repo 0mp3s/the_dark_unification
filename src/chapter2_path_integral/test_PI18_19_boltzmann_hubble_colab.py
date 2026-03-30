@@ -221,7 +221,7 @@ def solve_boltzmann_full(m_chi, a_gev, b_gev,
     )
     
     if not sol.success:
-        print(f"    ⚠️  ODE solver warning: {sol.message}")
+        print(f"    [!]  ODE solver warning: {sol.message}")
     
     Y_final = math.exp(sol.y[0, -1])
     
@@ -435,7 +435,7 @@ def solve_quintessence(m_sigma_GeV, theta_i=1.0,
     )
     
     if not sol.success:
-        print(f"    ⚠️  KG solver: {sol.message}")
+        print(f"    [!]  KG solver: {sol.message}")
     
     # Extract raw solution
     a_arr = np.exp(sol.t)
@@ -689,9 +689,9 @@ def main():
     # --- PI-18 Summary ---
     print(f"\n  ── PI-18 SUMMARY ──")
     correction_ok = max_dev < 10
-    print(f"    [{'✅' if correction_ok else '⚠️'}] Max deviation KT vs full: {max_dev:.2f}%")
-    print(f"    [{'✅' if abs(shift_geo) < 5 else '⚠️'}] f₀ shift: {shift_geo:.2f}%")
-    print(f"    KT approximation is {'ADEQUATE ✅' if correction_ok else 'needs correction ⚠️'}")
+    print(f"    [{'[PASS]' if correction_ok else '[!]'}] Max deviation KT vs full: {max_dev:.2f}%")
+    print(f"    [{'[PASS]' if abs(shift_geo) < 5 else '[!]'}] f₀ shift: {shift_geo:.2f}%")
+    print(f"    KT approximation is {'ADEQUATE [PASS]' if correction_ok else 'needs correction [!]'}")
 
     # ══════════════════════════════════════════════════════════════
     #  PI-19: HUBBLE TENSION
@@ -737,7 +737,7 @@ def main():
         theta_i_exact = math.acos(cos_theta_i_exact)
         print(f"    θ_i = {theta_i_exact:.6f} rad")
     else:
-        print(f"    ⚠️ ρ_DE > Λ_d⁴: need θ_i > π or model adjustment")
+        print(f"    [!] ρ_DE > Λ_d⁴: need θ_i > π or model adjustment")
         print(f"    This means Λ_d is too small for the DE density.")
         print(f"    Using θ_i = π/2 (representative) for exploration.")
         theta_i_exact = math.pi / 2.0
@@ -907,14 +907,14 @@ def main():
     print(f"    Our model:            w₀ = {w0_fit:.2f},      wₐ = {wa_fit:.2f}")
     
     desi_compatible = (-1.5 < w0_fit < 0.0) and (-3.0 < wa_fit < 1.0)
-    print(f"    Compatible with DESI? {'✅ within broad range' if desi_compatible else '⚠️'}")
+    print(f"    Compatible with DESI? {'[PASS] within broad range' if desi_compatible else '[!]'}")
     
     # --- PI-19 Summary ---
     print(f"\n  ── PI-19 SUMMARY ──")
     print(f"    m_σ/H₀ = {ratio_mH:.1f}  → {'oscillating' if ratio_mH > 3 else 'thawing' if ratio_mH > 1 else 'frozen'} regime")
-    print(f"    [{'✅' if can_help else '⚠️'}] ΔH₀ = {dH0:+.2f} km/s/Mpc"
+    print(f"    [{'[PASS]' if can_help else '[!]'}] ΔH₀ = {dH0:+.2f} km/s/Mpc"
           f" ({'right direction' if dH0 > 0 else 'wrong direction — ⟨w⟩ > −1 increases d_A'})")
-    print(f"    [{'⚠️' if abs(dH0) < 2 else '✅'}] {'Insufficient' if abs(dH0) < 2 else 'Significant'}"
+    print(f"    [{'[!]' if abs(dH0) < 2 else '[PASS]'}] {'Insufficient' if abs(dH0) < 2 else 'Significant'}"
           f" compared to 5.6 km/s/Mpc SH0ES gap")
     print(f"    ⟨w(z=0)⟩ = {w_today:.4f},  ⟨w(z=0.5)⟩ = {w_05:.4f}")
     if ratio_mH > 3:
@@ -934,7 +934,7 @@ def main():
     · Max correction: KT vs numerical ~ {max_dev:.1f}%
     · f₀(geo) shift: {shift_geo:+.2f}%  ({f0_geo_kt:.1f} → {f0_geo_full:.1f} GeV)
     · Impact on Clockwork: f_DE shift ~ {(f_DE_full-f_DE_kt)/f_DE_kt*100:.1f}%
-    · KT approximation: {'ADEQUATE ✅' if max_dev < 10 else '⚠️ significant correction'}
+    · KT approximation: {'ADEQUATE [PASS]' if max_dev < 10 else '[!] significant correction'}
 
   PI-19  HUBBLE TENSION:
     · m_σ/H₀ = {ratio_mH:.1f} → thawing quintessence
@@ -944,7 +944,7 @@ def main():
     · Conclusion: σ {'contributes to' if dH0 > 0.5 else 'cannot fully resolve'} Hubble tension
     
   MODEL STATUS AFTER PI-18+19:
-    · PI-8 to PI-17: all verified ✅
+    · PI-8 to PI-17: all verified [PASS]
     · PI-18: Boltzmann correction quantified
     · PI-19: Hubble tension contribution measured
     · THEORY COMPLETE: all numerical & theoretical checks done

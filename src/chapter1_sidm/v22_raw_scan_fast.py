@@ -652,7 +652,7 @@ def main():
 
     try:
         from tg_notify import notify
-        notify(f"✅ v22_raw_scan_fast done!\nraw={len(raw):,} rep={len(rep)}\nelapsed={elapsed:.0f}s ({elapsed/60:.1f} min)")
+        notify(f"[PASS] v22_raw_scan_fast done!\nraw={len(raw):,} rep={len(rep)}\nelapsed={elapsed:.0f}s ({elapsed/60:.1f} min)")
     except Exception:
         pass
 

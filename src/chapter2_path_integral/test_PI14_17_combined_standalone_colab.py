@@ -129,7 +129,7 @@ def main():
     print(f"    m_σ(DE) = {m_sigma_DE:.3e} GeV")
     print(f"    δm_σ / m_σ(DE) = {delta_m / m_sigma_DE:.2e}")
     print()
-    print(f"    ⚠️  δm_σ ≫ m_σ(DE) — this is the STANDARD CC PROBLEM.")
+    print(f"    [!]  δm_σ ≫ m_σ(DE) — this is the STANDARD CC PROBLEM.")
     print(f"    It is shared by ALL quintessence/DE models, not specific to ours.")
     print(f"    The zero-mode shift symmetry protects m_σ = 0 at tree level;")
     print(f"    loop corrections are suppressed by y_P² but still ~ GeV scale.")
@@ -160,7 +160,7 @@ def main():
     print(f"    δf₀/f₀ = δZ/2 = {delta_f0_frac:.4e}  ({delta_f0_frac*100:.4f}%)")
     print(f"    δf_DE/f_DE = δf₀/f₀ = {delta_fDE_frac:.4e}")
     print(f"    q^N = {Q_CW}^{N_CW} is an INTEGER — not renormalized.")
-    print(f"    → Hierarchy STABLE to {delta_fDE_frac*100:.3f}%  ✅")
+    print(f"    → Hierarchy STABLE to {delta_fDE_frac*100:.3f}%  [PASS]")
 
     # --- 14ג: Heavy mode mass corrections ---
     print(f"\n  ── 14ג: HEAVY MODE MASS CORRECTIONS ──")
@@ -185,25 +185,25 @@ def main():
         if not ok:
             spectrum_stable = False
         print(f"    {k_val:>4}  {Mk:>10.1f}  {a0k_sq:>12.4e}"
-              f"  {dMk_frac:>12.4e}  {'✅' if ok else '⚠️':>8}")
+              f"  {dMk_frac:>12.4e}  {'[PASS]' if ok else '[!]':>8}")
 
     print(f"\n    All heavy modes stable under 1-loop: "
-          f"{'✅ YES' if spectrum_stable else '⚠️ CHECK'}")
+          f"{'[PASS] YES' if spectrum_stable else '[!] CHECK'}")
 
     # --- 14 Summary ---
     print(f"\n  ── PI-14 SUMMARY ──")
     ok14a = delta_fDE_frac < 0.01
     ok14b = abs(delta_f0_frac) < 0.01
     ok14c = spectrum_stable
-    print(f"    [{'✅' if ok14a else '✗'}] Hierarchy: "
+    print(f"    [{'[PASS]' if ok14a else '[x]'}] Hierarchy: "
           f"δ(q^N f₀)/(q^N f₀) = {delta_fDE_frac:.2e}")
-    print(f"    [{'✅' if ok14b else '✗'}] f₀ shift: "
+    print(f"    [{'[PASS]' if ok14b else '[x]'}] f₀ shift: "
           f"δf₀/f₀ = {delta_f0_frac:.2e}")
-    print(f"    [{'✅' if ok14c else '✗'}] Heavy modes: all < 1%")
-    print(f"    [⚠️] CC problem: δm_σ ~ {delta_m:.0f} GeV ≫ m_σ(DE)"
+    print(f"    [{'[PASS]' if ok14c else '[x]'}] Heavy modes: all < 1%")
+    print(f"    [[!]] CC problem: δm_σ ~ {delta_m:.0f} GeV ≫ m_σ(DE)"
           f" (universal — all DE models)")
     all14 = ok14a and ok14b and ok14c
-    print(f"\n  PI-14 VERDICT: {'RADIATIVELY STABLE ✅' if all14 else 'ISSUES ⚠️'}"
+    print(f"\n  PI-14 VERDICT: {'RADIATIVELY STABLE [PASS]' if all14 else 'ISSUES [!]'}"
           f"  (modulo universal CC tuning)")
 
     # ══════════════════════════════════════════════════════════════
@@ -255,7 +255,7 @@ def main():
     ok_ka = ka < math.pi
     print(f"    ka = {ka:.3f}")
     print(f"    ka < π = {math.pi:.3f}?  "
-          f"{'✅ YES' if ok_ka else '⚠️ NO'}")
+          f"{'[PASS] YES' if ok_ka else '[!] NO'}")
     if ok_ka:
         print(f"    → 5D lattice description is perturbative.")
         print(f"    → exp(ka) - 1 = q - 1 = {Q_CW - 1}"
@@ -270,7 +270,7 @@ def main():
     print(f"\n    5D strong coupling scale (rough): Λ₅ ~ N f₀ = {Lambda_5D:.0f} GeV")
     print(f"    1/a = Λ_CW²/f₀ = {1.0/a_lat:.0f} GeV")
     print(f"    Λ₅ / (1/a) = {Lambda_5D * a_lat:.1f}"
-          f"  {'✅ > 1 (under control)' if Lambda_5D * a_lat > 1 else '⚠️'}")
+          f"  {'[PASS] > 1 (under control)' if Lambda_5D * a_lat > 1 else '[!]'}")
 
     # --- 15ג: Comparison to Randall–Sundrum ---
     print(f"\n  ── 15ג: COMPARISON TO RANDALL–SUNDRUM ──")
@@ -311,11 +311,11 @@ def main():
     ok15a = ok_ka
     ok15b = kR > 5
     ok15c = 10 < N_CW < 100
-    print(f"    [{'✅' if ok15a else '⚠️'}] ka = {ka:.2f} < π (perturbative 5D)")
-    print(f"    [{'✅' if ok15b else '⚠️'}] kR = {kR:.1f}"
+    print(f"    [{'[PASS]' if ok15a else '[!]'}] ka = {ka:.2f} < π (perturbative 5D)")
+    print(f"    [{'[PASS]' if ok15b else '[!]'}] kR = {kR:.1f}"
           f" (significant warping, like RS)")
-    print(f"    [{'✅' if ok15c else '⚠️'}] N = {N_CW} (reasonable site count)")
-    print(f"\n  PI-15 VERDICT: 5D INTERPRETATION CONSISTENT ✅")
+    print(f"    [{'[PASS]' if ok15c else '[!]'}] N = {N_CW} (reasonable site count)")
+    print(f"\n  PI-15 VERDICT: 5D INTERPRETATION CONSISTENT [PASS]")
 
     # ══════════════════════════════════════════════════════════════
     #  PI-16: Λ_CW PREDICTION
@@ -351,7 +351,7 @@ def main():
         ok_m = M1_t > M_CHI_MAP
         ok_l = M1_t > 500
         print(f"    {name:>25s}  {LCW:>10.1f}  {M1_t:>10.1f}"
-              f"  {'✅' if ok_m else '✗':>8}  {'✅' if ok_l else '✗':>10}")
+              f"  {'[PASS]' if ok_m else '[x]':>8}  {'[PASS]' if ok_l else '[x]':>10}")
 
     # --- 16ב: Allowed window ---
     print(f"\n  ── 16ב: ALLOWED Λ_CW WINDOW ──")
@@ -377,7 +377,7 @@ def main():
           f"  Λ_CW < {LCW_max_10T:.0f} GeV")
     print(f"\n    WINDOW: {LCW_min:.0f} < Λ_CW < {LCW_upper:.0f} GeV"
           f"  (factor {LCW_upper / LCW_min:.1f})")
-    print(f"    Chosen {LAMBDA_CW:.0f} GeV  ✅ (within window)")
+    print(f"    Chosen {LAMBDA_CW:.0f} GeV  [PASS] (within window)")
 
     # --- 16ג: EW-scale coincidence ---
     print(f"\n  ── 16ג: ELECTROWEAK SCALE COINCIDENCE ──")
@@ -432,7 +432,7 @@ def main():
     print(f"    Tree-level σ_SI = 0")
     print(f"    Loop-induced (2-loop): σ_SI ~ {sigma_SI_rough:.1e} cm²")
     print(f"    XENON-nT limit: ~ 10⁻⁴⁷ cm²")
-    print(f"    → DEEP BELOW all current & projected limits  ✅")
+    print(f"    → DEEP BELOW all current & projected limits  [PASS]")
     print(f"    → Model inherently safe from direct detection.")
 
     # --- 17ב: Indirect detection ---
@@ -454,7 +454,7 @@ def main():
     print(f"    Fermi-LAT (100 GeV, bb̄):     ~ {fermi_lim:.0e} cm³/s")
     print(f"    Ratio: {sv_total / fermi_lim:.2e}")
     below_fermi = sv_total < fermi_lim
-    print(f"    → {'BELOW Fermi limit ✅' if below_fermi else '⚠️ Near Fermi limit'}")
+    print(f"    → {'BELOW Fermi limit [PASS]' if below_fermi else '[!] Near Fermi limit'}")
     print(f"    NOTE: χχ→φφ is secluded. Observable signal further suppressed")
     print(f"    by BR(φ→SM)², making it effectively invisible.")
 
@@ -465,7 +465,7 @@ def main():
     print(f"    These are DARK SECTOR scalars — no tree-level SM coupling.")
     print(f"\n    MINIMAL MODEL (no portal):")
     print(f"      σ(pp → π̃_k) = 0 at tree level")
-    print(f"      → NO direct LHC signal  ✅ (consistent with null results)")
+    print(f"      → NO direct LHC signal  [PASS] (consistent with null results)")
     print(f"\n    WITH HIGGS PORTAL (λ |H|² σ²):")
     print(f"      m_σ(DE) = {m_sigma_DE:.2e} GeV"
           f" → invisible Higgs (σ is ultralight)")
@@ -501,7 +501,7 @@ def main():
     print(f"      α_PT = {alpha_PT} (moderate)")
     print(f"      β/H_* = {beta_H}")
     print(f"\n      f_peak = {f_peak*1000:.1f} mHz"
-          f"  → {'LISA band ✅' if in_LISA else 'outside LISA ⚠️'}")
+          f"  → {'LISA band [PASS]' if in_LISA else 'outside LISA [!]'}")
     print(f"      h²Ω_GW ~ {h2_Omega:.1e}"
           f"  → {'detectable' if detectable else 'below sensitivity'}"
           f" (LISA ~ 10⁻¹²)")
@@ -510,7 +510,7 @@ def main():
         print(f"\n      In LISA band but amplitude may be too low.")
         print(f"      Stronger PT (α_PT ~ 1) would give h²Ω ~ {1e-6 * 1**2 / beta_H**2 * (100/g_star_PT)**(1./3.):.1e}")
     if in_LISA and detectable:
-        print(f"\n      ⭐ POTENTIALLY OBSERVABLE BY LISA (2030s)")
+        print(f"\n      [*] POTENTIALLY OBSERVABLE BY LISA (2030s)")
 
     print(f"\n      NOTE: GW signal exists ONLY if Clockwork arises from")
     print(f"      a first-order phase transition. In the linear dilaton / 5D")
@@ -522,7 +522,7 @@ def main():
     # ΔN_eff
     T_fo = M_CHI_MAP / 25.0
     print(f"    ΔN_eff (Clockwork modes):")
-    print(f"      M₁/T_fo = {M1/T_fo:.0f} ≫ 1 → ΔN_eff ≈ 0  ✅")
+    print(f"      M₁/T_fo = {M1/T_fo:.0f} ≫ 1 → ΔN_eff ≈ 0  [PASS]")
     print(f"      CMB-S4 sensitivity ~ 0.06 → NO signal from Clockwork")
 
     # DE equation of state
@@ -558,7 +558,7 @@ def main():
     print(f"      Euclid sensitivity: Δw ~ 0.01")
     if w_deviation > 0.01:
         print(f"      → w deviation ~ {w_deviation:.3f}"
-              f" → POTENTIALLY OBSERVABLE  ⭐")
+              f" → POTENTIALLY OBSERVABLE  [*]")
     else:
         print(f"      → w deviation ~ {w_deviation:.1e} → below current reach")
 
@@ -576,13 +576,13 @@ def main():
     print(f"{'═' * 80}")
 
     print(f"""
-  PI-14  RADIATIVE STABILITY:  ✅ STABLE
+  PI-14  RADIATIVE STABILITY:  [PASS] STABLE
     · Hierarchy δ(q^N f₀)/(q^N f₀) ~ {delta_fDE_frac:.0e} → negligible
     · f₀ shift ~ {delta_f0_frac:.0e} → negligible
     · Heavy spectrum shifts ~ 10⁻⁵ → negligible
     · CC problem: universal (δm_σ ~ {delta_m:.0f} GeV ≫ m_σ(DE))
 
-  PI-15  UV COMPLETION (5D):  ✅ CONSISTENT
+  PI-15  UV COMPLETION (5D):  [PASS] CONSISTENT
     · ka = {ka:.2f} < π → perturbative lattice 5D
     · kR = {kR:.1f} ≈ RS value (12) → natural warping
     · N = {N_CW} sites → like RS for 10¹⁵ hierarchy
@@ -593,11 +593,11 @@ def main():
     · EW-scale clustering interesting but not conclusive
 
   PI-17  OBSERVATIONAL SIGNATURES:
-    · Direct detection: σ_SI ~ {sigma_SI_rough:.0e} cm² → INVISIBLE  ✅
-    · Indirect detection: ⟨σv⟩ = {sv_total:.1e} cm³/s → below Fermi  ✅
-    · LHC: no signal in minimal model  ✅
-    · Gravitational waves: f ~ {f_peak*1000:.0f} mHz (LISA band)  ⭐ IF PT exists
-    · Dark energy: w ≈ {-1+w_deviation:.3f} → DESI/Euclid testable  ⭐
+    · Direct detection: σ_SI ~ {sigma_SI_rough:.0e} cm² → INVISIBLE  [PASS]
+    · Indirect detection: ⟨σv⟩ = {sv_total:.1e} cm³/s → below Fermi  [PASS]
+    · LHC: no signal in minimal model  [PASS]
+    · Gravitational waves: f ~ {f_peak*1000:.0f} mHz (LISA band)  [*] IF PT exists
+    · Dark energy: w ≈ {-1+w_deviation:.3f} → DESI/Euclid testable  [*]
 
   UNIQUE PREDICTIONS OF THE MODEL:
     1. Dark matter: secluded → no DD/ID signal (falsifiable if detected!)

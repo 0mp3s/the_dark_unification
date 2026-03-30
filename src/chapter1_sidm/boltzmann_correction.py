@@ -100,7 +100,7 @@ print("    α_lo = {:.2e}  → Ωh² = {:.4f}".format(a_lo, omega_lo))
 print("    α_hi = {:.2e}  → Ωh² = {:.4f}".format(a_hi, omega_hi))
 
 if not (omega_lo > TARGET_OMEGA > omega_hi):
-    print("    ❌ Bracket does not straddle target! Adjusting...")
+    print("    [FAIL] Bracket does not straddle target! Adjusting...")
     # Widen if needed
     while omega_lo < TARGET_OMEGA:
         a_lo /= 2.0
@@ -159,7 +159,7 @@ print("  Δσ/m(30) = {:.2f}%".format((sm_30 - sm_30_old) / sm_30_old * 100))
 
 # SIDM viability check
 viable = 1.0 <= sm_30 <= 10.0 and sm_1000 < 0.1
-print("\n  SIDM viable? {}".format("✅ YES" if viable else "❌ NO"))
+print("\n  SIDM viable? {}".format("[PASS] YES" if viable else "[FAIL] NO"))
 print("  Ωh² = {:.4f} (target {:.3f}) → {:.2f}% off".format(
     omega_final, TARGET_OMEGA, abs(omega_final - TARGET_OMEGA) / TARGET_OMEGA * 100))
 

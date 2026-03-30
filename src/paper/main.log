@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 08:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.28)  30 MAR 2026 13:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -855,98 +855,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--39
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [4] [5] [6] (chapter1_body.tex [7] [8] [9]
-<figures/fig_born_vpm.png, id=465, 939.51pt x 361.35pt>
+ [4] [5] [6] [7] (chapter1_body.tex [8] [9] [10]
+<figures/fig_born_vpm.png, id=477, 939.51pt x 361.35pt>
 File: figures/fig_born_vpm.png Graphic file (type png)
 <use figures/fig_born_vpm.png>
 Package pdftex.def Info: figures/fig_born_vpm.png  used on input line 226.
 (pdftex.def)             Requested size: 341.43307pt x 131.32098pt.
- [10 <./figures/fig_born_vpm.png>]
-<figures/fig_chains.png, id=479, 620.5584pt x 449.0376pt>
+ [11 <./figures/fig_born_vpm.png>]
+<figures/fig_chains.png, id=491, 620.5584pt x 449.0376pt>
 File: figures/fig_chains.png Graphic file (type png)
 <use figures/fig_chains.png>
 Package pdftex.def Info: figures/fig_chains.png  used on input line 282.
 (pdftex.def)             Requested size: 455.24411pt x 329.42543pt.
- [11]
-<figures/fig_gelman_rubin.png, id=486, 857.43193pt x 297.33943pt>
+ [12]
+<figures/fig_gelman_rubin.png, id=498, 857.43193pt x 297.33943pt>
 File: figures/fig_gelman_rubin.png Graphic file (type png)
 <use figures/fig_gelman_rubin.png>
 Package pdftex.def Info: figures/fig_gelman_rubin.png  used on input line 292.
 (pdftex.def)             Requested size: 295.90588pt x 102.61397pt.
-<figures/fig_autocorr.png, id=487, 1011.78pt x 361.35pt>
+<figures/fig_autocorr.png, id=499, 1011.78pt x 361.35pt>
 File: figures/fig_autocorr.png Graphic file (type png)
 <use figures/fig_autocorr.png>
 Package pdftex.def Info: figures/fig_autocorr.png  used on input line 301.
 (pdftex.def)             Requested size: 295.90588pt x 105.68204pt.
- [12 <./figures/fig_chains.png> <./figures/fig_gelman_rubin.png>]
-<figures/fig_corner.png, id=498, 521.7894pt x 561.297pt>
+ [13 <./figures/fig_chains.png> <./figures/fig_gelman_rubin.png>]
+<figures/fig_corner.png, id=511, 521.7894pt x 561.297pt>
 File: figures/fig_corner.png Graphic file (type png)
 <use figures/fig_corner.png>
 Package pdftex.def Info: figures/fig_corner.png  used on input line 331.
 (pdftex.def)             Requested size: 386.96027pt x 416.26112pt.
 
-[13 <./figures/fig_autocorr.png>]
-<figures/fig_lambda_posterior.png, id=511, 513.5988pt x 344.9688pt>
+[14 <./figures/fig_autocorr.png>]
+<figures/fig_lambda_posterior.png, id=523, 513.5988pt x 344.9688pt>
 File: figures/fig_lambda_posterior.png Graphic file (type png)
 <use figures/fig_lambda_posterior.png>
 Package pdftex.def Info: figures/fig_lambda_posterior.png  used on input line 3
 42.
 (pdftex.def)             Requested size: 295.90588pt x 198.75029pt.
- [14 <./figures/fig_corner.png>]
-<figures/fig_island.png, id=519, 987.2082pt x 440.847pt>
+ [15 <./figures/fig_corner.png>]
+<figures/fig_island.png, id=531, 987.2082pt x 440.847pt>
 File: figures/fig_island.png Graphic file (type png)
 <use figures/fig_island.png>
 Package pdftex.def Info: figures/fig_island.png  used on input line 353.
 (pdftex.def)             Requested size: 386.96027pt x 172.79738pt.
-<figures/fig_obs_comparison.png, id=520, 722.7pt x 505.89pt>
+<figures/fig_obs_comparison.png, id=532, 722.7pt x 505.89pt>
 File: figures/fig_obs_comparison.png Graphic file (type png)
 <use figures/fig_obs_comparison.png>
 Package pdftex.def Info: figures/fig_obs_comparison.png  used on input line 370
 .
 (pdftex.def)             Requested size: 386.96027pt x 270.87619pt.
- [15 <./figures/fig_lambda_posterior.png> <./figures/fig_island.png>]
-<figures/fig_chi2_fit.png, id=534, 722.7pt x 505.89pt>
+ [16 <./figures/fig_lambda_posterior.png> <./figures/fig_island.png>]
+<figures/fig_chi2_fit.png, id=547, 722.7pt x 505.89pt>
 File: figures/fig_chi2_fit.png Graphic file (type png)
 <use figures/fig_chi2_fit.png>
-Package pdftex.def Info: figures/fig_chi2_fit.png  used on input line 402.
+Package pdftex.def Info: figures/fig_chi2_fit.png  used on input line 412.
 (pdftex.def)             Requested size: 341.43307pt x 239.0034pt.
- [16 <./figures/fig_obs_comparison.png>]
+ [17 <./figures/fig_obs_comparison.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<figures/fig_velocity_profile.png, id=549, 568.0422pt x 383.7537pt>
+<figures/fig_velocity_profile.png, id=567, 568.0422pt x 383.7537pt>
 File: figures/fig_velocity_profile.png Graphic file (type png)
 <use figures/fig_velocity_profile.png>
 Package pdftex.def Info: figures/fig_velocity_profile.png  used on input line 4
-60.
+70.
 (pdftex.def)             Requested size: 386.96027pt x 261.42336pt.
-[17 <./figures/fig_chi2_fit.png>] [18 <./figures/fig_velocity_profile.png>]
-<figures/fig_sommerfeld.png, id=570, 1011.78pt x 361.35pt>
+[18 <./figures/fig_chi2_fit.png>] [19 <./figures/fig_velocity_profile.png>]
+<figures/fig_sommerfeld.png, id=589, 1011.78pt x 361.35pt>
 File: figures/fig_sommerfeld.png Graphic file (type png)
 <use figures/fig_sommerfeld.png>
-Package pdftex.def Info: figures/fig_sommerfeld.png  used on input line 552.
+Package pdftex.def Info: figures/fig_sommerfeld.png  used on input line 562.
 (pdftex.def)             Requested size: 341.43307pt x 121.9421pt.
 
-[19]
-<figures/fig_majorana_dirac.png, id=578, 605.8635pt x 483.9681pt>
+[20]
+<figures/fig_majorana_dirac.png, id=595, 605.8635pt x 483.9681pt>
 File: figures/fig_majorana_dirac.png Graphic file (type png)
 <use figures/fig_majorana_dirac.png>
-Package pdftex.def Info: figures/fig_majorana_dirac.png  used on input line 576
+Package pdftex.def Info: figures/fig_majorana_dirac.png  used on input line 586
 .
 (pdftex.def)             Requested size: 386.96027pt x 309.11081pt.
- [20 <./figures/fig_sommerfeld.png>]) (chapter2_body.tex [21 <./figures/fig_maj
+ [21 <./figures/fig_sommerfeld.png>]) (chapter2_body.tex [22 <./figures/fig_maj
 orana_dirac.png>]
 Overfull \hbox (50.88899pt too wide) in paragraph at lines 24--38
  [][] 
  []
 
-[22] [23] [24]
-<figures/fig_cw_potential.png, id=634, 857.8449pt x 351.9549pt>
+[23] [24] [25]
+<figures/fig_cw_potential.png, id=652, 857.8449pt x 351.9549pt>
 File: figures/fig_cw_potential.png Graphic file (type png)
 <use figures/fig_cw_potential.png>
 Package pdftex.def Info: figures/fig_cw_potential.png  used on input line 198.
 (pdftex.def)             Requested size: 455.24411pt x 186.78224pt.
- [25 <./figures/fig_cw_potential.png>] [26]) (chapter3_body.tex
+ [26 <./figures/fig_cw_potential.png>] [27]) (chapter3_body.tex
 Overfull \hbox (1.97122pt too wide) in paragraph at lines 20--33
  [][] 
  []
@@ -954,39 +954,43 @@ Overfull \hbox (1.97122pt too wide) in paragraph at lines 20--33
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27] [28] [29] [30]
-Overfull \hbox (9.2568pt too wide) in paragraph at lines 257--262
+[28] [29] [30] [31]
+Overfull \hbox (9.2568pt too wide) in paragraph at lines 271--276
 []\T1/cmr/m/n/12 Existing Planck+BAO con-straints give $\OML/cmm/m/it/12 ^^L < 
 \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 066$ \T1/cmr/m/n/12 for an u
 n-screened cou-pled quintessence
  []
 
-[31]
-Overfull \hbox (1.59935pt too wide) in paragraph at lines 319--324
+[32]
+Overfull \hbox (1.59935pt too wide) in paragraph at lines 333--338
 []\T1/cmr/bx/n/12 Dark acous-tic os-cil-la-tions\T1/cmr/m/n/12 : The dark ax-io
 n field $\OML/cmm/m/it/12 ^^[$ \T1/cmr/m/n/12 os-cil-lates co-her-ently on Hubb
 le-
  []
 
-[32] [33]
-<figures/observational_comparison.pdf, id=735, 858.28589pt x 711.04016pt>
+[33] [34]
+<figures/observational_comparison.pdf, id=749, 858.28589pt x 711.04016pt>
 File: figures/observational_comparison.pdf Graphic file (type pdf)
 <use figures/observational_comparison.pdf>
 Package pdftex.def Info: figures/observational_comparison.pdf  used on input li
-ne 458.
+ne 472.
 (pdftex.def)             Requested size: 455.24411pt x 377.14243pt.
-<figures/omega_evolution.pdf, id=736, 502.76425pt x 338.33276pt>
+<figures/omega_evolution.pdf, id=750, 502.76425pt x 338.33276pt>
 File: figures/omega_evolution.pdf Graphic file (type pdf)
 <use figures/omega_evolution.pdf>
-Package pdftex.def Info: figures/omega_evolution.pdf  used on input line 470.
+Package pdftex.def Info: figures/omega_evolution.pdf  used on input line 484.
 (pdftex.def)             Requested size: 341.43307pt x 229.76895pt.
- [34 <./figures/observational_comparison.pdf>] [35 <./figures/omega_evolution.p
-df>]) (discussion_body.tex [36] [37] [38] [39]) [40]
+ [35] [36 <./figures/observational_comparison.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[41] [42]
-Overfull \hbox (13.84659pt too wide) in paragraph at lines 377--380
+) (discussion_body.tex [37 <./figures/omega_evolution.pdf>] [38] [39] [40]
+[41])
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[42] [43]
+Overfull \hbox (13.84659pt too wide) in paragraph at lines 389--392
 \T1/cmr/m/n/12 where $\OML/cmm/m/it/12 x \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 m[]
 =T$ \T1/cmr/m/n/12 and the ther-mally av-er-aged cross sec-tion scales as $\OMS
 /cmsy/m/n/12 h\OML/cmm/m/it/12 ^^[v[]\OMS/cmsy/m/n/12 i[] / \OML/cmm/m/it/12 ^^
@@ -994,66 +998,129 @@ V[]=\OT1/cmr/m/n/12 (128\OML/cmm/m/it/12 ^^Ym[]\OT1/cmr/m/n/12 )$\T1/cmr/m/n/12
  . 
  []
 
-(main.bbl [43]) [44] (main.aux)
+(main.bbl [44] [45]) [46] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F4BF528D153FC9945E08E06EA24E063B;16599.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 5ABEEEADA59FF3A24D4FA514ADC91C7A;16646
+(rerunfilecheck)             After:  73DE60DC9CBDD1FC3C470E2BA07D745E;16646.
  ) 
 Here is how much of TeX's memory you used:
- 24198 strings out of 467871
- 453681 string characters out of 5418376
- 844186 words of memory out of 5000000
- 52364 multiletter control sequences out of 15000+600000
- 661265 words of font info for 128 fonts, out of 8000000 for 9000
+ 24224 strings out of 467871
+ 454022 string characters out of 5418376
+ 844351 words of memory out of 5000000
+ 52370 multiletter control sequences out of 15000+600000
+ 662033 words of font info for 129 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,14n,94p,827b,693s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss
-1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecss1200.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecrm1000.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0600.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\omerp\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\omerp\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\omerp\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\omerp\
-AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\
-omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\
-Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk
-> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1
-095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecrm1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknapp
-en/ec/dpi600\ecrm1440.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecbx2074.pk><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/omerp/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/omerp/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/omerp/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/om
-erp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/
-Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.
-pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmmi8.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/cm/cmr10.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/omerp/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/omerp/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/omerp/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/omerp/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/omerp
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
-ers/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pf
-b><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsy8.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/symbols/msam10.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (44 pages, 3713690 bytes).
+ 84i,16n,94p,827b,693s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.179} has been referenced but does not exi
+st, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.213} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.210} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.208} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.205} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.202} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.200} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.198} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.196} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.192} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.183} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix.180} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{part*.179} has been referenced but does not exist, 
+replaced by a fixed one
+
+ <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss10
+95.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\
+ecss1200.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecrm0600.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappe
+n/ec/dpi600\ecrm1000.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecrm0700.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/lj
+four/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\omerp\AppData\Local\MiKTeX
+\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\omerp\AppData\Local\
+MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\omerp\AppData\
+Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\omerp\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\om
+erp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Us
+ers\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> 
+<C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx172
+8.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
+cti1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\ecbx1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecrm1095.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\ecrm1440.pk> <C:\Users\omerp\AppData\Local\MiKTeX\fonts/pk/ljf
+our/jknappen/ec/dpi600\ecbx2074.pk><C:/Users/omerp/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/omerp/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/omerp/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/omerp/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/User
+s/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/omerp/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/omerp/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/omerp/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/omerp/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/o
+merp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+amsfonts/symbols/msam10.pfb><C:/Users/omerp/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (46 pages, 3732165 bytes).
 PDF statistics:
- 1740 PDF objects out of 2073 (max. 8388607)
- 276 named destinations out of 1000 (max. 500000)
+ 1811 PDF objects out of 2073 (max. 8388607)
+ 295 named destinations out of 1000 (max. 500000)
  680 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -225,6 +225,6 @@ if __name__ == '__main__':
     main()
     try:
         from tg_notify import notify
-        notify("✅ velocity_slope done!")
+        notify("[PASS] velocity_slope done!")
     except Exception:
         pass

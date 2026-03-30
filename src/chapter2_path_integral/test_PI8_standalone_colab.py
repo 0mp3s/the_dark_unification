@@ -282,15 +282,15 @@ def main():
         print(f"    y⁴/(16π²) = {est['y4_16pi2']:.4e}")
         print(f"    λ₄        = {est['lam4']:.4e}")
         print(f"    CW/tree   = {est['CW_over_tree']:.0f}×  "
-              f"{'→ CW regime ✅' if est['CW_over_tree'] > 10 else '→ tree regime'}")
+              f"{'→ CW regime [PASS]' if est['CW_over_tree'] > 10 else '→ tree regime'}")
         print(f"    T_c (est) = {est['T_c_est_GeV']*1e3:.1f} MeV")
         print(f"    T_fo      = {est['T_fo_GeV']*1e3:.1f} MeV")
-        print(f"    T_c < T_fo? {'✅ YES — timing OK' if est['T_c_est_GeV'] < est['T_fo_GeV'] else '❌ NO — PT before freeze-out'}")
+        print(f"    T_c < T_fo? {'[PASS] YES — timing OK' if est['T_c_est_GeV'] < est['T_fo_GeV'] else '[FAIL] NO — PT before freeze-out'}")
         print(f"    ΔV/ρ_rad  = {est['supercooling_ratio']:.0f}  "
-              f"{'⚠️ supercooled' if est['supercooling_ratio'] > 10 else '✅ mild'}")
+              f"{'[!] supercooled' if est['supercooling_ratio'] > 10 else '[PASS] mild'}")
         print(f"    T_rh      = {est['T_rh_GeV']*1e3:.1f} MeV")
         print(f"    T_rh/T_c  = {est['T_rh_over_Tc']:.2f}  "
-              f"{'⚠️ reheat > T_c' if est['T_rh_over_Tc'] > 1 else '✅ reheat < T_c'}")
+              f"{'[!] reheat > T_c' if est['T_rh_over_Tc'] > 1 else '[PASS] reheat < T_c'}")
 
         # ── s-wave relic ──────────────────────────────────────────────
         sv = s_wave_sv(m_chi, alpha)
@@ -322,7 +322,7 @@ def main():
         if res["first_order"]:
             T_c = res["T_c"]
             phi_brk = res["phi_broken_at_Tc"]
-            print(f"  ✅ FIRST-ORDER PT DETECTED")
+            print(f"  [PASS] FIRST-ORDER PT DETECTED")
             print(f"     T_c = {T_c*1e3:.4f} MeV  ({T_c/m_chi:.4f} m_χ)")
             print(f"     φ_broken(T_c) = {phi_brk:.4e} GeV")
 
@@ -334,9 +334,9 @@ def main():
             print(f"     Ωh²(corrected) = {omega_c:.4f}")
             print(f"     Target          = {OMEGA_TARGET}")
             ok = abs(omega_c - OMEGA_TARGET) / OMEGA_TARGET < 0.1
-            print(f"     {'✅ MATCH' if ok else '✗ NO MATCH'}")
+            print(f"     {'[PASS] MATCH' if ok else '[x] NO MATCH'}")
         else:
-            print(f"  ✗ NO FIRST-ORDER PT FOUND")
+            print(f"  [x] NO FIRST-ORDER PT FOUND")
             print(f"    Single minimum at all temperatures.")
 
     # ── summary table ─────────────────────────────────────────────────

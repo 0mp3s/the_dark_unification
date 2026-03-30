@@ -240,7 +240,7 @@ def main():
     print(f"\n  ⟨f₀⟩_geo = {f0_geo:.1f} GeV")
     print(f"  Spread: [{min(valid_fc):.1f}, {max(valid_fc):.1f}] GeV "
           f"(ratio {max(valid_fc)/min(valid_fc):.2f})")
-    print(f"  PI-11 CONFIRMED ✅ — relic works with f₀ ≈ {f0_ref:.0f} GeV")
+    print(f"  PI-11 CONFIRMED [PASS] — relic works with f₀ ≈ {f0_ref:.0f} GeV")
 
     # ══════════════════════════════════════════════════════════════════════
     #  TEST ב: Clockwork q^N scaling — f_DE consistency
@@ -273,7 +273,7 @@ def main():
             log_err = abs(math.log10(ratio))
 
             ok = log_err < 0.5  # within factor 3
-            mark = "✅" if ok else ""
+            mark = "[PASS]" if ok else ""
 
             if abs(N - round(N_exact)) <= 1:
                 print(f"  {q:>3}  {N:>4}  {qN:>14.3e}  {f_de_calc:>16.3e}  "
@@ -304,7 +304,7 @@ def main():
     print(f"    ρ_Λ = {RHO_LAMBDA:.3e} GeV⁴")
     print(f"    ρ_σ / ρ_Λ = {rho_sigma / RHO_LAMBDA:.3e}")
     print(f"    NOTE: ρ_σ/ρ_Λ depends on Λ_d⁴, which is tuned separately.")
-    print(f"    The Clockwork fixes f, not Λ_d. f_DE ≈ target ✅")
+    print(f"    The Clockwork fixes f, not Λ_d. f_DE ≈ target [PASS]")
 
     # ══════════════════════════════════════════════════════════════════════
     #  TEST ג: Heavy mode spectrum — masses > m_χ?
@@ -345,8 +345,8 @@ def main():
         ok_lhc = M1 > 500.0  # conservative LHC reach
 
         print(f"  {LCW:>12.1f}  {M1:>10.1f}  {MN:>10.1f}  "
-              f"{'✅' if ok_mchi else '✗':>10}  {'✅' if ok_tev else '✗':>12}  "
-              f"{'✅' if ok_lhc else '✗':>10}")
+              f"{'[PASS]' if ok_mchi else '[x]':>10}  {'[PASS]' if ok_tev else '[x]':>12}  "
+              f"{'[PASS]' if ok_lhc else '[x]':>10}")
 
         if ok_mchi and Lambda_CW_min is None:
             Lambda_CW_min = LCW
@@ -395,7 +395,7 @@ def main():
     print(f"\n  ΔN_eff CHECK:")
     print(f"    T_fo ≈ m_χ/25 = {T_fo:.2f} GeV")
     print(f"    M_1/T_fo = {M1_use/T_fo:.1f}")
-    print(f"    ΔN_eff ≈ {d_neff:.3e}  ({'✅ ≪ 0.3' if d_neff < 0.3 else '⚠️ > 0.3'})")
+    print(f"    ΔN_eff ≈ {d_neff:.3e}  ({'[PASS] ≪ 0.3' if d_neff < 0.3 else '[!] > 0.3'})")
 
     # ══════════════════════════════════════════════════════════════════════
     #  TEST ד: FULL CONSISTENCY CHECK
@@ -422,38 +422,38 @@ def main():
     oh2_map = compute_omega(bp_map["m_chi"], bp_map["alpha_s"], fc_map) if fc_map else 99
     ok1 = abs(oh2_map - OMEGA_TARGET) / OMEGA_TARGET < 0.05
     checks.append(ok1)
-    print(f"  {'Ωh²(MAP) = 0.120':>40s}  {oh2_map:>16.4f}  {'|Δ|/Ω < 5%':>20}  {'✅' if ok1 else '✗':>8}")
+    print(f"  {'Ωh²(MAP) = 0.120':>40s}  {oh2_map:>16.4f}  {'|Δ|/Ω < 5%':>20}  {'[PASS]' if ok1 else '[x]':>8}")
 
     # 2. Relic universality
     fc_vals = [v for v in f_cross_all.values() if v is not None]
     spread = max(fc_vals) / min(fc_vals) if len(fc_vals) >= 2 else 99
     ok2 = spread < 3.0
     checks.append(ok2)
-    print(f"  {'f₀ universality (spread < 3)':>40s}  {spread:>16.2f}  {'max/min < 3':>20}  {'✅' if ok2 else '✗':>8}")
+    print(f"  {'f₀ universality (spread < 3)':>40s}  {spread:>16.2f}  {'max/min < 3':>20}  {'[PASS]' if ok2 else '[x]':>8}")
 
     # 3. Perturbativity: y_P < 1
     y_P_max = max(2.0 * BENCHMARKS[l]["m_chi"] / f_cross_all[l]
                   for l in TEST_BPS if f_cross_all[l] is not None)
     ok3 = y_P_max < 1.0
     checks.append(ok3)
-    print(f"  {'y_P = 2m_χ/f₀ < 1 (perturbative)':>40s}  {y_P_max:>16.4f}  {'< 1':>20}  {'✅' if ok3 else '✗':>8}")
+    print(f"  {'y_P = 2m_χ/f₀ < 1 (perturbative)':>40s}  {y_P_max:>16.4f}  {'< 1':>20}  {'[PASS]' if ok3 else '[x]':>8}")
 
     # 4. f_DE within factor 3 of target
     f_de_cw = clockwork_f_de(f0_ref, q_best, N_best)
     ratio_de = f_de_cw / F_DE_GEV
     ok4 = 0.3 < ratio_de < 3.0
     checks.append(ok4)
-    print(f"  {'f_DE = q^N f₀ ≈ f_target':>40s}  {f_de_cw:>16.3e}  {'factor < 3':>20}  {'✅' if ok4 else '✗':>8}")
+    print(f"  {'f_DE = q^N f₀ ≈ f_target':>40s}  {f_de_cw:>16.3e}  {'factor < 3':>20}  {'[PASS]' if ok4 else '[x]':>8}")
 
     # 5. M_1 > m_chi(MAP)
     ok5 = M1_use > m_chi_max
     checks.append(ok5)
-    print(f"  {'M₁ > m_χ(MAP) (no new channels)':>40s}  {M1_use:>16.1f}  {'> {:.1f}'.format(m_chi_max):>20}  {'✅' if ok5 else '✗':>8}")
+    print(f"  {'M₁ > m_χ(MAP) (no new channels)':>40s}  {M1_use:>16.1f}  {'> {:.1f}'.format(m_chi_max):>20}  {'[PASS]' if ok5 else '[x]':>8}")
 
     # 6. ΔN_eff < 0.3
     ok6 = d_neff < 0.3
     checks.append(ok6)
-    print(f"  {'ΔN_eff < 0.3 (BBN/CMB)':>40s}  {d_neff:>16.3e}  {'< 0.3':>20}  {'✅' if ok6 else '✗':>8}")
+    print(f"  {'ΔN_eff < 0.3 (BBN/CMB)':>40s}  {d_neff:>16.3e}  {'< 0.3':>20}  {'[PASS]' if ok6 else '[x]':>8}")
 
     # 7. SIDM unaffected (σ-channel is v²-suppressed today)
     v2_today = (30.0 / 3e5)**2  # dwarf galaxy v ~ 30 km/s
@@ -464,13 +464,13 @@ def main():
     ratio_today = sv_sig_today / sv_phi_today if sv_phi_today > 0 else 99
     ok7 = ratio_today < 0.01
     checks.append(ok7)
-    print(f"  {'σv(σ)/σv(φ) today < 1%':>40s}  {ratio_today:>16.3e}  {'< 0.01':>20}  {'✅' if ok7 else '✗':>8}")
+    print(f"  {'σv(σ)/σv(φ) today < 1%':>40s}  {ratio_today:>16.3e}  {'< 0.01':>20}  {'[PASS]' if ok7 else '[x]':>8}")
 
     # 8. Λ_CW is natural (not too far from f₀)
     ratio_LCW = Lambda_CW_use / f0_ref
     ok8 = 0.01 < ratio_LCW < 100
     checks.append(ok8)
-    print(f"  {'Λ_CW/f₀ = O(1) (naturalness)':>40s}  {ratio_LCW:>16.2f}  {'0.01 < x < 100':>20}  {'✅' if ok8 else '✗':>8}")
+    print(f"  {'Λ_CW/f₀ = O(1) (naturalness)':>40s}  {ratio_LCW:>16.2f}  {'0.01 < x < 100':>20}  {'[PASS]' if ok8 else '[x]':>8}")
 
     all_pass = all(checks)
 
@@ -516,7 +516,7 @@ def main():
     #  VERDICT
     # ══════════════════════════════════════════════════════════════════════
     print(f"\n{'═' * 78}")
-    print(f"  PI-12 VERDICT:  {'ALL CHECKS PASS ✅' if all_pass else 'SOME CHECKS FAIL ⚠️'}")
+    print(f"  PI-12 VERDICT:  {'ALL CHECKS PASS [PASS]' if all_pass else 'SOME CHECKS FAIL [!]'}")
     print(f"{'═' * 78}")
     print()
     print(f"  THE CLOCKWORK MODEL:")
@@ -534,13 +534,13 @@ def main():
     print(f"  └─────────────────────────────────────────────────────────┘")
     print()
     print(f"  WHAT WORKS:")
-    print(f"    ✅ Ωh² = {oh2_map:.4f} for MAP (and all BPs)")
-    print(f"    ✅ f₀ universal: spread = {spread:.2f}")
-    print(f"    ✅ f_DE/f_target = {ratio_de:.3f} (Clockwork bridges 10^15 gap)")
-    print(f"    ✅ M₁ = {M1_use:.0f} GeV > m_χ = {m_chi_max:.0f} GeV (freeze-out safe)")
-    print(f"    ✅ ΔN_eff ~ {d_neff:.1e} ≪ 0.3 (BBN/CMB safe)")
-    print(f"    ✅ SIDM unaffected (σ-channel v²-suppressed by {ratio_today:.1e})")
-    print(f"    ✅ y_P = {y_P_max:.3f} < 1 (perturbative)")
+    print(f"    [PASS] Ωh² = {oh2_map:.4f} for MAP (and all BPs)")
+    print(f"    [PASS] f₀ universal: spread = {spread:.2f}")
+    print(f"    [PASS] f_DE/f_target = {ratio_de:.3f} (Clockwork bridges 10^15 gap)")
+    print(f"    [PASS] M₁ = {M1_use:.0f} GeV > m_χ = {m_chi_max:.0f} GeV (freeze-out safe)")
+    print(f"    [PASS] ΔN_eff ~ {d_neff:.1e} ≪ 0.3 (BBN/CMB safe)")
+    print(f"    [PASS] SIDM unaffected (σ-channel v²-suppressed by {ratio_today:.1e})")
+    print(f"    [PASS] y_P = {y_P_max:.3f} < 1 (perturbative)")
     print()
     print(f"  REMAINING QUESTIONS:")
     print(f"    ? UV completion: latticized extra dimension or discrete symmetry?")
@@ -551,7 +551,7 @@ def main():
     print(f"  COMPARISON TO PI-11:")
     print(f"    PI-11: f = 858 GeV → Ωh²=0.12  BUT  f ≠ f_DE (gap 10^15)")
     print(f"    PI-12: f₀ = {f0_ref:.0f} GeV, f_DE = q^N f₀ = {f_de_best:.1e} GeV")
-    print(f"    → SAME f₀ for relic AND DE, connected by Clockwork ✅")
+    print(f"    → SAME f₀ for relic AND DE, connected by Clockwork [PASS]")
     print()
 
 

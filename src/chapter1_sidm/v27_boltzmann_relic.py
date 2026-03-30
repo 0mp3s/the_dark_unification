@@ -487,7 +487,7 @@ def test_6_cmb_indirect():
     # To convert to cm²: σ[cm²] = σ[GeV⁻²] × (ℏc)² = σ × (0.1973e-13 cm·GeV)² = σ × 3.894e-28 cm²·GeV²
     # So σ[cm²] = σ[GeV⁻²] × 3.894e-28 / GeV² ... no that's σ[cm²] = σ[GeV⁻²] × (ℏc)^2 with ℏc in cm·GeV
     # ℏc = 1.9733e-14 cm·GeV, so (ℏc)² = 3.894e-28 cm²·GeV²
-    # σ[cm²] = σ[GeV⁻²] × 3.894e-28 [cm²·GeV²] (this has units cm²·GeV²/GeV² = cm² ✓ )
+    # σ[cm²] = σ[GeV⁻²] × 3.894e-28 [cm²·GeV²] (this has units cm²·GeV²/GeV² = cm² [ok] )
     # Wait: σ[GeV⁻²] means σ in units of 1/GeV². 
     # σ_phys = σ_nat × (ℏc)² where (ℏc)² converts from natural to CGS.
     # σ[cm²] = σ[1/GeV²] × (1.9733e-14)² cm²·GeV² = σ[1/GeV²] × 3.894e-28 cm²

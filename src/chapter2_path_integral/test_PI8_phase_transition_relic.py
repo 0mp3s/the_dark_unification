@@ -432,7 +432,7 @@ def main():
         if res["first_order"]:
             T_c = res["T_c"]
             phi_brk = res["phi_broken_at_Tc"]
-            print(f"  ✅ FIRST-ORDER PHASE TRANSITION DETECTED")
+            print(f"  [PASS] FIRST-ORDER PHASE TRANSITION DETECTED")
             print(f"     T_c = {T_c*1e3:.4f} MeV  "
                   f"({T_c/bp['m_chi']:.4f} m_χ)")
             print(f"     φ_broken(T_c) = {phi_brk:.4e} GeV")
@@ -448,13 +448,13 @@ def main():
             print(f"\n     Ωh² (naive)     = {omega_naive:.4f}")
             print(f"     Ωh² (corrected) = {omega_corrected:.4f}")
             print(f"     Ωh² (target)    = {OMEGA_TARGET}")
-            print(f"     Match? {'✅ YES' if abs(omega_corrected - OMEGA_TARGET) / OMEGA_TARGET < 0.1 else '✗ NO'}")
+            print(f"     Match? {'[PASS] YES' if abs(omega_corrected - OMEGA_TARGET) / OMEGA_TARGET < 0.1 else '[x] NO'}")
 
             D_needed = omega_naive / OMEGA_TARGET
             print(f"\n     D needed for exact match = {D_needed:.2f}")
             print(f"     D achieved               = {D:.4f}")
         else:
-            print(f"  ✗ NO FIRST-ORDER PHASE TRANSITION FOUND")
+            print(f"  [x] NO FIRST-ORDER PHASE TRANSITION FOUND")
             print(f"    V_eff(φ,T) has single minimum at all temperatures.")
             print(f"    Entropy dilution via φ phase transition is ruled out")
             print(f"    for this benchmark.")
