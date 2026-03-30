@@ -115,6 +115,38 @@ Self-contained scripts, no CSV input. Each tests one aspect of the dark EM duali
 | `freeze_out_analysis_corrected.py` | Freeze-out temperature, Ωh² for dark axion | T_fo, Ω_σ = 0.69 |
 | `run_pipeline.py` | All Ch.3 checks sequentially | Combined report |
 
+### New: Numerical Cosmology & Observational Comparison
+
+These scripts produce the key quantitative results in §3.6–3.10 of the paper.
+Run in order:
+
+```bash
+cd chapter3_t_breaking
+
+# 1. Prove CW problem is resolved (V_eff minimum at θ_relic)
+python veff_a4_minimum.py
+
+# 2. Resolve mediator overclosure via cannibal 3φ→2φ
+python phi_cannibal_boltzmann.py
+
+# 3. Solve Friedmann + Klein-Gordon with A₄ potential (3D parameter scan)
+python background_cosmology.py
+
+# 4. Fine-tune + Pantheon+ SN Ia + BAO comparison (generates paper figures)
+python observational_comparison.py
+```
+
+| Script | What it computes | Key output |
+|--------|-----------------|------------|
+| `veff_a4_minimum.py` | CW one-loop correction to σ potential | CW force = 0 at ⟨φ⟩=0; A₄ minimum at θ_relic proven |
+| `phi_cannibal_boltzmann.py` | Cannibal Boltzmann eq. for 3φ→2φ depletion | μ₃/m_φ > 0.85 resolves overclosure; BBN safe (T_SM = 1.64 MeV) |
+| `background_cosmology.py` | Friedmann + Klein-Gordon solver, 3D scan over (Λ_d, θ_i, f) | H₀ = 67.31 km/s/Mpc, Ω_DE = 0.686, w₀ = -0.943 |
+| `observational_comparison.py` | Fine-tune grid + Pantheon+ (31 bins) + BAO (9 bins) | **Best fit**: Λ_d = 1.400 meV, θ_i = 90.2°, f = 4.50 M_Pl; H₀ = 67.39; Pantheon+ Δχ² = −9.1 vs ΛCDM; BAO χ² = 5.4/9 |
+
+**Figures produced** (saved to `paper/figures/`):
+- `observational_comparison.pdf` — 4-panel: H(z), w(z), Pantheon+ residuals, θ(z) evolution
+- `omega_evolution.pdf` — Energy density fractions Ω_i(a) vs scale factor
+
 Run:
 ```bash
 cd chapter3_t_breaking
@@ -134,6 +166,8 @@ After running the full pipeline, figures are written to `paper/figures/`.
 | σ_T(v) vs 13 systems | `chapter1_sidm/velocity_slope.py` | `data/observational_database.json` |
 | VPM vs Born ratio | `chapter1_sidm/vpm_born_ratio.py` | `data/observational_database.json` |
 | H₀ chain diagram | `chapter2_path_integral/test_PI18_19_boltzmann_hubble_colab.py` | none |
+| Observational comparison (4-panel) | `chapter3_t_breaking/observational_comparison.py` | none (data embedded) |
+| Energy density evolution Ω_i(a) | `chapter3_t_breaking/observational_comparison.py` | none (data embedded) |
 
 ---
 

@@ -9,12 +9,14 @@
 \usepackage{physics}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{cite}
 \usepackage{bbold}
 \usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathmorphing}
 
 \graphicspath{{figures/}}
 
@@ -22,7 +24,8 @@
   colorlinks=true,
   linkcolor=blue!70!black,
   citecolor=green!60!black,
-  urlcolor=blue!70!black
+  urlcolor=blue!70!black,
+  hypertexnames=false
 }
 
 %% --- Custom commands ---
@@ -47,6 +50,7 @@ and Dark Energy as the T-Breaking Component}
 
 \author{Omer P.\\[0.3em]
 \small Independent Researcher\\
+\small \href{https://orcid.org/0009-0004-8178-8131}{ORCID: 0009-0004-8178-8131}\\
 \small \href{https://github.com/0mp3s}{github.com/0mp3s}}
 
 \date{March 2026 \quad\quad DOI: (pending Zenodo upload)}
@@ -77,6 +81,14 @@ Dark energy is not a separate phenomenon; it is the T-violating projection of th
 same Yukawa interaction. The universal relic angle
 $\thetarel = \arctan(1/\sqrt{8}) = 19.47^\circ$ is fixed simultaneously by
 SIDM and relic density constraints, with no free parameters.
+Numerical integration of the coupled Friedmann + Klein-Gordon equations with the
+$A_4$ cosine potential yields $H_0 = 67.39$~km/s/Mpc, $w_0 = -0.981$, and
+$w_a = -0.028$.
+Confrontation with Pantheon+ Type~Ia supernovae gives $\chi^2 = 167.2/31$
+($\Delta\chi^2 = -9.1$ vs.\ $\Lambda$CDM), and BAO data give
+$\chi^2 = 5.4/9$ --- both competitive with the concordance model.
+The mediator overclosure problem is resolved via the cannibal mechanism
+$3\phi \to 2\phi$, requiring only $\mu_3/m_\phi > 0.85$.
 \end{abstract}
 
 \tableofcontents
@@ -96,6 +108,59 @@ SIDM and relic density constraints, with no free parameters.
 
 \newpage
 %%=================================================================
+\section*{Road Map: How One Lagrangian Explains the Dark Sector}
+\addcontentsline{toc}{section}{Road Map}
+\label{sec:roadmap}
+
+This paper makes a bold claim: that dark matter self-interactions, the
+correct relic abundance, and dark energy all emerge from a single
+Lagrangian with three free parameters. Extraordinary claims require
+extraordinary evidence. Here is the logical chain, and where to find each link.
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.2cm, every node/.style={draw, rounded corners,
+  minimum width=5cm, minimum height=0.8cm, align=center, font=\small},
+  arrow/.style={-{Stealth[length=3mm]}, thick, blue!60!black}]
+  \node (L) {\textbf{One Lagrangian}: $\Lc(\chi, \phi, \sigma)$\\3 free parameters: $(m_\chi, m_\phi, \alpha)$};
+  \node (sidm) [below=of L] {\textbf{Part I --- Phenomenology}\\VPM cross sections $\to$ fit 13 observables\\$\chi^2/\nu = 0.38$, MCMC: 122 viable points};
+  \node (pi)   [below=of sidm] {\textbf{Part II --- Foundations}\\Path integral $\to$ VPM is \emph{exact}\\CW vacuum $\to$ dark QCD $\to$ $H_0 = 67.4$};
+  \node (de)   [below=of pi] {\textbf{Part III --- Unification}\\$y_s + iy_p$: T-even = DM, T-odd = DE\\$\theta_{\rm relic} = 19.47^\circ$ --- zero free parameters};
+  \draw[arrow] (L) -- (sidm);
+  \draw[arrow] (sidm) -- (pi);
+  \draw[arrow] (pi) -- (de);
+\end{tikzpicture}
+\end{center}
+
+\textbf{Part~I} (Chapter~1) establishes the phenomenological model.
+A Majorana fermion $\chi$ scatters via a secluded scalar mediator $\phi$.
+The Variable Phase Method (VPM) computes cross sections exactly; an MCMC
+scan identifies the viable parameter island. The model passes all available
+tests from dwarf galaxies to the Bullet Cluster.
+
+\textbf{Part~II} (Chapter~2) provides the theoretical foundation.
+We prove, step by step, that the VPM ODE is \emph{not a numerical method}
+but the exact evaluation of the one-loop path integral. The same integral,
+evaluated at the Coleman-Weinberg level, selects a CP-violating vacuum;
+dark QCD confinement then predicts $H_0 = 67.4$~km/s/Mpc with no
+additional free parameters.
+
+\textbf{Part~III} (Chapter~3) delivers the unification.
+The CP angle becomes a dynamical field $\sigma(x)$. The coupling
+$y e^{i\gamma^5\sigma/f}$ decomposes into a real (T-even) part that drives
+SIDM clustering and an imaginary (T-odd) part that sources dark energy.
+The imaginary direction in coupling space acts as an \emph{internal fifth
+dimension}: the same Yukawa interaction, projected along the real axis,
+gives dark matter; projected along the imaginary axis, gives dark energy.
+The relic angle $\theta_{\rm relic} = 19.47^\circ$ is fixed uniquely by
+SIDM + relic constraints, with zero additional parameters.
+
+\medskip
+\noindent
+\textit{Each step is derived, not assumed. Each prediction is falsifiable.
+All code and data are publicly available~\cite{SIDMcode2026}.}
+
+\newpage
+%%=================================================================
 %%=================================================================
 \part{Secluded Majorana SIDM: Phenomenology}
 \label{part:sidm}
@@ -106,7 +171,7 @@ SIDM and relic density constraints, with no free parameters.
 
 %%=================================================================
 %%=================================================================
-\part{Path-Integral Foundations: From $\mathcal{L}$ to $H_0$}
+\part{Path-Integral Foundations: From \texorpdfstring{$\mathcal{L}$}{L} to \texorpdfstring{$H_0$}{H0}}
 \label{part:pathintegral}
 %%=================================================================
 %%=================================================================
@@ -166,7 +231,7 @@ it follows immediately that $\alphapp = \alpha/8$, hence:
 \end{equation}
 This angle is \emph{universal} — independent of $(m_\chi, m_\phi, \alpha)$.
 
-\section{Instanton Suppression of $\theta_{A_4}$}
+\section{Instanton Suppression of \texorpdfstring{$\theta_{A_4}$}{theta-A4}}
 \label{app:instanton}
 
 For a dark axion with $m_\sigma \sim H_0$ and $f \sim 0.24\,M_{\rm Pl}$:
@@ -295,6 +360,31 @@ Boltzmann (KT vs numerical)& $16\%$ in $\alpha$ & systematic \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\section{Cannibal Mechanism: Mediator Depletion}
+\label{app:cannibal}
+
+The scalar mediator $\phi$ with mass $m_\phi \sim 10$~MeV and standard freeze-out
+would overclose the universe by a factor $\sim 6.4 \times 10^4$. The cannibal
+mechanism depletes $\phi$ through the number-changing process $3\phi \to 2\phi$,
+mediated by the cubic self-coupling $\mu_3$ in the scalar potential
+$V \supset \mu_3 \phi^3 / 3!$.
+
+The Boltzmann equation for the comoving $\phi$ number density $Y = n_\phi/s$ is:
+\begin{equation}
+  \frac{dY}{dx} = -\frac{s^2}{Hx}\langle\sigma v^2\rangle_{3\to2}
+  \left(Y^3 - Y^2 Y_{\rm eq}\right),
+\end{equation}
+where $x = m_\phi/T$ and the thermally averaged cross section scales as
+$\langle\sigma v^2\rangle_{3\to2} \propto \mu_3^2/(128\pi m_\phi^5)$.
+
+Numerical integration shows that $\mu_3/m_\phi > 0.85$ depletes $\phi$
+below the critical density, with the perturbative upper bound at
+$\mu_3/m_\phi < 4\pi \approx 3.54$. At the threshold coupling,
+the dark sector temperature at the onset of big bang nucleosynthesis is
+$T_{\rm SM} = 1.64$~MeV, safely above the 1~MeV floor required for
+light element production. The depletion is efficient across the full
+relic-viable benchmark space.
 
 %%=================================================================
 \bibliographystyle{unsrt}

@@ -17,8 +17,8 @@ authors:
   - family-names: P.
     given-names: Omer
     affiliation: "Independent Researcher"
+    orcid: "https://orcid.org/0009-0004-8178-8131"
 date-released: "2026-03-30"
-license: MIT
 keywords:
   - dark matter
   - self-interacting dark matter
