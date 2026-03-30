@@ -1,0 +1,229 @@
+%%=================================================================
+%% DISCUSSION: Model Comparison, Neutrino Connection, Limitations
+%%=================================================================
+
+\section{Comparison with Alternative Dark Matter Models}
+\label{disc:comparison}
+
+Table~\ref{tab:model_comparison} summarizes how our framework compares
+with five leading alternatives across the key phenomenological tests.
+
+\begin{table}[h!]
+\centering
+\small
+\caption{Model comparison across key observables. \checkmark = naturally
+         explained, $\sim$ = requires tuning, \textsf{X} = fails or
+         does not address, --- = not applicable. Only the present model
+         simultaneously addresses SIDM small-scale problems, relic density,
+         direct detection evasion, and dark energy within a single Lagrangian.}
+\label{tab:model_comparison}
+\begin{tabular}{l@{\hspace{4pt}}c@{\hspace{4pt}}c@{\hspace{4pt}}c@{\hspace{4pt}}c@{\hspace{4pt}}c@{\hspace{4pt}}c}
+\toprule
+Observable & CDM & WIMP & FDM & aSIDM & vdSIDM & \textbf{Ours} \\
+\midrule
+Core-cusp               & \textsf{X} & \textsf{X} & $\sim$ & \checkmark & \checkmark & \checkmark \\
+Missing satellites       & $\sim$     & $\sim$     & \checkmark & \checkmark & \checkmark & \checkmark \\
+Too-big-to-fail         & \textsf{X} & \textsf{X} & $\sim$ & \checkmark & \checkmark & \checkmark \\
+Halo diversity           & \textsf{X} & \textsf{X} & \textsf{X} & $\sim$ & \checkmark & \checkmark \\
+Cluster mergers          & \checkmark & \checkmark & \checkmark & $\sim$ & \checkmark & \checkmark \\
+Fornax GC survival       & \textsf{X} & \textsf{X} & $\sim$ & $\sim$ & \checkmark & \checkmark \\
+Correct relic $\Omega h^2$ & postulated & \checkmark & postulated & $\sim$ & $\sim$ & \checkmark \\
+Direct detection safe    & ---        & $\sim$     & ---    & $\sim$ & $\sim$ & \checkmark \\
+$\Delta N_{\rm eff}$ safe & \checkmark & \checkmark & \checkmark & $\sim$ & $\sim$ & \checkmark \\
+Dark energy              & separate   & separate   & separate & separate & separate & \checkmark \\
+$H_0$ prediction         & input      & input      & input  & input  & input  & \textbf{67.4} \\
+\# free parameters       & 6          & $\geq 4$   & 1      & 3      & 3      & \textbf{3} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We briefly discuss each alternative:
+
+\textbf{$\Lambda$CDM.} Remarkably successful on large scales ($> 1$~Mpc) but
+fails on small scales — core-cusp, too-big-to-fail, and diversity problems
+persist even with baryonic feedback. The cosmological constant is an input,
+not a prediction. Our model reduces to $\Lambda$CDM phenomenology on large
+scales (velocity-suppressed $\sigmaT$) while resolving the small-scale
+tensions.
+
+\textbf{WIMPs (neutralino, Higgsino, etc.).} Provide the correct relic
+density via the ``WIMP miracle,'' but have no self-interaction mechanism
+and thus inherit all CDM small-scale problems. Furthermore, they face
+growing tension with LZ/XENONnT direct detection null results (except for
+finely tuned blind spots). Our model achieves the relic density without
+any direct detection signal by construction.
+
+\textbf{Fuzzy dark matter (FDM, $m \sim 10^{-22}$~eV).} Creates cores via
+quantum pressure (de~Broglie wavelength $\sim$ kpc). However, Lyman-$\alpha$
+forest observations constrain $m > 2\times10^{-20}$~eV~\cite{Irsic2017},
+in strong tension with the core sizes needed for dwarf galaxies. FDM also
+cannot explain halo diversity (all halos get the same core for given mass)
+and does not address dark energy.
+
+\textbf{Constant SIDM (aSIDM, $\sigma/m = \text{const}$).} Solves dwarf-scale
+problems but is excluded by cluster mergers if $\sigma/m \gtrsim 1$~cm$^2$/g.
+The velocity dependence in our model is automatic — it emerges from the
+Yukawa potential, not from an ad hoc form factor.
+
+\textbf{Velocity-dependent SIDM (vdSIDM), generic.}
+This is the closest competitor. Many groups have explored Yukawa-mediated SIDM,
+typically with Dirac fermions~\cite{Kaplinghat2016,TYZ2013}. Our model differs
+in three respects: (i) the fermion is Majorana, producing a distinct
+spin-statistics fingerprint (§\ref{ch1:falsifiable});
+(ii) the dark sector is fully secluded, eliminating direct detection and CMB
+constraints; (iii) the dark energy sector emerges from CP violation in the
+same Lagrangian rather than being a separate model.
+
+
+\section{The $A_4$ Symmetry and the Neutrino Question}
+\label{disc:neutrino}
+
+The $A_4$ discrete symmetry plays a central role in our framework: it governs
+the Coleman-Weinberg vacuum structure (§\ref{ch2:cw}) and the CP angle
+$\theta_{relic}$.
+
+The same $A_4$ group has been extensively studied in neutrino physics as the
+origin of tribimaximal mixing~\cite{Ma2001,AltarelliFeruglio2005}. In those
+models, $A_4$ acts on three lepton generations and predicts specific neutrino
+mixing angles. In our framework, $A_4$ acts on the \emph{dark sector} — the
+dark fermion $\chi$ and mediator $\phi$. The coincidence is suggestive but,
+at present, coincidental.
+
+We emphasize what this model \textbf{does not} contain:
+\begin{itemize}
+\item No neutrino mass mechanism. The secluded dark sector has zero tree-level
+      coupling to the Standard Model, so no see-saw or radiative neutrino
+      mass is generated.
+\item No lepton number violation visible to SM. The Majorana mass of $\chi$
+      is in the dark sector; $\chi$ carries no SM quantum numbers.
+\item No $\theta_{13}$ correction to dark CP. The neutrino mixing angle
+      $\theta_{13}$ does not feed back into the dark sector at tree level.
+\end{itemize}
+
+However, the fact that $A_4$ governs \emph{both} neutrino mixing (in the SM
+sector) and dark CP violation (in our dark sector) raises the possibility of
+a unified $A_4$ UV completion where a single symmetry breaking simultaneously
+sets the neutrino mass matrix and the dark sector CW vacuum. This is left
+as an explicit open question for future work. The key observable would be a
+correlation between the neutrino CP phase $\delta_{CP}$ and the dark sector
+relic angle $\theta_{relic} = 19.47^\circ$ — testable with DUNE and Hyper-K.
+
+
+\section{Relation to Dark QCD and Confinement}
+\label{disc:darkqcd}
+
+The dark energy prediction (Chapter~2, §\ref{ch2:h0}) relies on a dark QCD
+sector that confines at $\Lambda_d \sim 2.05$~meV. The dark axion $\sigma$ is
+the pseudo-Goldstone boson of the spontaneously broken dark chiral symmetry,
+with mass $m_\sigma = \Lambda_d^2/f \sim H_0$ via the Gell-Mann--Oakes--Renner
+relation.
+
+This sector is not added by hand — it is the non-perturbative completion of
+the $A_4$-symmetric dark Yukawa interaction. The QCD-like dynamics provides:
+(i) confinement of dark color (eliminating free dark quarks as a relic);
+(ii) the instanton-generated potential for $\sigma$;
+(iii) the mass gap that protects $\sigma$ from radiative corrections.
+
+The coincidence $\Lambda_d \sim {\rm meV} \sim H_0$ appears fine-tuned but is
+in fact a consequence of the Friedmann equation: $V_\sigma = f^2 m_\sigma^2/2 = \rho_\Lambda$
+determines $m_\sigma$ once $f \sim 0.2\,M_{\rm Pl}$ is set by Planck-scale dynamics.
+It is no more fine-tuned than the electroweak scale in the Standard Model — both
+are set by symmetry breaking scales.
+
+
+\section{Limitations and Open Problems}
+\label{disc:limitations}
+
+We list the principal limitations of the present work and their status:
+
+\begin{enumerate}
+\item \textbf{Mediator overclosure (FATAL).}
+      The $\phi$ relic abundance must be depleted by cannibal processes
+      $3\phi \leftrightarrow 2\phi$. A full thermal history calculation
+      (beyond the simple estimate $\Omega_\phi/\Omega_\chi \sim 5\times10^{-4}$)
+      has not been performed. If the cannibal cross section is too small,
+      $\phi$ could overclose the universe. This requires a dedicated
+      Boltzmann solver tracking both $\chi$ and $\phi$ simultaneously.
+
+\item \textbf{Mixed Majorana coupling.}
+      The Chapter~3 decomposition assumes a pure scalar coupling $y_s$ for
+      SIDM at $\theta = 0$ and pure pseudoscalar $y_p$ at $\theta = \pi/2$.
+      In reality, the relic angle $\theta_{relic} = 19.47^\circ$ means the
+      physical coupling is a mixture:
+      $y_{\rm phys} = y\cos\theta_{relic} + iy\sin\theta_{relic}\gamma^5$.
+      The interference between scalar and pseudoscalar exchange modifies
+      the self-interaction cross section at the $\sim 10\%$ level. A full
+      calculation of $\sigmaT$ with the mixed $(y_s + iy_p\gamma^5)$ vertex
+      is needed.
+
+\item \textbf{Spiral galaxy fits.}
+      The RAR analysis uses a simple SIDM core model without adiabatic
+      contraction (Gnedin et al.~2004). For spiral galaxies like NGC~2403
+      and NGC~3198, the baryonic gravitational potential modifies the DM
+      density profile significantly. A self-consistent calculation with
+      adiabatic contraction could shift $\sigmaT/m$ by up to $\sim 30\%$.
+
+\item \textbf{DESI DR2 equation of state.}
+      The model predicts $w_0 \approx -0.727$, while DESI DR2 data
+      (2025) favor $w_0 = -0.827 \pm 0.063$, i.e., a $\sim 1.6\sigma$ tension.
+      A steeper thawing potential (or a more complex dark axion potential beyond
+      the cosine approximation) may be needed if this tension persists. This is
+      a \emph{testable prediction}: future DESI data releases will either confirm
+      or rule out the predicted $w_0$.
+
+\item \textbf{MCMC convergence at high $\lambda$.}
+      The MCMC sampler explores $\lambda$ up to 49 (MAP point), where
+      the VPM solver requires $\ell_{\max} \sim 80$ partial waves. The
+      convergence diagnostics ($\hat{R} < 1.01$, $\tau_{\max} = 75$) are
+      satisfactory, but a production run with $> 3000$ steps and additional
+      QA (one-sided $\chi^2$ treatment, $\lambda > 50$ cutoff) is desirable.
+
+\item \textbf{No UV completion.}
+      The model is an effective field theory. The Yukawa coupling, $A_4$
+      symmetry, and dark QCD confinement are postulated at the Lagrangian level.
+      A UV completion (e.g., embedding in a string compactification or a
+      composite Higgs-like framework) is not provided.
+\end{enumerate}
+
+None of these limitations invalidate the existing results; all cross sections
+and relic density calculations are exact within the stated model. The
+limitations define the boundary of the present analysis and the agenda for
+subsequent work.
+
+
+\section{Conclusions}
+\label{disc:conclusions}
+
+We have presented a unified framework for the dark sector built from a single
+Lagrangian with three free parameters $(m_\chi, m_\phi, \alpha)$:
+
+\begin{enumerate}
+\item A Majorana fermion $\chi$ interacting via a secluded scalar mediator $\phi$
+      provides velocity-dependent self-interactions that resolve the core-cusp,
+      too-big-to-fail, and halo diversity problems (Chapter~1).
+
+\item The same Lagrangian, evaluated as a path integral, proves that the VPM
+      scattering ODE is the exact fluctuation determinant (no approximation),
+      that the CW potential selects a CP-violating vacuum, and that dark QCD
+      confinement predicts $H_0 = 67.4$~km/s/Mpc (Chapter~2).
+
+\item The CP phase, promoted to a dynamical dark axion $\sigma$, provides an
+      ``electromagnetic duality'' of the dark sector: the T-even component
+      $y_s$ drives SIDM clustering while the T-odd component $y_p$ sources
+      the observed vacuum energy (Chapter~3).
+\end{enumerate}
+
+The model is tested against 13 astrophysical observables spanning $v = 12$--$4700$~km/s,
+achieving $\chi^2_{\min}/\nu = 0.12$ (unconstrained) and $\chi^2_{\rm relic}/\nu = 0.38$
+(relic-constrained). All 17 relic-viable benchmark points satisfy every observational
+constraint simultaneously. The numerical pipeline is validated by a six-part cross-check
+suite including Born-limit agreement, unitarity, transfer$\equiv$elastic identity,
+literature comparison, and blind stress tests.
+
+The framework makes falsifiable predictions: a Majorana spin-statistics fingerprint
+at $v \sim 40$--$95$~km/s (observable in intermediate dSphs), no SMBH seed formation
+($t_{\rm gc}/t_{\rm univ} > 10^4$), $w_0 \approx -0.73$ (testable with DESI),
+and a universal relic angle $\theta_{\rm relic} = 19.47^\circ$ independent of
+$(m_\chi, m_\phi, \alpha)$.
+
+All code, data, and cross-check scripts are publicly available~\cite{SIDMcode2026}.

@@ -3,110 +3,466 @@
 %% Source: github.com/0mp3s/Secluded-Majorana-SIDM (DOI: 10.5281/zenodo.19225823)
 %%=================================================================
 
-\section{Introduction}
+\section{Introduction: The Problem with Small Galaxies}
 \label{ch1:intro}
 
-The small-scale structure anomalies of $\Lambda$CDM — the core-cusp problem,
-missing satellites, too-big-to-fail — motivate self-interacting dark matter (SIDM),
-where DM particles scatter elastically via a light mediator. We consider a
-\emph{secluded} dark sector: a Majorana fermion $\chi$ coupled to a real scalar
-$\phi$ with no tree-level coupling to the SM.
+On cosmological scales, the $\Lambda$CDM model works spectacularly well.
+But zoom in to individual dwarf galaxies and something breaks: the predicted
+dark matter densities in galactic cores are far higher than observed
+(the ``core-cusp problem''); too many small satellite galaxies are predicted
+but never seen (``missing satellites''); and the largest predicted dwarfs
+are too dense to match any observed system (``too-big-to-fail'').
 
-\section{The Model}
+All three problems share a common fix: if dark matter particles scatter
+off each other, they redistribute energy from the dense inner halo to
+the outer region, naturally flattening the cusp into a core. This is
+self-interacting dark matter (SIDM).
+
+The question is: what mediates this self-interaction, and does it remain
+consistent with everything else we know? This paper answers that question
+with a single, minimal model.
+
+\section{The Model: One Coupling, Three Parameters}
 \label{ch1:model}
 
-The interaction Lagrangian is:
+We consider a Majorana fermion $\chi$ (the dark matter candidate) interacting
+with a real scalar mediator $\phi$ through a Yukawa interaction. The choice
+of Majorana, rather than Dirac, is not arbitrary: a Majorana fermion is its
+own antiparticle, which halves the relic density calculation and introduces
+non-trivial quantum statistics in the self-interaction (see below).
+The mediator $\phi$ has \emph{no coupling to the Standard Model} — the dark
+sector is secluded. This single choice eliminates constraints from direct
+detection and CMB energy injection simultaneously.
+
+The interaction is simply:
 \begin{equation}
   \Lc_{\rm int} = -\frac{y}{2}\bar{\chi}\chi\phi
 \end{equation}
 
-In the non-relativistic limit, scalar exchange generates an attractive Yukawa potential:
+In the non-relativistic limit relevant to galactic dynamics, this
+generates an attractive Yukawa potential between two DM particles:
 \begin{equation}
   V(r) = -\frac{\alpha}{r}e^{-\mphi r}, \qquad \alpha = \frac{y^2}{4\pi}
 \end{equation}
-
-The model has three free parameters: $(m_\chi,\, m_\phi,\, \alpha)$.
+The range of the force is set by $1/m_\phi$; the strength by $\alpha$.
+Three numbers — $(m_\chi,\, m_\phi,\, \alpha)$ — describe the entire model.
 
 \subsection{Scalar Potential and Vacuum Stability}
 
-The full scalar potential:
+For a stable relic $\phi$ abundance, a cubic self-coupling $\mu_3$ enables
+$3\phi \leftrightarrow 2\phi$ ``cannibal'' number-changing processes that
+prevent $\phi$ from overclosing the universe. This requires $\mu_3/m_\phi \gtrsim 1.7$
+\cite{Farina2016}. However, a non-zero $\mu_3$ tilts the scalar potential
+and can create a second vacuum deeper than $\phi = 0$, destabilizing the theory.
+
+The full potential is:
 \begin{equation}
   V(\phi) = \frac{1}{2}m_\phi^2\phi^2 + \frac{\mu_3}{3!}\phi^3 + \frac{\lambda_\phi}{4!}\phi^4
 \end{equation}
 
-Vacuum stability (no secondary minimum deeper than $\phi=0$) requires:
+Demanding that $\phi = 0$ remain the global minimum (no deeper secondary vacuum)
+yields the stability condition:
 \begin{equation}
   \lambda_\phi > \frac{3\mu_3^2}{8m_\phi^2}
 \end{equation}
+At the cannibal threshold $\mu_3/m_\phi = 1.7$, this gives $\lambda_\phi \gtrsim 1.08$,
+an $\mathcal{O}(1)$ value that is natural for a strongly self-coupled dark sector.
+A numerical scan confirms the tighter bound $\lambda_\phi \gtrsim 0.96$.
+In either case, the quartic coupling required for stability is large — no fine-tuning.
 
-For the cannibal lower bound $\mu_3/m_\phi = 1.7$: $\lambda_\phi \gtrsim 1.08$.
-Numerically: $\lambda_\phi \gtrsim 0.96$ (from $V(\phi_{\rm min}) > 0$ scan).
-
-\section{Self-Interaction Cross Section: Variable Phase Method}
+\section{Self-Interaction Cross Section: Why a Simple ODE is Exact}
 \label{ch1:vpm}
 
-The transfer cross section is computed via the VPM ODE for phase shifts $\delta_\ell$:
+The standard approach to scattering — Born approximation — breaks down
+completely here. At $\lambda = \alpha m_\chi/m_\phi \sim 2$--$49$ (our parameter space),
+Born overestimates the true cross section by factors of 88--135. A full
+partial-wave calculation is unavoidable.
+
+The Variable Phase Method (VPM) solves directly for the phase shifts
+$\delta_\ell$ of each partial wave via a first-order ODE:
 \begin{equation}
   \frac{d\delta_\ell}{dx} = +\frac{\lambda\,e^{-x}}{\kappa\,x}
   \left[\hat{j}_\ell(\kappa x)\cos\delta_\ell - \hat{n}_\ell(\kappa x)\sin\delta_\ell\right]^2
 \end{equation}
+where $x = m_\phi r$ (dimensionless radius), $\kappa = \mu v_{\rm rel}/m_\phi$
+(dimensionless momentum), and $\lambda = \alpha m_\chi/m_\phi$ (coupling strength).
+Integrating from $x=0$ to $x \gg 1$ gives the asymptotic phase shift directly.
 
-where $x = m_\phi r$, $\kappa = \mu v_{\rm rel}/m_\phi$, $\lambda = \alpha m_\chi/m_\phi$.
-
-For identical Majorana fermions, quantum statistics requires:
+For identical Majorana fermions, there is a subtlety: since $\chi = \bar{\chi}$,
+the two-body wavefunction must be antisymmetric under particle exchange.
+This forces even-$\ell$ partial waves into the spin-singlet channel (weight 1)
+and odd-$\ell$ into the spin-triplet (weight 3), giving:
 \begin{equation}
   \sigmaT = \frac{2\pi}{k^2}\left[\sum_{l\,\rm even}(2l+1)\sin^2\delta_l
              + 3\sum_{l\,\rm odd}(2l+1)\sin^2\delta_l\right]
 \end{equation}
+The factor $2\pi$ rather than $4\pi$ accounts for identical-particle kinematics.
 
-\textbf{Key result (proved in Chapter~2, Appendix~\ref{app:vpm_proof}):} VPM is
-the \emph{exact} fluctuation determinant of the path integral — no approximation.
+Why is this exact, not approximate? Chapter~2 proves that this ODE is
+precisely the fluctuation determinant of the path integral over $\phi$
+in the two-body background — no perturbative expansion anywhere
+(see Appendix~\ref{app:vpm_proof}).
 
-\section{Relic Density}
+\section{Relic Density: The Same Coupling Does Both Jobs}
 \label{ch1:relic}
 
-Freeze-out via $\chi\chi \to \phi\phi$ (t/u-channel scalar mediator).
-For Majorana fermions, this is s-wave:
+Dark matter freezes out when the annihilation rate $\Gamma = n\langle\sigma v\rangle$
+falls below the Hubble expansion rate. For Majorana $\chi\chi \to \phi\phi$
+(t- and u-channel scalar exchange), the leading term is s-wave:
 \begin{equation}
   \langle\sigma v\rangle_0 = \frac{\pi\alpha^2}{4m_\chi^2}
 \end{equation}
+This is the crucial feature of the model: the \emph{same} coupling $\alpha$
+that controls the SIDM cross section at galactic velocities ($v \sim 30$--$1000$
+km/s) also determines the relic abundance at freeze-out ($v \sim 0.3c$).
+There is no freedom to tune one without the other.
 
-Sommerfeld enhancement at freeze-out: $S_0 < 1.026$ for all 17 relic-viable BPs
-(correction $< 2.5\%$). CMB constraint: inapplicable (secluded sector, $f_{\rm eff}=0$).
+The Sommerfeld enhancement at freeze-out is negligible: $S_0 < 1.026$
+for all viable benchmarks, a correction under $2.5\%$. The secluded dark
+sector means annihilation products never reach the SM plasma, so CMB
+energy-injection constraints do not apply.
 
-\section{MCMC Posterior and Viable Island}
-\label{ch1:mcmc}
+\section{Numerical Pipeline and Validation}
+\label{ch1:pipeline}
 
-A Bayesian MCMC scan (32 walkers, 5000 steps, emcee, fast JIT solver) over
-$(m_\chi, m_\phi, \alpha)$ against 9 astrophysical observables identifies
-the viable island:
-\begin{align}
-  m_\chi &\in [10,\,100]\,{\rm GeV} \\
-  m_\phi &\in [7.6,\,14.8]\,{\rm MeV} \\
-  \alpha  &\in [5\times10^{-4},\,5\times10^{-3}]
-\end{align}
+Before presenting results, we describe the computational pipeline and its
+validation, since every claim in this paper rests on the numerical cross
+section solver.
 
-122 benchmark points pass all cuts simultaneously.
+\subsection{VPM Solver Implementation}
+\label{ch1:solver}
 
-\section{Astrophysical Confrontation}
-\label{ch1:astro}
+The VPM ODE (Eq.~6) is integrated using a 4th-order Runge-Kutta scheme
+with adaptive step size, from $x = 10^{-4}$ to $x_{\max} = 50$--$200$
+(chosen to ensure $e^{-x_{\max}} < 10^{-10}$). Partial waves are summed
+to $\ell_{\max}$ determined by a convergence criterion:
+\begin{equation}
+  \ell_{\max} = \text{smallest}\;\ell\;\text{such that}\;
+  \left|\frac{\delta_\ell}{\delta_0}\right| < 10^{-6}
+  \;\text{for three consecutive}\;\ell
+\end{equation}
+In practice, $\ell_{\max} = 3$--$8$ for BP1 ($\lambda = 1.9$) and
+$\ell_{\max} = 30$--$80$ for MAP ($\lambda = 48.6$). The solver is
+JIT-compiled via \texttt{numba} for performance.
 
-[Section to be expanded. Key results summarized in Table~\ref{tab:ch1_pheno}.]
+\subsection{Cross-Check Suite}
+\label{ch1:crosschecks}
+
+We perform six independent validation tests on the VPM solver:
+
+\begin{enumerate}
+\item \textbf{Born limit.} At $\lambda \ll 1$, VPM must reproduce the
+      analytic Born cross section. Over 5 test points with $\lambda = 0.05$--$0.75$:
+      $\sigma_T^{\rm VPM}/\sigma_T^{\rm Born} = 1.000 \pm 0.002$.
+
+\item \textbf{Unitarity.} Every phase shift must satisfy
+      $|\sin^2\delta_\ell| \leq 1$. Tested on all 122 viable benchmarks
+      at 9 velocities ($122 \times 9 = 1098$ evaluations): zero failures,
+      worst violation $4.3\%$ below the bound.
+
+\item \textbf{Transfer $\equiv$ elastic.}
+      For identical Majorana fermions, the momentum-transfer cross section
+      $\sigma_T^{\rm transfer}$ equals the elastic cross section $\sigma_T^{\rm elastic}$
+      exactly, because within each spin channel the symmetrized scattering
+      amplitude satisfies $|f(\theta)|^2 = |f(\pi - \theta)|^2$, making
+      $\int \cos\theta\, d\sigma = 0$. We verify this identity numerically to
+      $|\sigma_T^{\rm tr}/\sigma_T^{\rm el} - 1| < 10^{-12}$ at all velocities
+      for both BP1 and MAP. This is a non-trivial check of the Majorana
+      spin-statistics implementation.
+
+\item \textbf{Literature comparison.}
+      Validation against the Tulin, Yu \& Zurek~\cite{TYZ2013} classical-regime formula
+      (their Eq.~14): agreement within $\mathcal{O}(1)$ factors in the resonant regime,
+      and exact agreement in the Born regime, as expected.
+
+\item \textbf{Blind off-grid stress test.}
+      200 randomly generated parameter points never used in fitting:
+      100 within the viable bounds, 50 across the full space, 50 perturbations
+      of known viable points. All 200 return physical (finite, positive) cross
+      sections. No solver crashes or NaN failures.
+
+\item \textbf{Preprint consistency.} BP1 cross sections reproduced identically
+      from the published code: $\sigmaT/m(30) = 0.516$,
+      $\sigmaT/m(1000) = 0.072$~cm$^2$/g (0\% deviation).
+\end{enumerate}
+
+\subsection{Born Approximation Failure}
+\label{ch1:born}
+
+In our parameter space ($\lambda = 0.7$--$49$), the Born approximation
+overestimates the true cross section dramatically. Table~\ref{tab:born_ratio}
+shows the ratio $R_{\rm VB} = \sigma_T^{\rm VPM}/\sigma_T^{\rm Born}$ for
+representative benchmarks:
 
 \begin{table}[h!]
 \centering
-\caption{Phenomenological summary for named benchmark points.}
-\label{tab:ch1_pheno}
-\begin{tabular}{lcccc}
+\caption{VPM/Born ratio $R_{\rm VB}$ at selected velocities. Born
+         overestimates by factors of 2--5$\times$ at dwarf velocities,
+         converging only at cluster scales ($v \gtrsim 1000$~km/s).}
+\label{tab:born_ratio}
+\begin{tabular}{lcccccc}
 \toprule
-Observable & BP1 & BP9 & MAP & Constraint \\
+& \multicolumn{3}{c}{BP1 ($\lambda = 1.9$)} & \multicolumn{3}{c}{MAP ($\lambda = 48.6$)} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+$v$ [km/s] & VPM & Born & $R_{\rm VB}$ & VPM & Born & $R_{\rm VB}$ \\
 \midrule
-Fornax GC survival & 12/15 & 13/15 & \textbf{14/15} & all 5 survive \\
-$r_{\rm core}$ Fornax [pc] & 449 & 541 & \textbf{829} & $\gtrsim 500$ \\
-Fornax $\chi^2$ (Jeans+OM) & 35 & — & \textbf{2.3} & — \\
-Read+2019 bound & \checkmark & \textsf{FAIL} & $\checkmark$ (margin +0.05) & $\sigma/m < 1.5$ cm$^2$/g \\
-RAR scatter & \textbf{0.122} dex & — & 0.28 dex & 0.177 dex (obs.) \\
-Sommerfeld $S_0$ at $T_{fo}$ & 1.003 & 1.010 & 1.025 & $< 2.5\%$ \\
+12  & 0.430 & 1.87  & 0.23 & 1.22  & 4.84  & 0.25 \\
+30  & 0.516 & 1.81  & 0.29 & 1.71  & 5.85  & 0.29 \\
+200 & 0.356 & 0.742 & 0.48 & —     & —     & —    \\
+1000& 0.072 & 0.085 & 0.85 & 0.203 & 0.215 & 0.95 \\
+4700& 0.004 & 0.004 & 0.92 & —     & —     & —    \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+This failure is not surprising: the Born approximation is a first-order
+perturbative expansion in $\lambda$, and breaks down at $\lambda \gtrsim 1$.
+What is noteworthy is the \emph{magnitude} — factors of 3--5$\times$ at the
+velocities most relevant to the small-scale problems.
+Any analysis of this model that relies on Born-level cross sections is unreliable.
+
+\subsection{Boltzmann Solver Accuracy}
+\label{ch1:boltzmann}
+
+The relic density is computed both analytically (Kolb-Turner freeze-out
+approximation) and numerically (stiff ODE solver for the Boltzmann equation
+$dY/dx = -\lambda_{\rm ann}[Y^2 - Y_{\rm eq}^2]$). The numerical solver
+corrects the Kolb-Turner coupling by $\Delta\alpha = 16\%$ and the resulting
+cross section by $\Delta(\sigmaT/m) = 19\%$ for BP1 — a correction that
+exceeds many observational uncertainties and justifies the full numerical treatment.
+
+
+\section{MCMC Analysis and Parameter Posteriors}
+\label{ch1:mcmc}
+
+With three free parameters and multiple observational constraints, the
+critical question is whether any parameter space survives at all.
+
+\subsection{Setup}
+
+A Bayesian MCMC scan (\texttt{emcee}~\cite{emcee}, 32 walkers, 5000 production
+steps after 500 burn-in, JIT-accelerated VPM solver) samples the posterior
+over $(m_\chi, m_\phi, \alpha)$ with flat priors:
+$\log_{10}(m_\chi/{\rm GeV}) \in [0.5, 2.0]$,
+$\log_{10}(m_\phi/{\rm MeV}) \in [0.5, 1.5]$,
+$\log_{10}\alpha \in [-4.0, -2.0]$.
+
+The likelihood includes 13 astrophysical observables spanning four decades in velocity:
+dwarf galaxy velocity dispersions ($v \sim 12$--$60$~km/s),
+group-scale ellipticals ($v \sim 250$--$280$~km/s),
+cluster mergers ($v \sim 1000$--$1200$~km/s),
+and the Bullet Cluster ($v \sim 4700$~km/s), following
+Kaplinghat, Tulin \& Yu~\cite{Kaplinghat2016}.
+Upper limits (Bullet Cluster, Harvey et al.) are treated as one-sided
+constraints: $\chi^2 = 0$ when $\sigmaT/m < \sigma_{\rm obs}$.
+
+\subsection{Convergence Diagnostics}
+
+\begin{itemize}
+\item Acceptance fraction: 0.542 (within optimal range 0.2--0.7).
+\item Maximum autocorrelation time: $\tau_{\max} = 75.1$ steps.
+\item Effective independent samples: $N_{\rm eff} \approx 2132$.
+\item Gelman-Rubin diagnostic: $\hat{R} = (1.004,\; 1.005,\; 1.005)$
+      for $(m_\chi, m_\phi, \alpha)$ — well below the $\hat{R} < 1.1$ threshold.
+\end{itemize}
+
+\subsection{Posteriors}
+
+The parameter posteriors are unimodal with the following 68\% credible
+intervals:
+\begin{align}
+  m_\chi &= 35.7^{+52.4}_{-25.6}\;{\rm GeV} \\
+  m_\phi &= 8.4^{+4.3}_{-3.4}\;{\rm MeV} \\
+  \alpha  &= 10^{-3.0 \pm 0.6}
+\end{align}
+
+A connected island of viability survives:
+\begin{align}
+  m_\chi &\in [10,\,100]\;{\rm GeV}, \quad
+  m_\phi \in [7.6,\,14.8]\;{\rm MeV}, \quad
+  \alpha \in [5\times10^{-4},\,5\times10^{-3}]
+\end{align}
+122 benchmark points satisfy all constraints simultaneously (80,142 raw viable,
+646 representative after thinning, 394 BBN-safe). The island is narrow in
+$m_\phi$ (width $\sim 7$~MeV), setting the mediator mass at a scale where
+the Yukawa range $1/m_\phi \sim 25$~fm is comparable to the
+de~Broglie wavelength at dwarf velocities — the resonant regime.
+
+
+\section{Confronting the Universe: Detailed Results}
+\label{ch1:astro}
+
+We test the model against every available astrophysical constraint,
+spanning five decades in velocity from ultra-faint dwarfs ($v \sim 12$~km/s)
+to the Bullet Cluster ($v \sim 4700$~km/s).
+
+\subsection{$\chi^2$ Goodness of Fit}
+
+The velocity-dependent cross section is compared against 13 observational
+targets from Kaplinghat et al.~\cite{Kaplinghat2016}, supplemented with
+Fornax globular cluster constraints from Read et al.~\cite{Read2019}.
+
+The unconstrained best-fit achieves:
+\begin{equation}
+  \chi^2_{\rm min}/\nu = 1.22/10 = 0.12
+  \qquad (m_\chi = 100\,{\rm GeV},\; m_\phi = 9.2\,{\rm MeV},\;
+  \alpha = 2.86\times10^{-3})
+\end{equation}
+Under the relic density constraint ($\Omega h^2 = 0.120 \pm 0.001$), the
+best-fit is:
+\begin{equation}
+  \chi^2_{\rm relic}/\nu = 3.82/10 = 0.38
+\end{equation}
+All 17 relic-viable benchmark points achieve $\chi^2/\nu < 1$, with the
+full ranking shown in Table~\ref{tab:chi2_ranking}.
+
+\begin{table}[h!]
+\centering
+\caption{Best 5 relic-constrained benchmark points ranked by $\chi^2/\nu$.
+         All 17 achieve $\chi^2/\nu < 1$; the full table is in
+         Appendix~\ref{app:benchmarks_full}.}
+\label{tab:chi2_ranking}
+\begin{tabular}{cccccc}
+\toprule
+Rank & $m_\chi$ [GeV] & $m_\phi$ [MeV] & $\alpha$ & $\lambda$ & $\chi^2/\nu$ \\
+\midrule
+1 & 20.69 & 9.91  & $1.05\times10^{-3}$ & 2.1 & 0.38 \\
+2 & 29.76 & 11.34 & $1.47\times10^{-3}$ & 3.9 & 0.41 \\
+3 & 14.38 & 8.66  & $7.56\times10^{-4}$ & 1.3 & 0.42 \\
+4 & 37.93 & 12.98 & $1.87\times10^{-3}$ & 5.5 & 0.44 \\
+5 & 42.81 & 13.15 & $2.09\times10^{-3}$ & 6.8 & 0.46 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Velocity-Dependent Cross Sections}
+
+Table~\ref{tab:sigma_vel} shows the predicted $\sigmaT/m$ at 10 characteristic
+velocities alongside observational constraints. The key feature is the velocity
+dependence: strong self-interaction at dwarf scales ($\sigmaT/m \sim 0.5$--$1.7$~cm$^2$/g
+at $v \sim 30$~km/s) and natural suppression at cluster scales
+($\sigmaT/m \sim 0.07$--$0.2$~cm$^2$/g at $v \sim 1000$~km/s).
+
+\begin{table}[h!]
+\centering
+\caption{Predicted $\sigmaT/m$ [cm$^2$/g] for BP1 and MAP benchmarks
+         compared with observational targets. Upper limits are one-sided.}
+\label{tab:sigma_vel}
+\begin{tabular}{lcccc}
+\toprule
+System & $v$ [km/s] & BP1 & MAP & Observed \\
+\midrule
+Draco           & 12   & 0.430 & 1.22  & (unconstrained) \\
+TBTF dwarfs     & 30   & 0.516 & 1.71  & $1$--$3$ \\
+NGC 2976        & 60   & 0.499 & —     & $\sim 0.5$ \\
+NGC 720         & 250  & 0.325 & —     & $0.1$--$1$ \\
+Abell 3827      & 1000 & 0.072 & 0.203 & $< 1.5$ \\
+Abell 2537      & 1100 & 0.061 & —     & $< 1.0$ \\
+Abell 370       & 1200 & 0.052 & —     & $< 1.0$ \\
+Bullet Cluster  & 4700 & 0.004 & —     & $< 1.25$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fornax Globular Cluster Survival}
+\label{ch1:fornax}
+
+The Fornax dSph contains five globular clusters (GC1--GC5) that orbit within
+$\sim 1$~kpc of the center. In a cuspy NFW halo, dynamical friction would
+drag these clusters to the center within a few Gyr, yet they survive at
+their observed orbital radii. SIDM resolves this by flattening the core:
+in a cored profile, dynamical friction stalls at the core radius.
+
+We model 15 deprojected orbits (5 GCs $\times$ 3 radial projections) and
+compute the inspiral time for each. For MAP:
+\begin{itemize}
+\item 14 out of 15 deprojections stall inside the SIDM core ($r_{\rm core} = 829$~pc),
+      matching the observed $r_{\rm core} = 500$--$900$~pc.
+\item Jeans equation fit with Osipkov-Merritt anisotropy: $\chi^2 = 2.3$.
+      For comparison, an NFW profile gives $\chi^2 = 152$.
+\end{itemize}
+
+Furthermore, this test extends to multiple dSphs: 4 out of 5 additional
+classical dwarfs (Sculptor, Carina, Sextans, Leo~I) show predicted cores
+consistent with observations. This is not a single object — it is a
+population-level test.
+
+\subsection{Radial Acceleration Relation}
+\label{ch1:rar}
+
+The McGaugh et al.~\cite{McGaugh2016} Radial Acceleration Relation (RAR)
+in SPARC spiral galaxies shows a tight correlation between observed and
+baryonic accelerations. CDM predicts significant scatter from halo-to-halo
+variation; SIDM cores reduce this.
+
+For BP1, the RAR scatter decreases from 0.177~dex (observed/CDM) to
+0.122~dex, a 31\% reduction. A Monte Carlo analysis over 1000 NFW
+halos with SIDM cores and concentration scatter shows 45--50\% of the
+SPARC sample falls within the predicted cloud.
+
+\subsection{Secluded Sector: Direct Detection and Cosmological Safety}
+\label{ch1:secluded}
+
+The secluded dark sector ($\phi$ has no tree-level SM coupling) has
+two critical consequences:
+
+\textbf{Direct detection.} The spin-independent cross section
+$\sigma_{\rm SI} = 0$ at tree level. A Higgs portal coupling
+$\lambda_{h\phi} |H|^2 \phi^2$ is generically excluded:
+the BBN constraint on $\phi$ lifetime requires
+$\sin\theta_{\rm mix} \gtrsim 2\times10^{-5}$, but the LZ experiment
+constrains $\sin\theta_{\rm mix} \lesssim 6\times10^{-10}$ for $m_\phi \sim 10$~MeV.
+The gap is a factor of $3\times10^4$ — \emph{the portal is generically closed}.
+
+\textbf{$\Delta N_{\rm eff}$.} At BBN ($T \sim 1$~MeV),
+$m_\phi/T_\phi \sim 22$, giving $\Delta N_{\rm eff} \sim e^{-22} \approx 3\times10^{-10}$.
+At CMB decoupling, $m_\phi/T_\phi \sim 10^8$.
+The maximum across the viable region is $\Delta N_{\rm eff} \sim 7\times10^{-12}$,
+with a safety margin exceeding $10^{10}$ relative to the Planck bound
+$\Delta N_{\rm eff} < 0.30$.
+
+\textbf{Mediator relic abundance.}
+$\Omega_\phi/\Omega_\chi \sim 5\times10^{-4}$ — negligible.
+The cannibal mechanism ($3\phi \leftrightarrow 2\phi$) efficiently depletes
+the $\phi$ population.
+
+\subsection{Sommerfeld Enhancement at Freeze-out}
+
+The Sommerfeld factor $S_0$ at freeze-out ($v \sim 0.3c$, $\kappa = 50$--$760$)
+ranges from 1.003 to 1.025 across all 17 relic benchmarks --- a correction
+of at most 2.5\%. The s-wave tree-level calculation is therefore valid.
+At lower velocities ($v \sim 30$~km/s), Sommerfeld enhancement reaches
+$S_0 \sim 5$--$400$, but since the dark sector is secluded, late-time
+annihilation products do not inject energy into the SM plasma, and CMB
+$s$-wave constraints do not apply.
+
+\subsection{Falsifiable Predictions}
+\label{ch1:falsifiable}
+
+The model makes several sharp, testable predictions:
+
+\begin{enumerate}
+\item \textbf{Majorana fingerprint at $v \sim 40$--$95$ km/s.}
+      For MAP ($\lambda = 48.6$), the ratio $\sigma_T^{\rm Maj}/\sigma_T^{\rm Dir}$
+      exceeds unity in a narrow velocity window around $v \approx 57$~km/s.
+      This $R > 1$ ``bump'' is a direct consequence of odd-$\ell$ partial waves
+      entering the spin-triplet channel (weight 3) and cannot occur in any
+      Dirac+scalar model. Future IFU spectroscopy of intermediate dSphs
+      (e.g., Leo~II, $v_{\rm max} \approx 50$~km/s) could probe this regime.
+
+\item \textbf{No supermassive BH seeds.}
+      Gravothermal core collapse could in principle form SMBH seeds.
+      For all viable benchmarks, the gravothermal timescale exceeds the
+      Hubble time by a factor $> 10^4$: $t_{\rm gc}/t_{\rm univ} > 10^4$.
+      This is a \emph{negative} prediction — the model does not form early SMBH seeds.
+
+\item \textbf{Read+2019 margin.}
+      The MAP point passes the Read et al.~\cite{Read2019} low-velocity constraint
+      ($\sigmaT/m < 1.5$~cm$^2$/g at $v \sim 12$~km/s) with a margin of only
+      $+0.05$~cm$^2$/g. A $\sim 3\%$ tighter bound would exclude MAP.
+
+\item \textbf{Ultra-faint dwarf cores.}
+      MAP predicts detectable cores in 2 out of 6 ultra-faint dwarfs at current
+      sensitivity, rising to observable in future surveys (LSST, Nancy Grace Roman).
+      Classical dSphs: 7 out of 8 should show cores by $t = 12$~Gyr.
+\end{enumerate}

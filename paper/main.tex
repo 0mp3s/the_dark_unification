@@ -123,6 +123,19 @@ SIDM and relic density constraints, with no free parameters.
 \appendix
 %%=================================================================
 
+%%=================================================================
+%% DISCUSSION, COMPARISON & LIMITATIONS
+%%=================================================================
+
+\part*{Discussion}
+\addcontentsline{toc}{part}{Discussion}
+
+\input{discussion_body}
+
+%%=================================================================
+%% APPENDICES
+%%=================================================================
+
 \section{VPM as Fluctuation Determinant: Proof}
 \label{app:vpm_proof}
 
@@ -162,19 +175,120 @@ For a dark axion with $m_\sigma \sim H_0$ and $f \sim 0.24\,M_{\rm Pl}$:
 The $A_4$ vacuum is stable to tunneling on timescales
 $10^{121} \times t_{\rm Hubble}$ — effectively eternal.
 
-\section{Benchmark Points}
-\label{app:benchmarks}
+\section{Full Benchmark Table}
+\label{app:benchmarks_full}
+
+Table~\ref{tab:full_bp} lists the 17 relic-constrained benchmark points
+with $\Omega h^2 = 0.120$ and their cross sections at characteristic velocities.
 
 \begin{table}[h!]
 \centering
-\caption{Named benchmark points from the MCMC posterior (Chapter~1).}
-\begin{tabular}{lcccccc}
+\caption{17 relic-viable benchmark points with cross sections $\sigmaT/m$ in
+cm$^2$/g at $v = 30$ and $1000$~km/s. All satisfy $\chi^2/\nu < 1$ and the
+Bullet Cluster upper limit.}
+\label{tab:full_bp}
+\begin{tabular}{cccccc}
 \toprule
-BP & $m_\chi$ [GeV] & $m_\phi$ [MeV] & $\alpha$ & $\lambda$ & $\Omega h^2$ & Source \\
+$m_\chi$ [GeV] & $m_\phi$ [MeV] & $\alpha$ & $\lambda$ &
+  $\sigmaT/m(30)$ & $\sigmaT/m(1000)$ \\
 \midrule
-BP1  & 20.69 & 11.34 & $1.048\times10^{-3}$ & 1.91 & 0.120 & relic \\
-BP9  & 37.93 & 12.98 & $1.858\times10^{-3}$ & 5.43 & 0.120 & relic \\
-MAP  & 94.07 & 11.10 & $5.734\times10^{-3}$ & 48.6 & 0.076 & MCMC \\
+10.0  & 7.56  & $5.54\times10^{-4}$ & 0.73 & 0.52 & 0.072 \\
+14.4  & 8.66  & $7.56\times10^{-4}$ & 1.26 & 0.73 & 0.080 \\
+20.7  & 9.91  & $1.05\times10^{-3}$ & 2.19 & 0.79 & 0.088 \\
+20.7  & 11.34 & $1.05\times10^{-3}$ & 1.91 & 0.52 & 0.072 \\
+29.8  & 11.34 & $1.47\times10^{-3}$ & 3.86 & 0.75 & 0.090 \\
+37.9  & 12.98 & $1.87\times10^{-3}$ & 5.46 & 0.61 & 0.095 \\
+42.8  & 13.15 & $2.09\times10^{-3}$ & 6.80 & 0.58 & 0.093 \\
+48.3  & 14.85 & $2.36\times10^{-3}$ & 7.67 & 0.50 & 0.089 \\
+54.5  & 13.75 & $2.63\times10^{-3}$ & 10.4 & 0.62 & 0.096 \\
+61.6  & 14.10 & $2.97\times10^{-3}$ & 13.0 & 0.58 & 0.095 \\
+69.5  & 13.62 & $3.35\times10^{-3}$ & 17.1 & 0.64 & 0.097 \\
+78.5  & 12.50 & $3.78\times10^{-3}$ & 23.7 & 0.71 & 0.098 \\
+88.5  & 11.10 & $4.26\times10^{-3}$ & 32.4 & 0.70 & 0.098 \\
+94.1  & 11.10 & $5.73\times10^{-3}$ & 48.6 & — & — \\
+100.0 & 9.15  & $2.86\times10^{-3}$ & 31.2 & 1.33 & 0.153 \\
+100.0 & 10.0  & $3.50\times10^{-3}$ & 35.0 & — & — \\
+100.0 & 12.0  & $4.81\times10^{-3}$ & 40.1 & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Maxwell-Boltzmann Velocity Averaging}
+\label{app:mb_average}
+
+Our fits use the fixed-velocity cross section $\sigmaT(v_0)$ rather than
+the Maxwell-Boltzmann average $\langle\sigmaT\rangle_{\rm MB}$.
+Table~\ref{tab:mb} quantifies the systematic bias
+$\varepsilon(v_0) = \langle\sigmaT/m\rangle_{\rm MB}/[\sigmaT(v_0)/m] - 1$
+for BP1:
+
+\begin{table}[h!]
+\centering
+\caption{Velocity-averaging correction $\varepsilon$ for BP1.
+         The fixed-velocity approximation introduces $< 6\%$ bias at dwarf
+         velocities and $< 15\%$ at cluster scales — small compared to
+         observational uncertainties of $\sim 0.3$--$0.5$~dex.}
+\label{tab:mb}
+\begin{tabular}{lcccc}
+\toprule
+System & $v$ [km/s] & Fixed $\sigmaT/m$ & MB-avg $\langle\sigmaT/m\rangle$ & $\varepsilon$ \\
+\midrule
+Draco      & 12   & 0.430 & 0.449 & $+4\%$ \\
+TBTF       & 30   & 0.516 & 0.506 & $-2\%$ \\
+NGC 2976   & 60   & 0.499 & 0.471 & $-6\%$ \\
+NGC 720    & 250  & 0.325 & 0.282 & $-13\%$ \\
+Abell 2537 & 1100 & 0.061 & 0.052 & $-15\%$ \\
+Bullet     & 4700 & 0.004 & 0.004 & $-2\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All 17 relic benchmarks remain at $\chi^2/\nu < 1$ under MB averaging.
+No viability status changes.
+
+\section{Sommerfeld Enhancement Details}
+\label{app:sommerfeld}
+
+The non-relativistic Sommerfeld factor in the $s$-wave channel is:
+\begin{equation}
+  S_0 = \frac{2\pi\alpha/v}{1 - e^{-2\pi\alpha/v}} \cdot F(\alpha, m_\phi, v)
+\end{equation}
+where $F$ accounts for the finite Yukawa range ($F \to 1$ as $m_\phi \to 0$).
+
+At freeze-out ($v \sim 0.3c$):
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Benchmark & $\kappa_{\rm fo}$ & $S_0$ & $\Delta\Omega h^2/\Omega h^2$ \\
+\midrule
+BP1 ($m_\chi = 20.7$~GeV) & 93  & 1.003 & $0.3\%$ \\
+BP9 ($m_\chi = 37.9$~GeV) & 168 & 1.010 & $1.0\%$ \\
+MAP ($m_\chi = 94.1$~GeV) & 760 & 1.025 & $2.5\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The tree-level Boltzmann calculation is valid for all benchmarks.
+
+\section{Numerical Error Budget}
+\label{app:error_budget}
+
+\begin{table}[h!]
+\centering
+\caption{Systematic error budget for $\sigmaT/m$ at $v = 30$~km/s.}
+\label{tab:error_budget}
+\begin{tabular}{lcc}
+\toprule
+Source & Relative error & Direction \\
+\midrule
+$\ell_{\max}$ truncation   & $< 0.01\%$  & either \\
+Integration step ($h$)     & $< 0.1\%$   & either \\
+$x_{\max}$ boundary        & $< 10^{-6}$ & positive \\
+Born vs VPM (not an error) & 200--400\%  & overestimate \\
+MB averaging vs fixed-$v$  & $2$--$6\%$  & underestimate \\
+Boltzmann (KT vs numerical)& $16\%$ in $\alpha$ & systematic \\
+\midrule
+\textbf{Total numerical}   & $< 0.2\%$   & \\
+\textbf{Total physical}    & $\sim 16\%$ & (Boltzmann) \\
 \bottomrule
 \end{tabular}
 \end{table}
