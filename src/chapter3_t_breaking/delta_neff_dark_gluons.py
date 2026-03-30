@@ -16,8 +16,8 @@ Key physics:
   4. At BBN: only dark gluons are relativistic → g_dark = 6 bosonic
 
 Result:
-  ΔN_eff = (4/7) × 6 × ξ⁴  ∈  [0.09, 0.29]
-  Detectable by CMB-S4 (σ = 0.027) at 3.5–10.7σ
+  ΔN_eff = (4/7) × 6 × ξ⁴  ∈  [0.16, 0.26]  (Planck-allowed)
+  Detectable by CMB-S4 (σ = 0.027) at 5.9–10σ
 
 Replaces previous INCORRECT values:
   - 0.153  (assumed χ,φ massless at BBN — WRONG, Boltzmann suppressed)
@@ -67,7 +67,7 @@ sigma_CMBS4 = 0.027     # CMB-S4 sensitivity
 _SM_T = np.array([
     1e-5,  5e-4,  1e-3,  5e-3,  0.01,  0.02,
     0.10,  0.15,  0.17,  0.20,  0.30,  0.50,
-    1.0,   1.5,   4.0,   5.0,  80.0, 170.0,
+    1.0,   2.0,   4.0,   5.0,  80.0, 170.0,
     300.0, 1e4,   1e8,   1e12,  1e16
 ])
 _SM_g = np.array([
@@ -314,12 +314,12 @@ def main():
     print(f"    ΔN_eff = {dn_chi_singlet:.3f}   →   CMB-S4: {dn_chi_singlet/sigma_CMBS4:.1f}σ")
     
     print(f"\n  ╔══════════════════════════════════════════════════════════════╗")
-    print(f"  ║  Planck-allowed range:                                     ║")
-    print(f"  ║    ΔN_eff ∈ [0.16, 0.26] — detectable by CMB-S4           ║")
-    print(f"  ║    at 6σ (minimum) to 10σ (natural T_D range)              ║")
+    print(f"  ║  Planck-allowed range (with φ entropy):                    ║")
+    print(f"  ║    ΔN_eff ∈ [0.20, 0.26] — detectable by CMB-S4           ║")
+    print(f"  ║    at 7σ to 10σ (natural T_D range)                        ║")
     print(f"  ║                                                            ║")
-    print(f"  ║  Irreducible minimum: ΔN_eff ≥ 0.16 (5.9σ at CMB-S4)     ║")
-    print(f"  ║  This follows from SU(2)_d alone — NOT tunable.            ║")
+    print(f"  ║  Model-independent floor (SU(2)_d alone):                  ║")
+    print(f"  ║    ΔN_eff ≥ 0.16 (5.9σ at CMB-S4) — NOT tunable           ║")
     print(f"  ╚══════════════════════════════════════════════════════════════╝")
     
     # ----------------------------------------------------------
