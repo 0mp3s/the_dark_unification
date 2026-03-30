@@ -23,52 +23,52 @@
 \contentsline {subsection}{\numberline {7.6}Sommerfeld Enhancement at Freeze-out}{19}{subsection.71}%
 \contentsline {subsection}{\numberline {7.7}Falsifiable Predictions}{20}{subsection.74}%
 \contentsline {part}{II\hspace {1em}Path-Integral Foundations: From $\mathcal {L}$ to $H_0$}{21}{part.81}%
-\contentsline {section}{\numberline {8}The Central Question}{21}{section.82}%
-\contentsline {section}{\numberline {9}Layer 1: What Carries the Force?}{21}{section.85}%
-\contentsline {section}{\numberline {10}Layer 2: Tree-Level Yukawa Potential}{22}{section.89}%
-\contentsline {section}{\numberline {11}Layer 3: VPM is the Exact Path Integral}{22}{section.91}%
-\contentsline {subsection}{\numberline {11.1}Setup: the scattering path integral}{22}{subsection.92}%
+\contentsline {section}{\numberline {8}The Central Question}{22}{section.82}%
+\contentsline {section}{\numberline {9}Layer 1: What Carries the Force?}{22}{section.85}%
+\contentsline {section}{\numberline {10}Layer 2: Tree-Level Yukawa Potential}{23}{section.89}%
+\contentsline {section}{\numberline {11}Layer 3: VPM is the Exact Path Integral}{23}{section.91}%
+\contentsline {subsection}{\numberline {11.1}Setup: the scattering path integral}{23}{subsection.92}%
 \contentsline {subsection}{\numberline {11.2}Evaluating the determinant}{23}{subsection.95}%
-\contentsline {subsection}{\numberline {11.3}From determinant to cross section}{23}{subsection.99}%
-\contentsline {subsection}{\numberline {11.4}Why this is exact}{23}{subsection.101}%
-\contentsline {section}{\numberline {12}Layer 4: Does the Vacuum Prefer CP Violation?}{24}{section.105}%
-\contentsline {section}{\numberline {13}Layer 5: Is the Vacuum Stable at Freeze-out?}{24}{section.109}%
-\contentsline {section}{\numberline {14}Layer 6: Can the Vacuum Tunnel Away?}{25}{section.111}%
-\contentsline {section}{\numberline {15}Layer 7: Relic Density as a Path-Integral Output}{25}{section.113}%
-\contentsline {section}{\numberline {16}The Hubble Constant from Dark QCD}{25}{section.115}%
-\contentsline {part}{III\hspace {1em}Dark Electromagnetic Duality: Dark Energy as T-Breaking}{26}{part.120}%
-\contentsline {section}{\numberline {17}The Central Analogy}{26}{section.121}%
-\contentsline {subsection}{\numberline {17.1}The Mathematical Structure}{26}{subsection.124}%
-\contentsline {subsection}{\numberline {17.2}The Imaginary Axis as an Internal Fifth Dimension}{27}{subsection.126}%
-\contentsline {section}{\numberline {18}The Extended Lagrangian}{28}{section.129}%
-\contentsline {section}{\numberline {19}The Universal Relic Angle}{28}{section.132}%
-\contentsline {subsection}{\numberline {19.1}Geometric Interpretation}{29}{subsection.136}%
-\contentsline {section}{\numberline {20}Scale of the Dark Energy Potential}{29}{section.137}%
-\contentsline {section}{\numberline {21}Fifth Force and Screening}{30}{section.141}%
-\contentsline {section}{\numberline {22}Observational Signatures}{30}{section.143}%
-\contentsline {subsection}{\numberline {22.1}Dark Energy Equation of State}{30}{subsection.144}%
-\contentsline {subsection}{\numberline {22.2}Additional Signatures}{31}{subsection.148}%
-\contentsline {section}{\numberline {23}Numerical Background Cosmology}{31}{section.153}%
-\contentsline {subsection}{\numberline {23.1}Friedmann + Klein-Gordon Solver}{31}{subsection.154}%
-\contentsline {subsection}{\numberline {23.2}Best-Fit Cosmological Parameters}{31}{subsection.159}%
-\contentsline {subsection}{\numberline {23.3}Confrontation with Pantheon+ Type~Ia Supernovae}{32}{subsection.161}%
-\contentsline {subsection}{\numberline {23.4}Confrontation with BAO Data}{32}{subsection.163}%
-\contentsline {subsection}{\numberline {23.5}Mediator Overclosure Resolution}{33}{subsection.169}%
-\contentsline {subsection}{\numberline {23.6}$V_{\rm eff}$ Minimum at the $A_4$ Relic Angle}{34}{subsection.171}%
-\contentsline {section}{\numberline {24}Summary: From SIDM to Dark Energy in One Lagrangian}{34}{section.172}%
-\contentsline {subsection}{\numberline {24.1}What the Factor $i$ Buys Us}{35}{subsection.173}%
-\contentsline {subsection}{\numberline {24.2}Summary of Predictions}{35}{subsection.174}%
-\contentsline {part}{Discussion}{36}{part*.177}%
-\contentsline {section}{\numberline {A}Comparison with Alternative Dark Matter Models}{36}{appendix.178}%
-\contentsline {section}{\numberline {B}The $A_4$ Symmetry and the Neutrino Question}{37}{appendix.181}%
-\contentsline {section}{\numberline {C}Relation to Dark QCD and Confinement}{37}{appendix.182}%
-\contentsline {section}{\numberline {D}Limitations and Open Problems}{38}{appendix.183}%
-\contentsline {section}{\numberline {E}Conclusions}{38}{appendix.190}%
-\contentsline {section}{\numberline {F}VPM as Fluctuation Determinant: Proof}{39}{appendix.194}%
-\contentsline {section}{\numberline {G}Universal Relic Angle: Derivation}{39}{appendix.196}%
-\contentsline {section}{\numberline {H}Instanton Suppression of $\theta _{A_4}$}{40}{appendix.200}%
-\contentsline {section}{\numberline {I}Full Benchmark Table}{40}{appendix.202}%
-\contentsline {section}{\numberline {J}Maxwell-Boltzmann Velocity Averaging}{40}{appendix.205}%
-\contentsline {section}{\numberline {K}Sommerfeld Enhancement Details}{41}{appendix.208}%
-\contentsline {section}{\numberline {L}Numerical Error Budget}{41}{appendix.210}%
-\contentsline {section}{\numberline {M}Cannibal Mechanism: Mediator Depletion}{42}{appendix.213}%
+\contentsline {subsection}{\numberline {11.3}From determinant to cross section}{24}{subsection.99}%
+\contentsline {subsection}{\numberline {11.4}Why this is exact}{24}{subsection.101}%
+\contentsline {section}{\numberline {12}Layer 4: Does the Vacuum Prefer CP Violation?}{25}{section.105}%
+\contentsline {section}{\numberline {13}Layer 5: Is the Vacuum Stable at Freeze-out?}{25}{section.109}%
+\contentsline {section}{\numberline {14}Layer 6: Can the Vacuum Tunnel Away?}{26}{section.111}%
+\contentsline {section}{\numberline {15}Layer 7: Relic Density as a Path-Integral Output}{26}{section.113}%
+\contentsline {section}{\numberline {16}The Hubble Constant from Dark QCD}{26}{section.115}%
+\contentsline {part}{III\hspace {1em}Dark Electromagnetic Duality: Dark Energy as T-Breaking}{27}{part.120}%
+\contentsline {section}{\numberline {17}The Central Analogy}{27}{section.121}%
+\contentsline {subsection}{\numberline {17.1}The Mathematical Structure}{27}{subsection.124}%
+\contentsline {subsection}{\numberline {17.2}The Imaginary Axis as an Internal Fifth Dimension}{28}{subsection.126}%
+\contentsline {section}{\numberline {18}The Extended Lagrangian}{29}{section.129}%
+\contentsline {section}{\numberline {19}The Universal Relic Angle}{29}{section.132}%
+\contentsline {subsection}{\numberline {19.1}Geometric Interpretation}{30}{subsection.136}%
+\contentsline {section}{\numberline {20}Scale of the Dark Energy Potential}{30}{section.137}%
+\contentsline {section}{\numberline {21}Fifth Force and Screening}{31}{section.141}%
+\contentsline {section}{\numberline {22}Observational Signatures}{31}{section.143}%
+\contentsline {subsection}{\numberline {22.1}Dark Energy Equation of State}{31}{subsection.144}%
+\contentsline {subsection}{\numberline {22.2}Additional Signatures}{32}{subsection.148}%
+\contentsline {section}{\numberline {23}Numerical Background Cosmology}{32}{section.153}%
+\contentsline {subsection}{\numberline {23.1}Friedmann + Klein-Gordon Solver}{32}{subsection.154}%
+\contentsline {subsection}{\numberline {23.2}Best-Fit Cosmological Parameters}{32}{subsection.159}%
+\contentsline {subsection}{\numberline {23.3}Confrontation with Pantheon+ Type~Ia Supernovae}{33}{subsection.161}%
+\contentsline {subsection}{\numberline {23.4}Confrontation with BAO Data}{33}{subsection.163}%
+\contentsline {subsection}{\numberline {23.5}Mediator Overclosure Resolution}{34}{subsection.169}%
+\contentsline {subsection}{\numberline {23.6}$V_{\rm eff}$ Minimum at the $A_4$ Relic Angle}{35}{subsection.171}%
+\contentsline {section}{\numberline {24}Summary: From SIDM to Dark Energy in One Lagrangian}{35}{section.172}%
+\contentsline {subsection}{\numberline {24.1}What the Factor $i$ Buys Us}{36}{subsection.173}%
+\contentsline {subsection}{\numberline {24.2}Summary of Predictions}{36}{subsection.174}%
+\contentsline {part}{Discussion}{37}{part*.177}%
+\contentsline {section}{\numberline {A}Comparison with Alternative Dark Matter Models}{37}{appendix.178}%
+\contentsline {section}{\numberline {B}The $A_4$ Symmetry and the Neutrino Question}{38}{appendix.181}%
+\contentsline {section}{\numberline {C}Relation to Dark QCD and Confinement}{38}{appendix.182}%
+\contentsline {section}{\numberline {D}Limitations and Open Problems}{39}{appendix.183}%
+\contentsline {section}{\numberline {E}Conclusions}{39}{appendix.190}%
+\contentsline {section}{\numberline {F}VPM as Fluctuation Determinant: Proof}{40}{appendix.194}%
+\contentsline {section}{\numberline {G}Universal Relic Angle: Derivation}{40}{appendix.196}%
+\contentsline {section}{\numberline {H}Instanton Suppression of $\theta _{A_4}$}{41}{appendix.200}%
+\contentsline {section}{\numberline {I}Full Benchmark Table}{41}{appendix.202}%
+\contentsline {section}{\numberline {J}Maxwell-Boltzmann Velocity Averaging}{41}{appendix.205}%
+\contentsline {section}{\numberline {K}Sommerfeld Enhancement Details}{42}{appendix.208}%
+\contentsline {section}{\numberline {L}Numerical Error Budget}{42}{appendix.210}%
+\contentsline {section}{\numberline {M}Cannibal Mechanism: Mediator Depletion}{43}{appendix.213}%
