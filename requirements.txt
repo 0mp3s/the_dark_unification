@@ -1,0 +1,19 @@
+# Python 3.10+ required
+# Install with: pip install -r requirements.txt
+
+# Core numerics
+numpy>=1.24
+scipy>=1.10
+
+# JIT compilation (used in VPM solver and Boltzmann integration — ~50x speedup)
+numba>=0.60
+
+# MCMC (emcee) + diagnostics
+emcee>=3.1
+corner>=2.2
+
+# Data I/O
+pandas>=1.5
+
+# Plotting (optional — for island/corner plots)
+matplotlib>=3.7
