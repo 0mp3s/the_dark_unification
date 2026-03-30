@@ -1,0 +1,112 @@
+%%=================================================================
+%% CHAPTER 1: Secluded Majorana SIDM — Phenomenology
+%% Source: github.com/0mp3s/Secluded-Majorana-SIDM (DOI: 10.5281/zenodo.19225823)
+%%=================================================================
+
+\section{Introduction}
+\label{ch1:intro}
+
+The small-scale structure anomalies of $\Lambda$CDM — the core-cusp problem,
+missing satellites, too-big-to-fail — motivate self-interacting dark matter (SIDM),
+where DM particles scatter elastically via a light mediator. We consider a
+\emph{secluded} dark sector: a Majorana fermion $\chi$ coupled to a real scalar
+$\phi$ with no tree-level coupling to the SM.
+
+\section{The Model}
+\label{ch1:model}
+
+The interaction Lagrangian is:
+\begin{equation}
+  \Lc_{\rm int} = -\frac{y}{2}\bar{\chi}\chi\phi
+\end{equation}
+
+In the non-relativistic limit, scalar exchange generates an attractive Yukawa potential:
+\begin{equation}
+  V(r) = -\frac{\alpha}{r}e^{-\mphi r}, \qquad \alpha = \frac{y^2}{4\pi}
+\end{equation}
+
+The model has three free parameters: $(m_\chi,\, m_\phi,\, \alpha)$.
+
+\subsection{Scalar Potential and Vacuum Stability}
+
+The full scalar potential:
+\begin{equation}
+  V(\phi) = \frac{1}{2}m_\phi^2\phi^2 + \frac{\mu_3}{3!}\phi^3 + \frac{\lambda_\phi}{4!}\phi^4
+\end{equation}
+
+Vacuum stability (no secondary minimum deeper than $\phi=0$) requires:
+\begin{equation}
+  \lambda_\phi > \frac{3\mu_3^2}{8m_\phi^2}
+\end{equation}
+
+For the cannibal lower bound $\mu_3/m_\phi = 1.7$: $\lambda_\phi \gtrsim 1.08$.
+Numerically: $\lambda_\phi \gtrsim 0.96$ (from $V(\phi_{\rm min}) > 0$ scan).
+
+\section{Self-Interaction Cross Section: Variable Phase Method}
+\label{ch1:vpm}
+
+The transfer cross section is computed via the VPM ODE for phase shifts $\delta_\ell$:
+\begin{equation}
+  \frac{d\delta_\ell}{dx} = +\frac{\lambda\,e^{-x}}{\kappa\,x}
+  \left[\hat{j}_\ell(\kappa x)\cos\delta_\ell - \hat{n}_\ell(\kappa x)\sin\delta_\ell\right]^2
+\end{equation}
+
+where $x = m_\phi r$, $\kappa = \mu v_{\rm rel}/m_\phi$, $\lambda = \alpha m_\chi/m_\phi$.
+
+For identical Majorana fermions, quantum statistics requires:
+\begin{equation}
+  \sigmaT = \frac{2\pi}{k^2}\left[\sum_{l\,\rm even}(2l+1)\sin^2\delta_l
+             + 3\sum_{l\,\rm odd}(2l+1)\sin^2\delta_l\right]
+\end{equation}
+
+\textbf{Key result (proved in Chapter~2, Appendix~\ref{app:vpm_proof}):} VPM is
+the \emph{exact} fluctuation determinant of the path integral — no approximation.
+
+\section{Relic Density}
+\label{ch1:relic}
+
+Freeze-out via $\chi\chi \to \phi\phi$ (t/u-channel scalar mediator).
+For Majorana fermions, this is s-wave:
+\begin{equation}
+  \langle\sigma v\rangle_0 = \frac{\pi\alpha^2}{4m_\chi^2}
+\end{equation}
+
+Sommerfeld enhancement at freeze-out: $S_0 < 1.026$ for all 17 relic-viable BPs
+(correction $< 2.5\%$). CMB constraint: inapplicable (secluded sector, $f_{\rm eff}=0$).
+
+\section{MCMC Posterior and Viable Island}
+\label{ch1:mcmc}
+
+A Bayesian MCMC scan (32 walkers, 5000 steps, emcee, fast JIT solver) over
+$(m_\chi, m_\phi, \alpha)$ against 9 astrophysical observables identifies
+the viable island:
+\begin{align}
+  m_\chi &\in [10,\,100]\,{\rm GeV} \\
+  m_\phi &\in [7.6,\,14.8]\,{\rm MeV} \\
+  \alpha  &\in [5\times10^{-4},\,5\times10^{-3}]
+\end{align}
+
+122 benchmark points pass all cuts simultaneously.
+
+\section{Astrophysical Confrontation}
+\label{ch1:astro}
+
+[Section to be expanded. Key results summarized in Table~\ref{tab:ch1_pheno}.]
+
+\begin{table}[h!]
+\centering
+\caption{Phenomenological summary for named benchmark points.}
+\label{tab:ch1_pheno}
+\begin{tabular}{lcccc}
+\toprule
+Observable & BP1 & BP9 & MAP & Constraint \\
+\midrule
+Fornax GC survival & 12/15 & 13/15 & \textbf{14/15} & all 5 survive \\
+$r_{\rm core}$ Fornax [pc] & 449 & 541 & \textbf{829} & $\gtrsim 500$ \\
+Fornax $\chi^2$ (Jeans+OM) & 35 & — & \textbf{2.3} & — \\
+Read+2019 bound & \checkmark & \textsf{FAIL} & $\checkmark$ (margin +0.05) & $\sigma/m < 1.5$ cm$^2$/g \\
+RAR scatter & \textbf{0.122} dex & — & 0.28 dex & 0.177 dex (obs.) \\
+Sommerfeld $S_0$ at $T_{fo}$ & 1.003 & 1.010 & 1.025 & $< 2.5\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}

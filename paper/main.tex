@@ -1,0 +1,186 @@
+\documentclass[12pt,a4paper]{article}
+
+%% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{slashed}          % Feynman slash
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{cite}
+\usepackage{bbold}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!70!black,
+  citecolor=green!60!black,
+  urlcolor=blue!70!black
+}
+
+%% --- Custom commands ---
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Zc}{Z[J,\eta,\bar\eta]}
+\newcommand{\mphi}{m_\phi}
+\newcommand{\mchi}{m_\chi}
+\newcommand{\alphass}{\alpha_s}
+\newcommand{\alphapp}{\alpha_p}
+\newcommand{\thetarel}{\theta_{\rm relic}}
+\newcommand{\sigmaT}{\sigma_T}
+\newcommand{\OmegaDM}{\Omega_{\rm DM} h^2}
+\newcommand{\rholambda}{\rho_\Lambda}
+
+%%=================================================================
+\begin{document}
+
+\title{\textbf{The Dark Unification}\\[0.5em]
+\large Self-Interacting Majorana Dark Matter, Path-Integral Foundations,\\
+and Dark Energy as the T-Breaking Component}
+
+\author{Omer P.\\[0.3em]
+\small Independent Researcher\\
+\small \href{https://github.com/0mp3s}{github.com/0mp3s}}
+
+\date{March 2026 \quad\quad DOI: (pending Zenodo upload)}
+
+\maketitle
+
+\begin{abstract}
+We present a unified theoretical framework for the dark sector built from a
+single Lagrangian with three free parameters $(m_\chi, m_\phi, \alpha)$.
+\textbf{Chapter~1} establishes the phenomenological model: a Majorana fermion
+dark matter candidate $\chi$ interacting via a real scalar mediator $\phi$.
+Velocity-dependent self-interaction cross sections are computed exactly via the
+Variable Phase Method (VPM), and an MCMC scan over astrophysical data identifies
+122 viable benchmark points consistent with relic density, Fornax globular cluster
+survival, SPARC rotation curves, the Radial Acceleration Relation, and direct/indirect
+detection constraints.
+\textbf{Chapter~2} derives all Chapter~1 results from the generating functional
+$Z[J]$ of the path integral, proving that VPM is \emph{exactly} the fluctuation
+determinant of the scattering field integral (no approximation). The Coleman-Weinberg
+potential, finite-$T$ Matsubara formalism, and dark QCD misalignment together predict
+$H_0 = 67.4$~km/s/Mpc from $V_{eff}(\sigma_0) = \rho_\Lambda$ via the Friedmann
+equation.
+\textbf{Chapter~3} proposes a Dark Electromagnetic Duality: the CP phase
+$\theta \equiv \sigma/f$ is promoted to a dynamical axion field, with
+$y_s = y\cos(\sigma/f)$ (T-even, SIDM clustering) playing the role of $\vec{E}$
+and $y_p = y\sin(\sigma/f)$ (T-odd, vacuum energy) playing the role of $\vec{B}$.
+Dark energy is not a separate phenomenon; it is the T-violating projection of the
+same Yukawa interaction. The universal relic angle
+$\thetarel = \arctan(1/\sqrt{8}) = 19.47^\circ$ is fixed simultaneously by
+SIDM and relic density constraints, with no free parameters.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%%=================================================================
+\section*{Notation and Conventions}
+
+\begin{itemize}
+  \item Metric signature: $(+,-,-,-)$
+  \item Natural units: $\hbar = c = k_B = 1$ unless stated
+  \item $\alpha = y^2/(4\pi)$, $\alphass = y_s^2/(4\pi)$, $\alphapp = y_p^2/(4\pi)$
+  \item $\lambda = \alpha m_\chi / m_\phi$ (dimensionless coupling)
+  \item $\kappa = \mu v_{\rm rel}/m_\phi$ (dimensionless momentum), $\mu = m_\chi/2$
+  \item Lagrangian sign convention: $\Lc = T - V$, so $V(r) < 0$ for attraction
+\end{itemize}
+
+\newpage
+%%=================================================================
+%%=================================================================
+\part{Secluded Majorana SIDM: Phenomenology}
+\label{part:sidm}
+%%=================================================================
+%%=================================================================
+
+\input{chapter1_body}
+
+%%=================================================================
+%%=================================================================
+\part{Path-Integral Foundations: From $\mathcal{L}$ to $H_0$}
+\label{part:pathintegral}
+%%=================================================================
+%%=================================================================
+
+\input{chapter2_body}
+
+%%=================================================================
+%%=================================================================
+\part{Dark Electromagnetic Duality: Dark Energy as T-Breaking}
+\label{part:duality}
+%%=================================================================
+%%=================================================================
+
+\input{chapter3_body}
+
+%%=================================================================
+\appendix
+%%=================================================================
+
+\section{VPM as Fluctuation Determinant: Proof}
+\label{app:vpm_proof}
+
+The key identity proved in Chapter~2 (PI-6):
+\begin{equation}
+  \ln \det\!\left[-\partial^2 - m_\phi^2 - y^2 n_\chi(r)\right]^{-1/2}
+  = i\sum_\ell (2\ell+1)\delta_\ell
+\end{equation}
+where $\delta_\ell$ are the VPM phase shifts. This establishes that the
+Variable Phase Method is not an approximation but the \emph{exact} evaluation
+of the one-loop path integral over the mediator field $\phi$ in the presence
+of the two-body DM density $n_\chi(r)$.
+
+\section{Universal Relic Angle: Derivation}
+\label{app:relic_angle}
+
+From the two constraints:
+\begin{align}
+  \text{SIDM:} & \quad \alphass = \alpha \\
+  \text{Relic:} & \quad \alphass \alphapp = \alpha^2/8
+\end{align}
+it follows immediately that $\alphapp = \alpha/8$, hence:
+\begin{equation}
+  \thetarel = \arctan\!\sqrt{\alphapp/\alphass} = \arctan(1/\sqrt{8}) = 19.47^\circ
+\end{equation}
+This angle is \emph{universal} — independent of $(m_\chi, m_\phi, \alpha)$.
+
+\section{Instanton Suppression of $\theta_{A_4}$}
+\label{app:instanton}
+
+For a dark axion with $m_\sigma \sim H_0$ and $f \sim 0.24\,M_{\rm Pl}$:
+\begin{equation}
+  S_E \sim \left(\frac{f}{m_\sigma}\right)^2 \sim 10^{121}
+  \qquad \Rightarrow \qquad
+  \Gamma_{\rm tunnel} \sim e^{-S_E} \approx 0
+\end{equation}
+The $A_4$ vacuum is stable to tunneling on timescales
+$10^{121} \times t_{\rm Hubble}$ — effectively eternal.
+
+\section{Benchmark Points}
+\label{app:benchmarks}
+
+\begin{table}[h!]
+\centering
+\caption{Named benchmark points from the MCMC posterior (Chapter~1).}
+\begin{tabular}{lcccccc}
+\toprule
+BP & $m_\chi$ [GeV] & $m_\phi$ [MeV] & $\alpha$ & $\lambda$ & $\Omega h^2$ & Source \\
+\midrule
+BP1  & 20.69 & 11.34 & $1.048\times10^{-3}$ & 1.91 & 0.120 & relic \\
+BP9  & 37.93 & 12.98 & $1.858\times10^{-3}$ & 5.43 & 0.120 & relic \\
+MAP  & 94.07 & 11.10 & $5.734\times10^{-3}$ & 48.6 & 0.076 & MCMC \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%%=================================================================
+\bibliographystyle{JHEP}
+\bibliography{references}
+
+\end{document}

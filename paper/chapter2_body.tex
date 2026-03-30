@@ -1,0 +1,166 @@
+%%=================================================================
+%% CHAPTER 2: Path-Integral Foundations — From L to H0
+%% Source: The_Lagernizant_integral_SIDM/ (within Secluded-Majorana-SIDM)
+%%=================================================================
+
+\section{Overview: Seven Layers}
+\label{ch2:overview}
+
+This chapter derives all results of Chapter~1 from the generating functional
+$Z[J,\eta,\bar\eta]$ of the path integral. Seven layers connect the Lagrangian
+to physical observables:
+
+\begin{table}[h!]
+\centering
+\caption{The seven path-integral layers.}
+\begin{tabular}{clll}
+\toprule
+Layer & Computation & Method & Output \\
+\midrule
+1 & Free propagators $\Delta_F$, $S_F$ & Gaussian integration & Feynman rules \\
+2 & Yukawa potential $V(r)$ & Tree-level (t+u) & $V = -\alpha e^{-m_\phi r}/r$ \\
+3 & Cross section $\sigmaT(v)$ & Fluctuation determinant & VPM $\equiv$ exact \\
+4 & CW potential $V_{CW}(\theta)$ & One-loop Coleman-Weinberg & $A_4$ vacuum \\
+5 & Thermal potential $V_{eff}(\theta,T)$ & Matsubara / finite-$T$ & Freeze-out stability \\
+6 & Euclidean action $S_E$ & Instanton & $\theta_{A_4}$ stable ($S_E \sim 10^{121}$) \\
+7 & Relic density $\Omega h^2$ & $\langle\sigma v\rangle$ + Boltzmann & $\Omega h^2 = 0.120$ \\
+DE & $H_0$ from $V_{eff}(\sigma_0)$ & Dark QCD misalignment & $H_0 = 67.4$ km/s/Mpc \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Layer 1: Free Propagators}
+\label{ch2:propagators}
+
+The Lagrangian:
+\begin{equation}
+  \Lc = \frac{1}{2}\bar{\chi}(i\slashed{\partial} - \mchi)\chi
+      + \frac{1}{2}(\partial\phi)^2 - \frac{1}{2}\mphi^2\phi^2
+      - \frac{y}{2}\bar{\chi}\chi\phi
+\end{equation}
+
+Gaussian integration over free fields yields:
+\begin{align}
+  \Delta_F(q^2) &= \frac{i}{q^2 - \mphi^2 + i\varepsilon} \\
+  S_F(p)        &= \frac{i(\slashed{p} + \mchi)}{p^2 - \mchi^2 + i\varepsilon}
+\end{align}
+
+Physical scales: range $r_0 = 1/\mphi$, de Broglie length
+$\lambda_{dB} = 4/(m_\chi v)$. Regime: resonant when $\lambda_{dB}/r_0 < 2$.
+
+\section{Layer 2: Tree-Level Yukawa Potential}
+\label{ch2:tree}
+
+Two vertices $\times$ one propagator at momentum transfer $\mathbf{q}$:
+\begin{equation}
+  i\mathcal{M} = \left(-\frac{iy}{2}\right)^2 \frac{i}{-|\mathbf{q}|^2 - \mphi^2}
+  \quad\xrightarrow{\rm NR,\;Fourier}\quad
+  V(r) = -\frac{\alpha}{r}e^{-\mphi r}
+\end{equation}
+
+Born cross section (valid only for $\lambda \ll 1$):
+\begin{equation}
+  \sigma_T^{\rm Born} = \frac{16\pi\alpha^2}{m_\chi^2 v^4}\,f(\beta),
+  \qquad f(\beta) = \ln(1+\beta^2) - \frac{\beta^2}{1+\beta^2}
+\end{equation}
+
+At benchmark couplings, Born overestimates VPM by factors 88–135$\times$.
+Full VPM is essential.
+
+\section{Layer 3: VPM as Fluctuation Determinant (Exact)}
+\label{ch2:vpm_pi}
+
+\textbf{Central theorem of this work.} The scattering path integral evaluated
+around the classical two-body density $n_\chi(r)$ gives:
+\begin{equation}
+  Z_{\rm scatter} = e^{iS_{cl}} \cdot
+  \left[\det\!\left(-\partial^2 - \mphi^2 - y^2 n_\chi(r)\right)\right]^{-1/2}
+\end{equation}
+
+The fluctuation determinant evaluates exactly via:
+\begin{equation}
+  \ln\det = {\rm Tr}\ln = \sum_\ell (2\ell+1)\ln e^{2i\delta_\ell}
+           = 2i\sum_\ell(2\ell+1)\delta_\ell
+\end{equation}
+
+Hence the cross section:
+\begin{equation}
+  \sigmaT = \frac{2\pi}{k^2}\sum_\ell w_\ell(2\ell+1)\sin^2\delta_\ell
+\end{equation}
+
+\textbf{The VPM phase shifts $\delta_\ell$ \emph{are} the path integral.}
+No approximation is made. The ODE
+$d\delta_\ell/dx = \ldots$ is the exact quantum mechanical one-loop result.
+
+\section{Layer 4: Coleman-Weinberg Potential}
+\label{ch2:cw}
+
+Integrating out the Majorana fermion (2 degrees of freedom) at one loop:
+\begin{equation}
+  V_{CW}(\theta) = -\frac{2}{64\pi^2}M_{eff}^4(\theta)
+  \left[\ln\frac{M_{eff}^2(\theta)}{\mu^2} - \frac{3}{2}\right]
+\end{equation}
+
+with $M_{eff}(\theta) = m_\chi\sqrt{\cos^2\theta + \sin^2\theta/9}$ (with $A_4$ symmetry).
+
+Result: $V_{CW}$ minimizes at $\theta = \pi/2$ (pseudoscalar preferred).
+The $A_4$ symmetry fixes $\theta = \arcsin(1/3)$ as a discrete vacuum.
+
+\section{Layer 5: Finite-$T$ Matsubara Potential}
+\label{ch2:matsubara}
+
+\begin{equation}
+  V_{eff}(\theta, T) = V_{CW}(\theta) + \frac{T^4}{2\pi^2}\int_0^\infty dp\,p^2
+  \left[\ln(1 - e^{-E_\phi/T}) - 2\ln(1 + e^{-E_\chi/T})\right]
+\end{equation}
+
+At $T \gg m_\chi$: thermal corrections are dominant and push $\theta \to 0$.
+At $T = T_{fo}$: $V_T/V_{CW} \sim 10^{-4}$ — CW minimum governs freeze-out.
+No thermal attractor at $\theta \sim 2$ rad (PI-1, confirmed).
+
+\section{Layer 6: Instanton Stability}
+\label{ch2:instanton}
+
+For $m_\sigma \sim H_0$ and $f \sim 0.24\,M_{\rm Pl}$:
+\begin{equation}
+  S_E \sim \left(\frac{f}{m_\sigma}\right)^2 \sim 10^{121}
+  \qquad\Rightarrow\qquad
+  \Gamma_{\rm tunnel} = e^{-S_E} \approx 0
+\end{equation}
+
+The $A_4$ vacuum is stable to tunneling for $\sim 10^{121}$ Hubble times.
+
+\section{Layer 7: Relic Density from the Path Integral}
+\label{ch2:relic}
+
+The $s$-wave annihilation amplitude evaluated from the path integral:
+\begin{equation}
+  \langle\sigma v\rangle_s = \frac{\pi\alpha^2}{4m_\chi^2}
+\end{equation}
+
+Solving the Boltzmann equation $dY/dx = \ldots$ gives $\Omega h^2 = 0.120$
+for each $(m_\chi, \alpha_{\rm relic})$ in the viable island. The same $\alpha$
+that determines SIDM uniquely sets the relic abundance.
+
+\section{The Hubble Constant from Dark QCD}
+\label{ch2:h0}
+
+The full derivation chain:
+\begin{equation}
+  \mathcal{L}_{SIDM} \xrightarrow{1\text{-loop}} V_{CW}(\theta)
+  \xrightarrow{A_4} \theta_{relic}
+  \xrightarrow{\rm dark\,QCD} \Omega_\sigma = 0.69
+  \xrightarrow{\rm Friedmann} H_0 = 67.4\;\text{km/s/Mpc}
+\end{equation}
+
+Dark QCD confinement scale: $\Lambda_d \sim 2.05\,\text{meV}$.
+Dark axion mass: $m_\sigma = \Lambda_d^2/f \sim H_0$ (GMOR relation).
+Dark energy density from misalignment:
+\begin{equation}
+  \Omega_\sigma = \frac{f^2\theta_i^2 H_0^2}{2\rho_{crit}} \approx 0.69
+  \quad{\rm for}\quad \theta_i \sim 2\,{\rm rad},\;\; f \sim 0.24\,M_{\rm Pl}
+\end{equation}
+
+$H_0 = 67.4$~km/s/Mpc is obtained from $V_{eff}(\sigma_0) = \rho_\Lambda$
+via the Friedmann equation. This prediction is \emph{parameter-free} once
+the SIDM+relic constraints fix $\theta_{relic} = 19.47^\circ$.

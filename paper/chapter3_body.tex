@@ -1,0 +1,158 @@
+%%=================================================================
+%% CHAPTER 3: Dark Electromagnetic Duality
+%% Dark Energy as the T-Breaking Component of Dark Matter
+%% Source: dark-energy-T-breaking/ (within Secluded-Majorana-SIDM)
+%%=================================================================
+
+\section{The Central Analogy}
+\label{ch3:analogy}
+
+In classical electromagnetism, a static charge produces only an electric field
+$\vec{E}$. Motion reveals a second component — the magnetic field $\vec{B}$ —
+which is not a new entity but a different projection of the same tensor $F_{\mu\nu}$.
+The critical property: $\vec{B}$ is T-odd while $\vec{E}$ is T-even.
+
+We propose the dark sector obeys the same structure:
+
+\begin{table}[h!]
+\centering
+\caption{Dark Electromagnetic Duality correspondence.}
+\begin{tabular}{ll}
+\toprule
+Electromagnetism & Dark Sector \\
+\midrule
+$\vec{E}$ (T-even) & $y_s = y\cos(\sigma/f)$ — attraction, SIDM clustering \\
+$\vec{B}$ (T-odd) & $y_p = y\sin(\sigma/f)$ — repulsion, DE acceleration \\
+$F_{\mu\nu}$ & $\mathcal{Y} = y_s + iy_p = ye^{i\gamma^5\sigma/f}$ \\
+Lorentz boost mixes $E \leftrightarrow B$ & $\sigma$ field rotates $y_s \leftrightarrow y_p$ \\
+$\vec{B}$ does no work ($\vec{F}\perp\vec{v}$) & $\gamma^5$ prevents $y_p$ from contributing to mass \\
+Like charges repel electrically & $y_s$ causes DM–DM attraction (SIDM) \\
+Parallel currents attract magnetically & $y_p$ causes vacuum repulsion (DE) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Thesis}: Dark energy is the T-violating component of the dark matter
+interaction, made manifest through CP violation in the Majorana sector —
+exactly as magnetism is the T-violating component of electrostatics,
+made manifest through relative motion.
+
+\section{The Extended Lagrangian}
+\label{ch3:lagrangian}
+
+Starting from the SIDM Lagrangian (Chapter~1), we promote the CP phase to a
+dynamical field $\sigma$ — a dark pseudo-Goldstone boson:
+\begin{equation}
+  y_s + iy_p \;\longrightarrow\; ye^{i\gamma^5\sigma/f}
+  = y\cos\!\left(\frac{\sigma}{f}\right) + iy\sin\!\left(\frac{\sigma}{f}\right)\gamma^5
+\end{equation}
+
+The full unified Lagrangian:
+\begin{equation}
+  \boxed{\Lc = \underbrace{\frac{1}{2}\bar{\chi}(i\slashed{\partial} - \mchi)\chi
+    + \frac{1}{2}(\partial\phi)^2 - V_0(\phi)}_{\rm SIDM\;(Ch.1)}
+    - \frac{1}{2}\bar{\chi}\!\left[y\cos\!\tfrac{\sigma}{f}
+      + iy\sin\!\tfrac{\sigma}{f}\gamma^5\right]\!\chi\,\phi
+    + \underbrace{\frac{1}{2}(\partial\sigma)^2 - V_{\rm bare}(\sigma)}_{\rm dark\;axion}}
+\end{equation}
+
+Parameters: $y$ fixed by SIDM+relic (Chapter~1); $f \sim 0.2\,M_{\rm Pl}$ from
+$V_\sigma \sim \rho_\Lambda$ (see §\ref{ch3:scale}); all other parameters determined.
+
+\section{The Universal Relic Angle}
+\label{ch3:thetarel}
+
+Two simultaneous constraints:
+\begin{align}
+  \text{SIDM (Ch.1):} \quad & \alphass = \alpha \\
+  \text{Relic (Ch.1):} \quad & \alphass\alphapp = \frac{\alpha^2}{8}
+\end{align}
+
+These fix $\alphapp = \alpha/8$, hence:
+\begin{equation}
+  \boxed{\thetarel = \arctan\!\sqrt{\frac{\alphapp}{\alphass}}
+         = \arctan\!\frac{1}{\sqrt{8}} = 19.47^\circ}
+\end{equation}
+
+This angle is \emph{universal} — independent of $(m_\chi, m_\phi, \alpha)$.
+It is the unique equilibrium where the same coupling
+simultaneously satisfies DM self-interactions and the observed relic abundance.
+
+\section{Scale of the Dark Energy Potential}
+\label{ch3:scale}
+
+The effective potential at $\theta = \thetarel$:
+\begin{align}
+  V_\sigma &\approx V_{CW}(\thetarel) \cdot \left(\frac{f}{M_{\rm Pl}}\right)^4 \\
+  V_\sigma &\approx \rho_\Lambda \quad\Leftrightarrow\quad f \approx 0.2\,M_{\rm Pl}
+\end{align}
+
+Numerically, for the MAP benchmark:
+\begin{equation}
+  f_{\rm MAP} = \frac{M_{\rm Pl}}{(V_{CW}/\rho_\Lambda)^{1/4}}
+              \approx 6.6\times10^{17}\,{\rm GeV} = 0.27\,M_{\rm Pl}
+\end{equation}
+
+The sub-Planckian value $f \sim 0.2$–$0.3\,M_{\rm Pl}$ is natural in string
+compactifications and aligns with the weak gravity conjecture.
+
+\section{Fifth Force and Screening}
+\label{ch3:fifthforce}
+
+The $\sigma$ field mediates a fifth force with coupling:
+\begin{equation}
+  \beta = \frac{M_{\rm Pl}}{f} \approx 5.0 \quad \text{(universal for all BPs)}
+\end{equation}
+
+Existing Planck+BAO constraints give $\beta < 0.066$ for an unscreened
+coupled quintessence field. Resolution requires:
+(a) Chameleon screening in dense environments, or
+(b) $\sigma$ coupling only to dark matter (secluded),
+    not to baryons — consistent with the secluded dark sector hypothesis.
+
+Since $\phi$ has no tree-level SM coupling (§\ref{ch1:model}), $\sigma$ — being
+a phase of the $\chi$–$\phi$ system — naturally inherits this seclusion.
+Baryonic fifth-force constraints do not directly apply.
+
+\section{Observational Signatures}
+\label{ch3:signatures}
+
+\begin{enumerate}
+  \item \textbf{Equation of state}: The dark axion potential predicts
+        $w_{\rm DE} = -1 + \mathcal{O}(\theta_i^2/3)$ near $\theta_i \sim 2$ rad.
+        Current DESI constraint ($w_0 = -0.827 \pm 0.063$) is consistent at
+        $\sim 1.6\sigma$ from the model prediction ($w_0 \approx -0.727$).
+
+  \item \textbf{Hubble tension}: $H_0 = 67.4$ km/s/Mpc (from Chapter~2)
+        is consistent with CMB measurements and does not worsen the H$_0$ tension
+        relative to $\Lambda$CDM.
+
+  \item \textbf{CP violation in SIDM}: The $y_s/y_p$ ratio is in principle
+        measurable through indirect detection asymmetries at
+        $\mathcal{O}(\sin^2\theta_{relic}) \approx 10\%$ level.
+
+  \item \textbf{Null prediction}: No baryonic fifth force.
+        No cross-coupling between $\sigma$ and SM particles at tree level.
+\end{enumerate}
+
+\section{Summary: From SIDM to Dark Energy in One Lagrangian}
+\label{ch3:summary}
+
+The three parts of this paper are not separate models. They are three
+projections of one Lagrangian:
+
+\begin{itemize}
+  \item \textbf{T-even projection} ($y_s$, $\phi$): DM self-interactions,
+        velocity-dependent cross sections, Fornax cores, relic density.
+        This is Chapter~1.
+  \item \textbf{Path-integral structure}: VPM = fluctuation determinant,
+        CW vacuum, Matsubara freeze-out, dark QCD $\to H_0$.
+        This is Chapter~2.
+  \item \textbf{T-odd projection} ($y_p$, $\sigma$): vacuum energy, DE equation
+        of state, universal relic angle. This is Chapter~3.
+\end{itemize}
+
+The unification is not formal — the same coupling $y$, the same mass $m_\chi$,
+and the same mediator mass $m_\phi$ that explain the rotation curves of SPARC
+galaxies and the survival of Fornax globular clusters also set the scale of
+dark energy and predict $H_0 = 67.4$ km/s/Mpc.
