@@ -221,6 +221,17 @@ What is noteworthy is the \emph{magnitude} — factors of 3--5$\times$ at the
 velocities most relevant to the small-scale problems.
 Any analysis of this model that relies on Born-level cross sections is unreliable.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig_born_vpm}
+\caption{VPM vs Born approximation and the TYZ classical-regime formula
+         across the full velocity range. The Born approximation (dashed)
+         overestimates by factors of 3--5$\times$ at dwarf velocities;
+         VPM (solid) agrees with TYZ in the classical regime and provides
+         exact results in the resonant regime.}
+\label{fig:born_vpm}
+\end{figure}
+
 \subsection{Boltzmann Solver Accuracy}
 \label{ch1:boltzmann}
 
@@ -266,6 +277,34 @@ constraints: $\chi^2 = 0$ when $\sigmaT/m < \sigma_{\rm obs}$.
       for $(m_\chi, m_\phi, \alpha)$ — well below the $\hat{R} < 1.1$ threshold.
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{fig_chains}
+\caption{MCMC chain traces for the three model parameters $(\log m_\chi,
+         \log m_\phi, \log\alpha)$ across 32 walkers. Chains are well-mixed
+         after the 500-step burn-in (vertical dashed line). The absence of
+         long-lived modes confirms ergodicity.}
+\label{fig:chains}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{fig_gelman_rubin}
+\caption{Gelman-Rubin $\hat{R}$ statistic as a function of chain length.
+         All three parameters converge to $\hat{R} < 1.01$ well before
+         the end of the run, confirming inter-chain agreement.}
+\label{fig:gelman_rubin}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{fig_autocorr}
+\caption{Integrated autocorrelation time $\tau$ vs.~chain length.
+         The maximum $\tau_{\max} = 75.1$ steps yields
+         $N_{\rm eff} \approx 2132$ independent samples.}
+\label{fig:autocorr}
+\end{figure}
+
 \subsection{Posteriors}
 
 The parameter posteriors are unimodal with the following 68\% credible
@@ -287,7 +326,37 @@ A connected island of viability survives:
 $m_\phi$ (width $\sim 7$~MeV), setting the mediator mass at a scale where
 the Yukawa range $1/m_\phi \sim 25$~fm is comparable to the
 de~Broglie wavelength at dwarf velocities — the resonant regime.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_corner}
+\caption{Joint posterior distributions for $(\log m_\chi, \log m_\phi,
+         \log\alpha)$ from the MCMC scan. Contours show 68\% and 95\%
+         credible regions. The posterior is unimodal, with a strong
+         $m_\chi$--$\alpha$ degeneracy driven by the relic density
+         constraint.}
+\label{fig:corner}
+\end{figure}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\textwidth]{fig_lambda_posterior}
+\caption{Posterior distribution of the dimensionless coupling
+         $\lambda = \alpha m_\chi/m_\phi$. The viable range
+         $\lambda \in [0.7, 49]$ spans from near-Born to deeply
+         non-perturbative, underscoring the necessity of full partial-wave
+         calculations.}
+\label{fig:lambda_posterior}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_island}
+\caption{Island of viability in the $(m_\chi, m_\phi)$ plane.
+         Colored points are viable benchmarks; the color encodes
+         $\chi^2/\nu$. The island occupies $m_\chi \in [10, 100]$~GeV,
+         $m_\phi \in [7.6, 14.8]$~MeV --- a narrow band in mediator mass.}
+\label{fig:island}
+\end{figure}
 
 \section{Confronting the Universe: Detailed Results}
 \label{ch1:astro}
@@ -295,6 +364,18 @@ de~Broglie wavelength at dwarf velocities — the resonant regime.
 We test the model against every available astrophysical constraint,
 spanning five decades in velocity from ultra-faint dwarfs ($v \sim 12$~km/s)
 to the Bullet Cluster ($v \sim 4700$~km/s).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_obs_comparison}
+\caption{Model predictions vs.~observational constraints across
+         five decades in velocity. Points with error bars are
+         astrophysical targets (Read et al., Kaplinghat et al.);
+         the solid curve is the MAP best-fit. The model naturally
+         transitions from strong self-interaction at dwarf scales
+         to negligible interaction at cluster scales.}
+\label{fig:obs_comparison}
+\end{figure}
 
 \subsection{$\chi^2$ Goodness of Fit}
 
@@ -315,6 +396,16 @@ best-fit is:
 \end{equation}
 All 17 relic-viable benchmark points achieve $\chi^2/\nu < 1$, with the
 full ranking shown in Table~\ref{tab:chi2_ranking}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig_chi2_fit}
+\caption{$\chi^2$ goodness-of-fit across the v34 parameter scan.
+         The unconstrained minimum $\chi^2/\nu = 0.12$ drops to
+         $\chi^2/\nu = 0.38$ under the relic density constraint ---
+         still an excellent fit with 10 degrees of freedom.}
+\label{fig:chi2_fit}
+\end{figure}
 
 \begin{table}[h!]
 \centering
@@ -363,6 +454,17 @@ Bullet Cluster  & 4700 & 0.004 & —     & $< 1.25$ \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{fig_velocity_profile}
+\caption{Self-interaction cross section $\sigmaT/m$ as a function of
+         relative velocity for BP1 ($\lambda = 1.9$). The cross section
+         peaks at $v \sim 30$~km/s (dwarf galaxies) and falls as $v^{-4}$
+         toward cluster scales. Horizontal bands indicate observational
+         targets from Kaplinghat et al.~\cite{Kaplinghat2016}.}
+\label{fig:velocity_profile}
+\end{figure}
 
 \subsection{Fornax Globular Cluster Survival}
 \label{ch1:fornax}
@@ -435,6 +537,16 @@ At lower velocities ($v \sim 30$~km/s), Sommerfeld enhancement reaches
 $S_0 \sim 5$--$400$, but since the dark sector is secluded, late-time
 annihilation products do not inject energy into the SM plasma, and CMB
 $s$-wave constraints do not apply.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{fig_sommerfeld}
+\caption{Sommerfeld enhancement factor $S_0(v)$ for representative
+         benchmarks. At freeze-out ($v \sim 0.3c$), $S_0 < 1.026$.
+         At galactic velocities, $S_0$ reaches $\sim 10^2$, but
+         the secluded sector renders this cosmologically safe.}
+\label{fig:sommerfeld}
+\end{figure}
 
 \subsection{Falsifiable Predictions}
 \label{ch1:falsifiable}
