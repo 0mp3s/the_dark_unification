@@ -125,17 +125,17 @@ def check_1_relic(benchmarks):
 
     omega_target = _RELIC["omega_target"]
     tol_frac     = _RELIC["omega_tolerance_frac"]
-    theta_a4     = math.asin(1.0 / 3.0)
-    cos2_a4      = math.cos(theta_a4)**2   # = 8/9
-    sin2_a4      = math.sin(theta_a4)**2   # = 1/9
+    theta_a4     = math.atan(1.0 / 3.0)
+    cos2_a4      = math.cos(theta_a4)**2   # = 9/10
+    sin2_a4      = math.sin(theta_a4)**2   # = 1/10
 
-    print(f"  θ_A₄ = arcsin(1/3) = {math.degrees(theta_a4):.2f}°")
-    print(f"  cos²θ = {cos2_a4:.6f} (≈ 8/9 = {8/9:.6f})")
-    print(f"  sin²θ = {sin2_a4:.6f} (≈ 1/9 = {1/9:.6f})")
+    print(f"  θ_A₄ = arctan(1/3) = {math.degrees(theta_a4):.2f}°")
+    print(f"  cos²θ = {cos2_a4:.6f} (≈ 9/10 = {9/10:.6f})")
+    print(f"  sin²θ = {sin2_a4:.6f} (≈ 1/10 = {1/10:.6f})")
     print()
     print(f"  Key insight (Test 12 from dark-energy-T-breaking):")
     print(f"    α_CSV from SIDM scan IS ALREADY α_s (scalar coupling).")
-    print(f"    Applying α_s = (8/9)×α_CSV would DOUBLE-COUNT the A₄ decomposition.")
+    print(f"    Applying α_s = (9/10)×α_CSV would DOUBLE-COUNT the A₄ decomposition.")
     print()
 
     header = (f"  {'BP':<12} {'m_χ [GeV]':>10} {'α':>10} {'⟨σv⟩₀ [GeV⁻²]':>16}"
@@ -161,7 +161,7 @@ def check_1_relic(benchmarks):
 
         ratio = oh2_boltz / omega_target
         passed = abs(ratio - 1.0) < tol_frac
-        status = "✓" if passed else "✗"
+        status = "[ok]" if passed else "[x]"
 
         print(f"  {bp['name']:<12} {m_chi:>10.3f} {alpha:>10.4e} {sv0:>16.4e}"
               f" {oh2_kt:>10.4f} {oh2_boltz:>12.4f} {ratio:>12.3f} {status:>6}")
@@ -321,7 +321,7 @@ def check_3_bbn(benchmarks):
             print(f"    φ → e⁺e⁻ (portal):              Γ = {Gamma_ee:.2e} GeV, τ = {tau_ee:.2e} s")
             print(f"    φ → γγ   (loop):                 Γ = {Gamma_gg:.2e} GeV, τ = {tau_gg:.2e} s")
             print(f"    Γ_total = {Gamma_total:.2e} GeV → τ_φ = {tau_total:.2e} s")
-            print(f"    BBN safe (τ < 1 s): {'✓ YES' if bbn_safe else '✗ NO — needs faster decay channel'}")
+            print(f"    BBN safe (τ < 1 s): {'[ok] YES' if bbn_safe else '[x] NO — needs faster decay channel'}")
 
             rows.append({
                 "bp": bp["name"], "m_phi_MeV": m_phi_mev,
@@ -414,7 +414,7 @@ def check_4_delta_neff(benchmarks):
     for T_MeV, gstar, note in scenarios:
         xi = (gstar_nu / gstar) ** (1.0 / 3.0)
         dNeff = (4.0 / 7.0) * g_dark_massless * xi**4
-        planck_ok = "✓" if dNeff < planck_lim else "✗ EXCL"
+        planck_ok = "[ok]" if dNeff < planck_lim else "[x] EXCL"
         mark = " ←" if T_MeV == T_D_hyp else ""
         print(f"  {T_MeV:>10.0f} {gstar:>10.2f} {xi:>9.4f}"
               f" {dNeff:>12.4f} {planck_ok:>8}  {note}{mark}")
@@ -424,7 +424,7 @@ def check_4_delta_neff(benchmarks):
             dNeff_massless_key = dNeff
 
     print()
-    print(f"  ⚠ The above ASSUMES m_χ, m_φ ≪ T_d at BBN — see Part B below.")
+    print(f"  [!] The above ASSUMES m_χ, m_φ ≪ T_d at BBN — see Part B below.")
     print()
 
     # ── Part B: physical ΔN_eff at BBN with actual masses ─────────────
@@ -481,7 +481,7 @@ def check_4_delta_neff(benchmarks):
     print(f"  │                                                             │")
     print(f"  │  χ ({m_chi_mev:.0f} MeV) and φ ({m_phi_mev:.1f} MeV) are both NR at          │")
     print(f"  │  T_d = {T_d_BBN:.3f} MeV → Boltzmann-suppressed (e^{{-m/T}}).      │")
-    print(f"  │  Planck constraint (ΔN_eff < {planck_lim}): TRIVIALLY SATISFIED ✓  │")
+    print(f"  │  Planck constraint (ΔN_eff < {planck_lim}): TRIVIALLY SATISFIED [ok]  │")
     print(f"  │  CMB-S4: no dark-sector signal in the secluded model.       │")
     print(f"  │  (Consistent with arxiv/main.tex §3.5: ΔN_eff ≈ 0.)        │")
     print(f"  └──────────────────────────────────────────────────────────────┘")
@@ -538,7 +538,7 @@ def check_5_sommerfeld_sidm(benchmarks):
             sm = _sigma_hulthen_cm2g(m_chi, m_phi, alpha, v_w)
             lo, hi = wconf["lo"], wconf["hi"]
             ok = lo <= sm <= hi
-            status = "✓ PASS" if ok else "✗ FAIL"
+            status = "[ok] PASS" if ok else "[x] FAIL"
             print(f"    {wname:<12} v={v_w:>5} km/s: σ/m = {sm:.3f} cm²/g"
                   f"  window [{lo},{hi}]  {status}")
         print()
@@ -614,11 +614,11 @@ def check_6_rg_running(benchmarks):
 
     print(f"  Gauge group: SU({N_d})_d with {N_f} Majorana fermion(s)")
     print(f"  β₀ = (11/3)×{N_d} − {N_f}/3 = {beta_0:.3f}")
-    print(f"  Asymptotically free: {'YES ✓' if asym_free else 'NO ✗ (Landau pole!)'}")
+    print(f"  Asymptotically free: {'YES [ok]' if asym_free else 'NO [x] (Landau pole!)'}")
     print()
 
     if not asym_free:
-        print("  ⚠️ Theory has Landau pole — not UV complete!")
+        print("  [!] Theory has Landau pole — not UV complete!")
         return []
 
     # RG running: α(μ) = α(μ₀) / (1 + (β₀/(2π)) × α(μ₀) × ln(μ/μ₀))

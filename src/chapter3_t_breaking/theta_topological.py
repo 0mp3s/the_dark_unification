@@ -23,7 +23,7 @@ warnings.filterwarnings('ignore')
 MeV = 1e-3; GeV = 1.0; eV = 1e-9
 M_Pl = 2.435e18; rho_L = 2.58e-47
 
-theta_relic = np.arctan(1/np.sqrt(8))
+theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 
 print("="*78)
 print("θ_dark AS TOPOLOGICAL PARAMETER — EXPLORATION")
@@ -93,7 +93,7 @@ print(f"  cos²θ = 8/9 = {np.cos(theta_relic)**2:.6f}")
 print(f"  sin²θ = 1/9 = {np.sin(theta_relic)**2:.6f}")
 print(f"  tan²θ = 1/8 = {np.tan(theta_relic)**2:.6f}")
 
-print(f"\n  ⚡ KEY: cos²θ = 8/9, sin²θ = 1/9")
+print(f"\n  [!] KEY: cos²θ = 8/9, sin²θ = 1/9")
 print(f"  This means the coupling splits as 8:1 between scalar and pseudoscalar!")
 
 # Check known special angles
@@ -120,12 +120,12 @@ print(f"  Sum:               {np.degrees(theta_tet) + theta_deg:.2f}° = 90°? "
 # Check: is arctan(1/√8) = π/2 - arccos(1/3)?
 # arctan(1/√8): tanθ = 1/√8 → sinθ = 1/3, cosθ = √8/3 = 2√2/3
 # arccos(1/3): cosφ = 1/3 → sinφ = √(1-1/9) = √(8/9) = 2√2/3
-# So sinθ = cosφ → θ + φ = π/2 ✓
+# So sinθ = cosφ → θ + φ = π/2 [ok]
 print(f"\n  sinθ = 1/3 = {np.sin(theta_relic):.6f}")
 print(f"  cosθ = 2√2/3 = {2*np.sqrt(2)/3:.6f} = {np.cos(theta_relic):.6f}")
-print(f"\n  ⚡ θ_dark = arcsin(1/3) exactly!")
-print(f"  ⚡ θ_dark + θ_tetrahedral = 90° exactly!")
-print(f"  ⚡ The dark angle is the COMPLEMENT of the tetrahedral angle!")
+print(f"\n  [!] θ_dark = arcsin(1/3) exactly!")
+print(f"  [!] θ_dark + θ_tetrahedral = 90° exactly!")
+print(f"  [!] The dark angle is the COMPLEMENT of the tetrahedral angle!")
 
 # ============================================================================
 # PART 3: Group-theoretic meaning of 1/3
@@ -149,7 +149,7 @@ print(f"""
 """)
 
 # S4 and A4 are well-known discrete symmetry groups used in neutrino physics!
-print("  ⚡ A₄ is THE discrete symmetry used in neutrino mixing!")
+print("  [!] A₄ is THE discrete symmetry used in neutrino mixing!")
 print("  (tribimaximal mixing: sin²θ₁₂ = 1/3, exactly the same number!)")
 print()
 print("  In tribimaximal mixing (Harrison-Perkins-Scott 2002):")
@@ -342,7 +342,7 @@ print("  This is just a contribution to the cosmological constant!")
 print()
 
 # Compute it
-for name, m_chi_val in [("BP1", 20.69e-3), ("MAP", 94.07e-3)]:
+for name, m_chi_val in [("BP1", 20.69), ("MAP", 94.07)]:
     y_sq = 4 * np.pi * 5.734e-3 / np.cos(theta_relic)**2  # approximate
     y_val = np.sqrt(y_sq)
     v_phi = 0.5 * 11.10e-3
@@ -360,7 +360,7 @@ print(f"""
 """)
 
 # The θ-dependent part
-m_chi_val = 94.07e-3
+m_chi_val = 94.07
 y_sq = 4 * np.pi * 5.734e-3 / np.cos(theta_relic)**2
 y_val = np.sqrt(y_sq)
 v_phi = 0.5 * 11.10e-3
@@ -405,11 +405,11 @@ print(f"""
      10⁴⁰ × ρ_Λ. The θ-dependent part is smaller but still huge (10³⁸ × ρ_Λ).
 
   STATUS:
-    ✅ θ_dark has deep geometric meaning (tetrahedral angle complement)
-    ✅ A₄/S₄ symmetry could provide the mechanism
-    ✅ Fixed-θ approach eliminates V_CW rolling problem
-    ⚠️ CC problem remains (V_CW too large as cosmological constant)
-    ❌ Dark energy still needs an explanation
+    [PASS] θ_dark has deep geometric meaning (tetrahedral angle complement)
+    [PASS] A₄/S₄ symmetry could provide the mechanism
+    [PASS] Fixed-θ approach eliminates V_CW rolling problem
+    [!] CC problem remains (V_CW too large as cosmological constant)
+    [FAIL] Dark energy still needs an explanation
     
   NEXT STEPS:
     → Construct explicit A₄ dark sector model

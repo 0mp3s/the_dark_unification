@@ -328,7 +328,7 @@ def instanton_action_estimate(m_chi, m_phi, alpha, f_gev=None):
     S_E = (f_gev / m_sigma)**2
 
     # Thin-wall components
-    theta_relic = np.arcsin(1.0 / 3.0)
+    theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, from A₄ CG
     DV = abs(V_CW_total(np.pi / 2, m_chi, m_phi) -
              V_CW_total(theta_relic, m_chi, m_phi))
 
@@ -682,7 +682,7 @@ def main():
     print("\u2501" * 72)
     print()
 
-    theta_a4 = np.arcsin(1.0 / 3.0)
+    theta_a4 = np.arctan(1.0 / 3.0)  # 18.43° from A₄ CG
     for bp in benchmarks:
         name = bp["name"]
         r = results[name]
@@ -980,7 +980,7 @@ def main():
             ax4.plot(np.degrees(THETA_GRID), V_norm,
                      color=bp["color"], ls=bp["ls"], lw=2, label=name)
         ax4.axvline(np.degrees(theta_a4), color="green", ls=":", lw=1.5, alpha=0.7,
-                    label=r"$\theta_{A_4}$=arcsin(1/3)")
+                    label=r"$\theta_{A_4}$=arctan(1/3)")
         ax4.axvline(90, color="purple", ls=":", lw=1.5, alpha=0.5, label=r"$\theta=\pi/2$")
         ax4.set_xlabel(r"$\theta$ [degrees]")
         ax4.set_ylabel(r"$V_{\rm CW}(\theta) / |V_{\rm CW}(0)|$")

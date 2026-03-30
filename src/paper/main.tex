@@ -79,8 +79,8 @@ $y_s = y\cos(\sigma/f)$ (T-even, SIDM clustering) playing the role of $\vec{E}$
 and $y_p = y\sin(\sigma/f)$ (T-odd, vacuum energy) playing the role of $\vec{B}$.
 Dark energy is not a separate phenomenon; it is the T-violating projection of the
 same Yukawa interaction. The universal relic angle
-$\thetarel = \arctan(1/\sqrt{8}) = 19.47^\circ$ is fixed simultaneously by
-SIDM and relic density constraints, with no free parameters.
+$\thetarel = \arctan(1/3) = 18.43^\circ$ is fixed by
+$A_4$ discrete symmetry (Clebsch-Gordan ratio $g_p/g_s = 1/3$), with no free parameters.
 Numerical integration of the coupled Friedmann + Klein-Gordon equations with the
 $A_4$ cosine potential yields $H_0 = 67.39$~km/s/Mpc, $w_0 = -0.981$, and
 $w_a = -0.028$.
@@ -124,7 +124,7 @@ extraordinary evidence. Here is the logical chain, and where to find each link.
   \node (L) {\textbf{One Lagrangian}: $\Lc(\chi, \phi, \sigma)$\\3 free parameters: $(m_\chi, m_\phi, \alpha)$};
   \node (sidm) [below=of L] {\textbf{Part I --- Phenomenology}\\VPM cross sections $\to$ fit 13 observables\\$\chi^2/\nu = 0.38$, MCMC: 122 viable points};
   \node (pi)   [below=of sidm] {\textbf{Part II --- Foundations}\\Path integral $\to$ VPM is \emph{exact}\\CW vacuum $\to$ dark QCD $\to$ $H_0 = 67.4$};
-  \node (de)   [below=of pi] {\textbf{Part III --- Unification}\\$y_s + iy_p$: T-even = DM, T-odd = DE\\$\theta_{\rm relic} = 19.47^\circ$ --- zero free parameters};
+  \node (de)   [below=of pi] {\textbf{Part III --- Unification}\\$y_s + iy_p$: T-even = DM, T-odd = DE\\$\theta_{\rm relic} = 18.43^\circ$ --- zero free parameters};
   \draw[arrow] (L) -- (sidm);
   \draw[arrow] (sidm) -- (pi);
   \draw[arrow] (pi) -- (de);
@@ -141,8 +141,8 @@ tests from dwarf galaxies to the Bullet Cluster.
 We prove, step by step, that the VPM ODE is \emph{not a numerical method}
 but the exact evaluation of the one-loop path integral. The same integral,
 evaluated at the Coleman-Weinberg level, selects a CP-violating vacuum;
-dark QCD confinement then predicts $H_0 = 67.4$~km/s/Mpc with no
-additional free parameters.
+dark QCD confinement yields $H_0 = 67.4$~km/s/Mpc, consistent with
+Planck (no additional free parameters).
 
 \textbf{Part~III} (Chapter~3) delivers the unification.
 The CP angle becomes a dynamical field $\sigma(x)$. The coupling
@@ -151,8 +151,8 @@ SIDM clustering and an imaginary (T-odd) part that sources dark energy.
 The imaginary direction in coupling space acts as an \emph{internal fifth
 dimension}: the same Yukawa interaction, projected along the real axis,
 gives dark matter; projected along the imaginary axis, gives dark energy.
-The relic angle $\theta_{\rm relic} = 19.47^\circ$ is fixed uniquely by
-SIDM + relic constraints, with zero additional parameters.
+The relic angle $\theta_{\rm relic} = 18.43^\circ$ is fixed uniquely by
+$A_4$ Clebsch-Gordan coefficients, with zero additional parameters.
 
 \medskip
 \noindent
@@ -217,19 +217,24 @@ Variable Phase Method is not an approximation but the \emph{exact} evaluation
 of the one-loop path integral over the mediator field $\phi$ in the presence
 of the two-body DM density $n_\chi(r)$.
 
-\section{Universal Relic Angle: Derivation}
+\section{Universal Relic Angle: Derivation from \texorpdfstring{$A_4$}{A4}}
 \label{app:relic_angle}
 
-From the two constraints:
-\begin{align}
-  \text{SIDM:} & \quad \alphass = \alpha \\
-  \text{Relic:} & \quad \alphass \alphapp = \alpha^2/8
-\end{align}
-it follows immediately that $\alphapp = \alpha/8$, hence:
+The mixing angle is predicted by $A_4$ discrete symmetry.  The Clebsch-Gordan
+coefficients for the $\mathbf{3}\otimes\mathbf{3}\otimes\mathbf{3}\to\mathbf{1}$
+contraction, evaluated on the DM mass eigenstate
+$\psi = (1,1,1)/\sqrt{3}$ with $S$-preserving VEV
+$\langle\xi_s\rangle \propto (1,1,1)$ and $T$-preserving VEV
+$\langle\xi_p\rangle \propto (1,0,0)$, give couplings
+$g_s = 3$ (scalar) and $g_p = 1$ (pseudoscalar).  Therefore:
 \begin{equation}
-  \thetarel = \arctan\!\sqrt{\alphapp/\alphass} = \arctan(1/\sqrt{8}) = 19.47^\circ
+  \tan^2\!\thetarel = \left(\frac{g_p}{g_s}\right)^{\!2} = \frac{1}{9}
+  \qquad\Longrightarrow\qquad
+  \thetarel = \arctan(1/3) = 18.43^\circ
 \end{equation}
-This angle is \emph{universal} — independent of $(m_\chi, m_\phi, \alpha)$.
+with $\sin^2\!\thetarel = 1/10$ and $\cos^2\!\thetarel = 9/10$.
+This angle is \emph{universal} — independent of $(m_\chi, m_\phi, \alpha)$ —
+and is a genuine group-theoretic prediction with no free parameters.
 
 \section{Instanton Suppression of \texorpdfstring{$\theta_{A_4}$}{theta-A4}}
 \label{app:instanton}

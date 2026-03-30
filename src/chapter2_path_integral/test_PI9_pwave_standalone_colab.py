@@ -53,9 +53,9 @@ OMEGA_TARGET = 0.1200
 G_STAR       = 86.25      # Effective dof at freeze-out (~20-90 GeV)
 PLANCK_SV    = 3.0e-26    # cm³/s — canonical thermal relic normalization
 
-# Universal T-breaking angle from A₄ Clebsch-Gordan (proven in dark-energy-T-breaking)
-THETA_RELIC  = math.atan(1.0 / math.sqrt(8.0))   # 19.47°
-TAN2_THETA   = 1.0 / 8.0                          # tan²(θ_relic) = αp/αs
+# Universal T-breaking angle from A₄ Clebsch-Gordan (g_p/g_s = 1/3)
+THETA_RELIC  = math.atan(1.0 / 3.0)                 # 18.43°
+TAN2_THETA   = 1.0 / 9.0                            # tan²(θ_relic) = αp/αs
 
 # ════════════════════════════════════════════════════════════════════════
 # BENCHMARK POINTS (from global_config.json, march 2026 snapshot)
@@ -311,7 +311,7 @@ def main():
         ok = abs(r["omega_sp"] - OMEGA_TARGET) / OMEGA_TARGET < 0.10
         print(f"  {label:>8}  {r['omega_naive']:>12.4f}  {r['omega_sp']:>10.4f}  "
               f"{r['boost_pct']:>8.2f}%  {r['D_needed']:>9.2f}  "
-              f"{r['D_achieved']:>8.2f}  {'✅' if ok else '✗':>6}")
+              f"{r['D_achieved']:>8.2f}  {'[PASS]' if ok else '[x]':>6}")
 
     print(f"\n  Target: Ωh² = {OMEGA_TARGET}")
 

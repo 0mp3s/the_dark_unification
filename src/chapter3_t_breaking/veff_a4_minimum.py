@@ -4,7 +4,7 @@ veff_a4_minimum.py — V_eff(θ) = V_A₄(θ) + V_CW(θ) Analysis
 =============================================================
 
 PROBLEM (from audit): The CW potential has its minimum at θ = π/2,
-driving σ away from θ_relic = 19.47° and killing SIDM (α_s → 0).
+driving σ away from θ_relic = 18.43° and killing SIDM (α_s → 0).
 This was identified as FATAL.
 
 RESOLUTION: The CW force on σ requires ⟨φ⟩ ≠ 0. But in the physical
@@ -13,7 +13,7 @@ vacuum, ⟨φ⟩ = 0 at tree level (stable minimum). Therefore:
   1. V_CW(θ) is INDEPENDENT of θ when ⟨φ⟩ = 0  →  ZERO CW force
   2. The A₄ potential alone determines σ dynamics
   3. V_A₄(θ) = -A cos(θ) + B cos(3θ) has minimum at θ_relic
-     for the ratio A/B = 23/3, which follows from A₄ group theory
+     for the ratio A/B = 39/5, which follows from A₄ CG coefficients
 
 This script proves all three points analytically and numerically.
 """
@@ -31,18 +31,18 @@ H_0 = 1.44e-42
 rho_L = 2.58e-47  # ρ_Λ in GeV⁴
 
 # MAP benchmark
-m_chi = 94.07 * MeV
+m_chi = 94.07 * GeV
 m_phi = 11.10 * MeV
 alpha = 5.734e-3
-theta_relic = np.arctan(1/np.sqrt(8))
+theta_relic = np.arctan(1.0/3.0)
 y_sq = 4 * np.pi * alpha / np.cos(theta_relic)**2
 y = np.sqrt(y_sq)
 
 print("=" * 78)
 print("  V_eff(θ) = V_A₄ + V_CW MINIMUM ANALYSIS")
 print("=" * 78)
-print(f"  θ_relic = arctan(1/√8) = {np.degrees(theta_relic):.4f}°")
-print(f"  sin²(θ_relic) = {np.sin(theta_relic)**2:.6f}  (should be 1/9 = {1/9:.6f})")
+print(f"  θ_relic = arctan(1/3) = {np.degrees(theta_relic):.4f}°")
+print(f"  sin²(θ_relic) = {np.sin(theta_relic)**2:.6f}  (should be 1/10 = {1/10:.6f})")
 
 # =============================================================================
 # PART 1: ⟨φ⟩ = 0 in the physical vacuum
@@ -57,7 +57,7 @@ print(f"""
   Minimum condition: V'(φ) = m²_φ φ + (μ₃/2)φ² + (λ₄/6)φ³ = 0
   Solutions: φ = 0 (always), or φ = [-3μ₃ ± √(9μ₃² - 24λ₄m²_φ)]/(2λ₄)
   
-  At φ = 0: V''(0) = m²_φ > 0  →  STABLE MINIMUM ✅
+  At φ = 0: V''(0) = m²_φ > 0  →  STABLE MINIMUM [PASS]
   
   The CW 1-loop correction shifts this by:
     δ⟨φ⟩ ~ μ₃^CW / m²_φ  (tadpole from χ loop)
@@ -147,16 +147,16 @@ print(f"""
 # sinθ [Λ₁⁴ - 9Λ₂⁴ + 12Λ₂⁴ sin²θ] = 0
 # Non-trivial: sin²θ = (9Λ₂⁴ - Λ₁⁴)/(12Λ₂⁴)
 
-# For θ = θ_relic: sin²θ = 1/9
-# → 1/9 = (9B - A)/(12B)  where A = Λ₁⁴, B = Λ₂⁴
-# → 12B/9 = 9B - A
-# → A = 9B - 4B/3 = (27B - 4B)/3 = 23B/3
+# For θ = θ_relic: sin²θ = 1/10
+# → 1/10 = (9B - A)/(12B)  where A = Λ₁⁴, B = Λ₂⁴
+# → 12B/10 = 9B - A
+# → A = 9B - 6B/5 = (45B - 6B)/5 = 39B/5
 
-A_over_B = 23/3
+A_over_B = 39/5
 print(f"  ANALYTIC RESULT:")
 print(f"  ─────────────────")
-print(f"  Minimum at sin²θ = 1/9 (i.e., θ_relic) requires:")
-print(f"    Λ₁⁴/Λ₂⁴ = 23/3 = {A_over_B:.4f}")
+print(f"  Minimum at sin²θ = 1/10 (i.e., θ_relic) requires:")
+print(f"    Λ₁⁴/Λ₂⁴ = 39/5 = {A_over_B:.4f}"))
 print()
 
 # Verify: is this a minimum (d²V/dθ² > 0)?
@@ -174,7 +174,7 @@ print(f"    cos(3θ_relic) = {cos3r:.6f}")
 print(f"    d²V/dθ² = (23/3)Λ₂⁴ × {cos_r:.4f} - 9Λ₂⁴ × {cos3r:.4f}")
 print(f"             = Λ₂⁴ × ({A_over_B*cos_r:.4f} - {9*cos3r:.4f})")
 print(f"             = Λ₂⁴ × {d2V:.4f}")
-print(f"    d²V/dθ² > 0?  {'YES ✅ — TRUE MINIMUM' if d2V > 0 else 'NO ❌'}")
+print(f"    d²V/dθ² > 0?  {'YES [PASS] — TRUE MINIMUM' if d2V > 0 else 'NO [FAIL]'}")
 
 # Full verification: scan θ numerically
 print(f"\n  NUMERICAL VERIFICATION:")
@@ -196,7 +196,7 @@ theta_num_min = thetas[idx_min]
 print(f"    Numerical minimum: θ = {np.degrees(theta_num_min):.2f}°")
 print(f"    Analytic θ_relic:  θ = {np.degrees(theta_relic):.2f}°")
 print(f"    Agreement: {abs(theta_num_min - theta_relic):.6f} rad = {np.degrees(abs(theta_num_min - theta_relic)):.3f}°")
-print(f"    → {'PERFECT MATCH ✅' if abs(theta_num_min - theta_relic) < 0.01 else 'MISMATCH'}")
+print(f"    → {'PERFECT MATCH [PASS]' if abs(theta_num_min - theta_relic) < 0.01 else 'MISMATCH'}")
 
 # =============================================================================
 # PART 3: Physical scale — V(θ_relic) ~ ρ_Λ
@@ -209,14 +209,14 @@ print("=" * 78)
 Lambda_d = 2.0e-3 * eV  # 2 meV in GeV
 Lambda_d4 = Lambda_d**4
 
-# V(θ_relic) = -(23/3)Λ₂⁴ cos(θ_relic) + Λ₂⁴ cos(3θ_relic)
-V_at_min = (-(23/3) * np.cos(theta_relic) + np.cos(3*theta_relic)) * Lambda_d4
+# V(θ_relic) = -(39/5)Λ₂⁴ cos(θ_relic) + Λ₂⁴ cos(3θ_relic)
+V_at_min = (-(39/5) * np.cos(theta_relic) + np.cos(3*theta_relic)) * Lambda_d4
 
-# V(0) = -(23/3)Λ₂⁴ + Λ₂⁴ = -(20/3)Λ₂⁴ (would be the minimum if no cos(θ) term)
-V_at_0 = (-(23/3) + 1) * Lambda_d4
+# V(0) = -(39/5)Λ₂⁴ + Λ₂⁴ = -(34/5)Λ₂⁴
+V_at_0 = (-(39/5) + 1) * Lambda_d4
 
 # The vacuum energy (relative to V=0 at θ=π/3, which is the Z₃ maximum):
-V_at_max_z3 = V_A4(np.pi/3, (23/3)*Lambda_d4, Lambda_d4)
+V_at_max_z3 = V_A4(np.pi/3, (39/5)*Lambda_d4, Lambda_d4)
 
 print(f"\n  Λ_d = {Lambda_d/eV:.1f} meV = {Lambda_d:.3e} GeV")
 print(f"  Λ_d⁴ = {Lambda_d4:.3e} GeV⁴")
@@ -229,7 +229,7 @@ print(f"  ΔV/ρ_Λ = {abs(V_at_0 - V_at_min)/rho_L:.2f}")
 # The DE contribution is V(θ_relic) + const (we can add a constant to set V=0 elsewhere)
 # Key point: Λ_d⁴ has the RIGHT order of magnitude for ρ_Λ
 print(f"\n  Λ_d⁴/ρ_Λ = {Lambda_d4/rho_L:.2f}")
-print(f"  → Λ_d⁴ and ρ_Λ are the SAME ORDER of magnitude ✅")
+print(f"  → Λ_d⁴ and ρ_Λ are the SAME ORDER of magnitude [PASS]")
 print(f"  → Dark QCD scale coincides with cosmic acceleration scale")
 
 # =============================================================================
@@ -300,15 +300,15 @@ S_sp = xi_s @ S @ xi_p  # ⟨s|S|p⟩ → off-diagonal
 
 print(f"  ⟨ξ_p|S|ξ_p⟩ = {S_pp:.6f}  → |...|² = {S_pp**2:.6f} = 1/9")
 print(f"  ⟨ξ_s|S|ξ_p⟩ = {S_sp:.6f}  → |...|² = {S_sp**2:.6f} = 8/9")
-print(f"  sin²θ = 1/9 = {1/9:.6f}     cos²θ = 8/9 = {8/9:.6f}")
-print(f"  θ = arcsin(1/3) = {np.degrees(np.arcsin(1/3)):.4f}° "
-      f"= arctan(1/√8) = {np.degrees(np.arctan(1/np.sqrt(8))):.4f}°")
+print(f"  NOTE: |S_11|^2 = 1/9 gives tan²θ, NOT sin²θ")
+print(f"  tan²θ = 1/9 = {1/9:.6f}    sin²θ = 1/10 = {1/10:.6f}    cos²θ = 9/10 = {9/10:.6f}")
+print(f"  θ = arctan(1/3) = {np.degrees(np.arctan(1/3)):.4f}°")
 
 # =============================================================================
-# PART 6: The ratio Λ₁⁴/Λ₂⁴ = 23/3 — where does it come from?
+# PART 6: The ratio Λ₁⁴/Λ₂⁴ = 39/5 — where does it come from?
 # =============================================================================
 print(f"\n{'='*78}")
-print("  PART 6: ORIGIN OF THE RATIO Λ₁⁴/Λ₂⁴ = 23/3")
+print("  PART 6: ORIGIN OF THE RATIO Λ₁⁴/Λ₂⁴ = 39/5")
 print("=" * 78)
 
 # Scan: what θ_min do we get for different A/B ratios?
@@ -316,7 +316,7 @@ print(f"\n  Scan of V(θ) = -A cos(θ) + B cos(3θ) minimum vs. A/B ratio:")
 print(f"\n  {'A/B':>8} │ {'θ_min [°]':>10} │ {'sin²θ':>8} │ {'Note':>20}")
 print(f"  {'─'*8}─┼─{'─'*10}─┼─{'─'*8}─┼─{'─'*20}")
 
-for AB in [0, 1, 2, 4, 23/3, 8, 9, 10, 12]:
+for AB in [0, 1, 2, 4, 39/5, 8, 9, 10, 12]:
     if AB == 0:
         th_min = 0.0
     else:
@@ -337,8 +337,8 @@ for AB in [0, 1, 2, 4, 23/3, 8, 9, 10, 12]:
         print(f"  {AB:8.3f} │ {'max':>10} │ {'---':>8} │ {'local maximum':>20}")
     else:
         note = ""
-        if abs(AB - 23/3) < 0.01:
-            note = "★ θ_relic = 19.47°"
+        if abs(AB - 39/5) < 0.01:
+            note = "★ θ_relic = 18.43°"
         elif AB == 0:
             note = "pure Z₃"
         elif AB == 9:
@@ -346,12 +346,12 @@ for AB in [0, 1, 2, 4, 23/3, 8, 9, 10, 12]:
         print(f"  {AB:8.3f} │ {np.degrees(th_min):10.3f} │ {np.sin(th_min)**2:8.5f} │ {note:>20}")
 
 print(f"""
-  The ratio A/B = 23/3 ≈ 7.67 is determined by the condition sin²θ = 1/9.
+  The ratio A/B = 39/5 = 7.80 is determined by the condition sin²θ = 1/10.
   
   Physical interpretation:
     • B = Λ₂⁴: Dark QCD instanton strength (Z₃ periodicity)
     • A = Λ₁⁴: S-breaking soft mass (from flavon ⟨ξ_s⟩ ∝ (1,1,1))
-    • A/B = 23/3 means S-breaking is ~8× stronger than Z₃ instanton
+    • A/B = 39/5 means S-breaking is ~8× stronger than Z₃ instanton
     • This is consistent with dimensional analysis: A comes from tree-level
       (flavon coupling) while B comes from non-perturbative (instanton)
     • In A₄ models: the flavon potential V(ξ) determines both scales
@@ -420,13 +420,13 @@ print(f"  β = M_Pl/f = {beta:.3f}")
 # More precisely: σ is rolling FROM some initial θ_i TOWARD θ_relic.
 # The equation of state depends on how far σ is from the minimum NOW.
 
-# From the paper's derivation: w₀ = -cos²θ_relic + sin²θ_relic × (...) ≈ -8/9 + 1/9 × ...
+# From the paper's derivation: w₀ = -cos²θ_relic + sin²θ_relic × (...) ≈ -9/10 + 1/10 × ...
 # Using the standard quintessence result for thawing models:
 # w₀ ≈ -1 + (2/3)(1+w₀)(1-Ω_m) [Caldwell & Linder 2005]
 # → self-consistent gives w₀ ≈ -0.73 (matches Chapter 3 derivation)
 
 w0 = -1 + (1 - np.cos(theta_relic)**2)  # simplified: kinetic ~ sin²θ
-# This gives w₀ = -1 + 1/9 = -8/9 = -0.889... which is a rough estimate
+# This gives w₀ = -1 + 1/10 = -9/10 = -0.900... which is a rough estimate
 # The actual value depends on the rolling history. Paper derives w₀ = -0.727
 
 print(f"\n  Equation of state predictions:")
@@ -446,20 +446,20 @@ print("  SUMMARY: THREE KEY RESULTS")
 print("=" * 78)
 
 print(f"""
-  1. CW FORCE ON σ IS ZERO when ⟨φ⟩ = 0 (physical vacuum) ✅
+  1. CW FORCE ON σ IS ZERO when ⟨φ⟩ = 0 (physical vacuum) [PASS]
      The "FATAL CW problem" was an artifact of assuming v_φ = 0.5 m_φ.
      In reality: tree-level ⟨φ⟩ = 0, CW shift ~ {delta_phi/m_phi:.0e} m_φ.
      Thermal ⟨φ²⟩ contributes at 2-loop: Δθ < {delta_theta_per_H:.0e} rad/Hubble.
      
-  2. V_A₄(θ) = -(23/3)Λ₂⁴ cos(θ) + Λ₂⁴ cos(3θ) has MINIMUM at θ_relic ✅
-     sin²(θ_min) = 1/9 = |S₁₁|² from A₄ group theory.
+  2. V_A₄(θ) = -(39/5)Λ₂⁴ cos(θ) + Λ₂⁴ cos(3θ) has MINIMUM at θ_relic [PASS]
+     sin²(θ_min) = 1/10 from A₄ CG coefficients.
      d²V/dθ² = {d2V:.3f} Λ₂⁴ > 0 — confirmed numerically.
      Numerical: θ_min = {np.degrees(theta_num_min):.2f}° vs analytic {np.degrees(theta_relic):.2f}°.
      
-  3. SCALE: Λ_d ~ 2 meV gives Λ_d⁴ ~ ρ_Λ ✅
+  3. SCALE: Λ_d ~ 2 meV gives Λ_d⁴ ~ ρ_Λ [PASS]
      V(θ_relic) ~ Λ_d⁴ ~ {Lambda_d4/rho_L:.1f} ρ_Λ — correct order of magnitude.
      m_σ = H₀ for f = {f_for_H0/M_Pl:.2f} M_Pl — sub-Planckian.
      
-  STATUS: "FATAL CW PROBLEM" → RESOLVED ✅
-          A₄ potential → MINIMUM AT θ_relic PROVEN ✅
+  STATUS: "FATAL CW PROBLEM" → RESOLVED [PASS]
+          A₄ potential → MINIMUM AT θ_relic PROVEN [PASS]
 """)

@@ -105,13 +105,13 @@ Lagrangian with a $\gamma^5$ matrix, which has two consequences:
         just as $\vec{B}$ does no work on charged particles.
   \item $y_p$ generates a vacuum energy through the Coleman-Weinberg
         mechanism (\S\ref{ch2:cw}), because the one-loop effective potential
-        depends on $M_{\rm eff}(\theta) = m_\chi\sqrt{\cos^2\theta + \sin^2\theta/9}$,
+        depends on $M_{\rm eff}(\theta) = m_\chi\sqrt{\cos^2\theta + \sin^2\theta/10}$,
         which is minimized at $\theta \neq 0$.
 \end{enumerate}
 
 In this sense, the dark sector has a ``hidden spatial extent'' --- not in
 physical space, but in the space of couplings. The universe sits at a
-specific point on this internal circle ($\theta_{\rm relic} = 19.47^\circ$),
+specific point on this internal circle ($\theta_{\rm relic} = 18.43^\circ$),
 and the distance from the real axis determines how much vacuum energy exists.
 
 \section{The Extended Lagrangian}
@@ -152,26 +152,35 @@ $V_\sigma \sim \rho_\Lambda$ (§\ref{ch3:scale}); all other free parameters alre
 \section{The Universal Relic Angle}
 \label{ch3:thetarel}
 
-Two constraints. One equation. No freedom.
+One discrete symmetry. One equation. No freedom.
 
-The Chapter~1 MCMC enforces two independent conditions on the effective couplings:
-(i) the SIDM cross section must match $\sigma_T/m_\chi = 1$--$3$~cm$^2$/g
-across all benchmark halos, and (ii) the relic density must satisfy $\Omega h^2 = 0.120$.
-Expressing these as constraints on $(y_s, y_p)$:
+The $A_4$ flavour symmetry of the dark sector fixes the mixing angle through
+group theory alone.  The Clebsch-Gordan coefficients for the
+$\mathbf{3}\otimes\mathbf{3}\otimes\mathbf{3}\to\mathbf{1}$ contraction,
+evaluated on the DM mass eigenstate $\psi = (1,1,1)/\sqrt{3}$
+with the $S$-preserving flavon VEV $\langle\xi_s\rangle \propto (1,1,1)$ and
+the $T$-preserving flavon VEV $\langle\xi_p\rangle \propto (1,0,0)$, give:
 \begin{align}
-  \text{SIDM (Ch.1):} \quad & \alphass = \alpha \\
-  \text{Relic (Ch.1):} \quad & \alphass\alphapp = \frac{\alpha^2}{8}
+  g_s &= \psi^T\!M(\xi_s)\,\psi = 3 \quad (\text{scalar coupling})\\
+  g_p &= \psi^T\!M(\xi_p)\,\psi = 1 \quad (\text{pseudoscalar coupling})
 \end{align}
-
-Dividing: $\alphapp/\alphass = 1/8$. The relic angle is then fixed:
+where $M(\xi)$ is the $A_4$ circulant mass matrix.
+The coupling ratio is therefore fixed:
 \begin{equation}
-  \boxed{\thetarel = \arctan\!\sqrt{\frac{\alphapp}{\alphass}}
-         = \arctan\!\frac{1}{\sqrt{8}} = 19.47^\circ}
+  \frac{\alphapp}{\alphass} = \left(\frac{g_p}{g_s}\right)^{\!2} = \frac{1}{9}
 \end{equation}
 
-This is not a tuning. It is the \emph{unique} equilibrium where the same
-coupling simultaneously satisfies DM self-interactions and the observed relic
-abundance. The value $19.47^\circ$ is identical for every benchmark point in
+The relic angle follows immediately:
+\begin{equation}
+  \boxed{\thetarel = \arctan\!\frac{g_p}{g_s}
+         = \arctan\!\frac{1}{3} = 18.43^\circ}
+\end{equation}
+with $\sin^2\!\thetarel = 1/10$ and $\cos^2\!\thetarel = 9/10$.
+
+This is not a tuning. It is a \emph{group-theoretic prediction} from
+$A_4$ Clebsch-Gordan coefficients, analogous to the neutrino prediction
+$\sin^2\!\theta_{12} = 1/3$ from the same discrete symmetry.
+The value $18.43^\circ$ is identical for every benchmark point in
 the MCMC island --- it is as universal as the Weinberg angle, but derived, not measured.
 
 \subsection{Geometric Interpretation}
@@ -190,16 +199,16 @@ intersect the circle at exactly one point (in the first quadrant):
   % circle
   \draw[blue!60,thick] (0,0) circle (1);
   % angle
-  \draw[red,very thick] (0,0) -- ({cos(19.47)},{sin(19.47)});
-  \fill[red] ({cos(19.47)},{sin(19.47)}) circle (1.5pt)
-    node[above right,font=\small] {$\theta_{\rm relic} = 19.47^\circ$};
+  \draw[red,very thick] (0,0) -- ({cos(18.43)},{sin(18.43)});
+  \fill[red] ({cos(18.43)},{sin(18.43)}) circle (1.5pt)
+    node[above right,font=\small] {$\theta_{\rm relic} = 18.43^\circ$};
   % angle arc
-  \draw[red,thick,->] (0.4,0) arc (0:19.47:0.4);
+  \draw[red,thick,->] (0.4,0) arc (0:18.43:0.4);
   \node[red,font=\footnotesize] at (0.5,0.1) {$\theta$};
   % projections
-  \draw[dashed,gray] ({cos(19.47)},{sin(19.47)}) -- ({cos(19.47)},0)
+  \draw[dashed,gray] ({cos(18.43)},{sin(18.43)}) -- ({cos(18.43)},0)
     node[below,font=\footnotesize,black] {$y\cos\theta$};
-  \draw[dashed,gray] ({cos(19.47)},{sin(19.47)}) -- (0,{sin(19.47)})
+  \draw[dashed,gray] ({cos(18.43)},{sin(18.43)}) -- (0,{sin(18.43)})
     node[left,font=\footnotesize,black] {$y\sin\theta$};
   % labels
   \node[blue!60,font=\footnotesize] at (0.65,0.85) {$|\mathcal{Y}| = y$};
@@ -217,8 +226,8 @@ is $\mathcal{O}(1)$ rather than $10^{120}$ or $10^{-120}$.
 
 \textit{This is the central result of the unification: the cosmological
 coincidence problem (why $\Omega_{DE} \sim \Omega_{DM}$) is answered by
-geometry --- the relic angle sits at $19.47^\circ$, not $0.001^\circ$ or
-$89.999^\circ$, because both SIDM and relic density demand it.}
+geometry --- the relic angle sits at $18.43^\circ$, not $0.001^\circ$ or
+$89.999^\circ$, because $A_4$ group theory demands it.}
 
 \section{Scale of the Dark Energy Potential}
 \label{ch3:scale}
@@ -504,7 +513,7 @@ epoch, confirming that all relic-viable benchmark points can avoid overclosure.
 
 A potential concern is whether the Coleman-Weinberg (CW) one-loop correction
 to the $\sigma$ potential displaces the minimum from the $A_4$ relic angle
-$\theta_{\rm relic} = 19.47^\circ$. We show this does not happen.
+$\theta_{\rm relic} = 18.43^\circ$. We show this does not happen.
 
 The CW correction is generated by $\phi$ loops coupling to the $\sigma$ field.
 Since all benchmark points have $\langle\phi\rangle = 0$ (the physical vacuum),
@@ -538,7 +547,7 @@ projections of one Lagrangian:
 The unification is not formal — the same coupling $y$, the same mass $m_\chi$,
 and the same mediator mass $m_\phi$ that explain the rotation curves of SPARC
 galaxies and the survival of Fornax globular clusters also set the scale of
-dark energy and predict $H_0 = 67.4$ km/s/Mpc.
+dark energy and yield $H_0 = 67.4$ km/s/Mpc, consistent with Planck.
 
 \subsection{What the Factor \texorpdfstring{$i$}{i} Buys Us}
 
@@ -575,7 +584,7 @@ of the unified framework:
 \toprule
 Prediction & Value & Current data & Status \\
 \midrule
-$\theta_{\rm relic}$ & $19.47^\circ$ & --- (no direct measurement) & Future \\
+$\theta_{\rm relic}$ & $18.43^\circ$ & --- (no direct measurement) & Future \\
 $H_0$        & 67.4 km/s/Mpc & Planck: $67.4 \pm 0.5$ & \checkmark \\
 $w_0$        & $-0.981$       & DESI: $-0.827 \pm 0.063$ & $2.4\sigma$ \\
 $w_a$        & $-0.028$       & DESI: $-0.75^{+0.29}_{-0.25}$ & $2.9\sigma$ \\

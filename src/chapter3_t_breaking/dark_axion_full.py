@@ -64,11 +64,11 @@ rho_L = 2.58e-47 * GeV**4
 
 # Benchmark points
 BPs = {
-    "BP1":       {"m_chi": 20.69e-3, "m_phi": 11.34e-3, "alpha": 1.048e-3},
-    "BP9":       {"m_chi": 42.53e-3, "m_phi": 10.92e-3, "alpha": 2.165e-3},
-    "BP16":      {"m_chi": 63.81e-3, "m_phi": 11.78e-3, "alpha": 3.253e-3},
-    "MAP":       {"m_chi": 94.07e-3, "m_phi": 11.10e-3, "alpha": 5.734e-3},
-    "MAP_relic": {"m_chi": 85.84e-3, "m_phi": 15.35e-3, "alpha": 5.523e-3},
+    "BP1":       {"m_chi": 20.69, "m_phi": 11.34e-3, "alpha": 1.048e-3},
+    "BP9":       {"m_chi": 42.53, "m_phi": 10.92e-3, "alpha": 2.165e-3},
+    "BP16":      {"m_chi": 63.81, "m_phi": 11.78e-3, "alpha": 3.253e-3},
+    "MAP":       {"m_chi": 94.07, "m_phi": 11.10e-3, "alpha": 5.734e-3},
+    "MAP_relic": {"m_chi": 85.84, "m_phi": 15.35e-3, "alpha": 5.523e-3},
 }
 
 print("="*78)
@@ -120,12 +120,10 @@ for name, bp in BPs.items():
     m_phi = bp["m_phi"]
     alpha = bp["alpha"]
     
-    # From SIDM: α_s = α → cos²θ = 4πα/y²
-    # From relic: α_s α_p = α²/8 → α × α_p = α²/8 → α_p = α/8
-    # So: sin²θ = α_p × 4π/y² = (α/8)(4π)/y²
-    # And: cos²θ/sin²θ = α/(α/8) = 8 → tan²θ = 1/8 → θ = arctan(1/√8)
+    # From A4 CG coefficients: g_p/g_s = 1/3 → tan²θ = 1/9
+    # θ = arctan(1/3) = 18.43°, sin²θ = 1/10
     
-    theta = np.arctan(1/np.sqrt(8))
+    theta = np.arctan(1.0/3.0)
     y_sq = 4 * np.pi * alpha / np.cos(theta)**2
     y = np.sqrt(y_sq)
     
@@ -141,7 +139,7 @@ for name, bp in BPs.items():
     print(f"    α_s × α_p = {alpha_s*alpha_p:.4e} (should be {alpha**2/8:.4e})")
     print()
 
-theta_relic = np.arctan(1/np.sqrt(8))
+theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 print(f"  → Universal relic angle: θ = {np.degrees(theta_relic):.2f}°")
 print(f"    This fixes ⟨σ⟩ = f × {theta_relic:.4f}")
 print()
@@ -455,7 +453,7 @@ print()
 print("CW extrema analysis:")
 print(f"  θ = 0°:     α_s = α, α_p = 0  → pure scalar, NO relic (p-wave only)")
 print(f"  θ = 90°:    α_s = 0, α_p = α  → pure pseudo, NO SIDM (no t-channel)")  
-print(f"  θ_relic = {np.degrees(theta_relic):.1f}°: mixed → SIDM + relic ✓")
+print(f"  θ_relic = {np.degrees(theta_relic):.1f}°: mixed → SIDM + relic [ok]")
 print()
 print("  CW minimum is at θ = 0 (maximum M²_eff → most negative V_CW)")
 print("  → Natural CW drives σ to θ=0 (pure scalar), AWAY from θ_relic!")

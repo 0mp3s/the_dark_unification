@@ -14,10 +14,10 @@ M_Pl = 2.435e18
 H_0 = 1.44e-42   # 67.4 km/s/Mpc
 
 # MAP benchmark
-m_chi = 94.07e-3   # GeV
+m_chi = 94.07   # GeV
 m_phi = 11.10e-3   # GeV (mediator mass, NOT the VEV)
 alpha = 5.734e-3
-theta = np.arctan(1/np.sqrt(8))  # 19.47°
+theta = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 y = np.sqrt(4*np.pi*alpha / np.cos(theta)**2)
 
 print("="*70)
@@ -227,7 +227,7 @@ print(f"  → Almost NO cancellation! m_χ >> m_φ (ratio = {m_chi/m_phi:.1f})")
 # What if m_χ ≈ m_φ?
 print(f"\n  For SUSY to work, need m_χ ≈ m_φ.")
 print(f"  MAP has m_χ/m_φ = {m_chi/m_phi:.1f} → SUSY broken by factor ~{m_chi/m_phi:.0f}")
-print(f"  VERDICT: ✗ Dark SUSY doesn't help for our benchmark points.")
+print(f"  VERDICT: [x] Dark SUSY doesn't help for our benchmark points.")
 
 # But let's check: what if there's a DIFFERENT BP where m_χ ≈ m_φ?
 print(f"\n  Hypothetical: m_χ = 12 MeV, m_φ = 11 MeV (Δm = 1 MeV)")
@@ -360,10 +360,10 @@ print(f"""
 MECHANISM          | RESULT                    | VERDICT
 -------------------+---------------------------+--------
 1. Exact Goldstone | Need Λ_dark ~ 10⁻³ eV    | Possible but unexplained
-2. Dark SUSY       | m_χ/m_φ = {m_chi/m_phi:.0f} → no cancel | ✗ FAILS for our BPs
+2. Dark SUSY       | m_χ/m_φ = {m_chi/m_phi:.0f} → no cancel | [x] FAILS for our BPs
 3. Clockwork (q=3) | Need N ~ {np.log(m_sigma_CW/H_0)/(2*np.log(3)):.0f} gears         | Possible but ad hoc
 4. Extra dimension | Equivalent to clockwork   | Same
-5. Large f         | Need f ~ {f_needed_2loop/M_Pl:.0e} M_Pl       | ✗ Trans-Planckian
+5. Large f         | Need f ~ {f_needed_2loop/M_Pl:.0e} M_Pl       | [x] Trans-Planckian
 
 MOST PROMISING: Mechanism 1 (Goldstone with tiny Λ)
   If dark sector has a confining gauge group (dark QCD):
@@ -371,7 +371,7 @@ MOST PROMISING: Mechanism 1 (Goldstone with tiny Λ)
   
   This is the QCD axion mechanism!
   In QCD: m_a ~ Λ_QCD²/f_a ~ (200 MeV)²/(10¹² GeV) ~ 10⁻⁵ eV
-  For us: m_σ ~ Λ_dark²/f_dark ~ (10⁻³ eV)²/(10¹⁸ GeV) ~ 10⁻³³ eV ✓
+  For us: m_σ ~ Λ_dark²/f_dark ~ (10⁻³ eV)²/(10¹⁸ GeV) ~ 10⁻³³ eV [ok]
 
   The question: what is this dark QCD? Can it be part of A₄?
 
@@ -409,5 +409,5 @@ for f_val in [0.2*M_Pl, 1e16, 1e14]:
     print(f"    Λ_d = √(H₀ f) = {Lambda_d:.2e} GeV = {Lambda_d/eV:.2e} eV")
     print(f"    m_σ = Λ²/f = {m_sigma_sc/H_0:.2f} H₀")
     # Self-consistency: f should be >> Λ_d
-    print(f"    f/Λ_d = {f_val/Lambda_d:.2e} (need >> 1 for weak coupling: {'✓' if f_val/Lambda_d > 100 else '✗'})")
+    print(f"    f/Λ_d = {f_val/Lambda_d:.2e} (need >> 1 for weak coupling: {'[ok]' if f_val/Lambda_d > 100 else '[x]'})")
     print()

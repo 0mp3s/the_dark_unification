@@ -173,12 +173,12 @@ def compute_LCDM_distances(z_eval, H0_kms=67.4, Omega_m=0.315):
 
 
 # =============================================================================
-# PART 1: Fine-tune grid
+# PART 1: Parameter scan
 # =============================================================================
-def fine_tune_grid():
-    """Dense scan around the 3D best fit to nail H0 = 67.4."""
+def parameter_scan():
+    """Scan (Lambda_d, theta_i, f) parameter space; select point closest to Planck H0."""
     print("=" * 78)
-    print("  PART 1: FINE-TUNE GRID AROUND BEST FIT")
+    print("  PART 1: PARAMETER SCAN AROUND BEST FIT")
     print("=" * 78)
     print(f"\n  Starting point: Ld=1.45, th_i=1.512, f=3.0 → H0=67.31")
     print(f"  Target: H0 = 67.4 +/- 0.5, Omega_DE ~ 0.685\n")
@@ -326,11 +326,11 @@ def pantheon_comparison(result_dict, Ld_meV, th_i, f_MPl):
     print(f"  └───────────────────────────────────────────────────┘")
 
     if abs(chi2 - chi2_lcdm) < 10:
-        print(f"\n  ✅ A4 quintessence fits SN Ia as well as LCDM (|Δχ²| = {abs(chi2-chi2_lcdm):.1f})")
+        print(f"\n  [PASS] A4 quintessence fits SN Ia as well as LCDM (|Δχ²| = {abs(chi2-chi2_lcdm):.1f})")
     elif chi2 < chi2_lcdm:
-        print(f"\n  ✅ A4 quintessence fits BETTER than LCDM (Δχ² = {chi2-chi2_lcdm:.1f})")
+        print(f"\n  [PASS] A4 quintessence fits BETTER than LCDM (Δχ² = {chi2-chi2_lcdm:.1f})")
     else:
-        print(f"\n  ⚠  A4 slightly worse than LCDM (Δχ² = +{chi2-chi2_lcdm:.1f})")
+        print(f"\n  [!]  A4 slightly worse than LCDM (Δχ² = +{chi2-chi2_lcdm:.1f})")
 
     # Print residual table (all bins, mark excluded)
     print(f"\n  {'z':>8} {'mu_obs':>8} {'mu_A4':>8} {'mu_LCDM':>8} {'res_A4':>8} {'res_LCDM':>8} {'sig':>6}")
@@ -576,7 +576,7 @@ def print_summary(result, pan, bao, Ld, th, fv):
 
     print(f"""
   ╔══════════════════════════════════════════════════════════════════╗
-  ║  MODEL: V_A4(theta) = -(23/3) Ld^4 cos(theta) + Ld^4 cos(3theta)  ║
+  ║  MODEL: V_A4(theta) = -(39/5) Ld^4 cos(theta) + Ld^4 cos(3theta)  ║
   ║                                                                  ║
   ║  PARAMETERS (3 free):                                            ║
   ║    Lambda_d = {Ld:.3f} meV    (dark QCD scale)                    ║
@@ -639,8 +639,8 @@ if __name__ == '__main__':
     print("  Pantheon+ (SN Ia) + BAO (SDSS/DESI) + Planck")
     print("=" * 78)
 
-    # Step 1: Fine-tune
-    ft_result = fine_tune_grid()
+    # Step 1: Parameter scan
+    ft_result = parameter_scan()
     if ft_result is None:
         print("\nFine-tune failed. Exiting.")
         sys.exit(1)

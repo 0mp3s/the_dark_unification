@@ -45,24 +45,24 @@ OMEGA_R_H2 = _RHO_GAMMA * _NU_FACTOR / _RHO_UNIT  # ~4.15e-5
 H0_PLANCK_KMS = 67.4
 H0_PLANCK_GEV = H0_PLANCK_KMS / 100.0 * H_100_GEV
 
-# Theta relic from A4
-THETA_RELIC = np.arctan(1.0 / np.sqrt(8.0))  # = 19.4712 deg
+# Theta relic from A4 CG coefficients: g_p/g_s = 1/3
+THETA_RELIC = np.arctan(1.0 / 3.0)  # = 18.4349 deg, sin^2 = 1/10
 
 # =============================================================================
 # A4 Potential: V(theta) = -A cos(theta) + B cos(3 theta)
-# with A/B = 23/3, B = Lambda_d^4
+# with A/B = 39/5, B = Lambda_d^4
 # =============================================================================
 def V_A4(theta, Lambda_d4):
-    """V_A4(theta) with A = (23/3) Lambda_d^4, B = Lambda_d^4."""
-    return -(23.0/3.0) * Lambda_d4 * np.cos(theta) + Lambda_d4 * np.cos(3.0 * theta)
+    """V_A4(theta) with A = (39/5) Lambda_d^4, B = Lambda_d^4."""
+    return -(39.0/5.0) * Lambda_d4 * np.cos(theta) + Lambda_d4 * np.cos(3.0 * theta)
 
 def dV_A4_dtheta(theta, Lambda_d4):
     """dV/d theta."""
-    return (23.0/3.0) * Lambda_d4 * np.sin(theta) - 3.0 * Lambda_d4 * np.sin(3.0 * theta)
+    return (39.0/5.0) * Lambda_d4 * np.sin(theta) - 3.0 * Lambda_d4 * np.sin(3.0 * theta)
 
 def d2V_A4_dtheta2(theta, Lambda_d4):
     """d^2 V / d theta^2."""
-    return (23.0/3.0) * Lambda_d4 * np.cos(theta) - 9.0 * Lambda_d4 * np.cos(3.0 * theta)
+    return (39.0/5.0) * Lambda_d4 * np.cos(theta) - 9.0 * Lambda_d4 * np.cos(3.0 * theta)
 
 # Normalize: shift V so that V(theta_relic) = 0
 # The DE energy is V(theta) - V(theta_relic) > 0 for theta != theta_relic
@@ -508,9 +508,9 @@ if __name__ == '__main__':
     print("  SUMMARY")
     print(f"{'='*78}")
     print(f"""
-  Potential: V_A4(theta) = -(23/3) Lambda_d^4 cos(theta) + Lambda_d^4 cos(3 theta)
+  Potential: V_A4(theta) = -(39/5) Lambda_d^4 cos(theta) + Lambda_d^4 cos(3 theta)
   Shifted:   V_DE(theta) = V_A4(theta) - V_A4(theta_relic)  [V=0 at minimum]
-  Minimum:   theta_relic = 19.47 deg (from A4 group theory, sin^2 = 1/9)
+  Minimum:   theta_relic = 18.43 deg (from A4 CG coefficients, sin^2 = 1/10)
 
   KEY DIFFERENCE from layer8_cosmic_ode.py:
     OLD: V(sigma) = Lambda_d^4 (1 - cos(sigma/f))   [simple cosine]
@@ -518,6 +518,6 @@ if __name__ == '__main__':
 
   The A4 potential has:
     - Steeper walls (cos(3theta) adds harmonics)
-    - Minimum at theta_relic = 19.47 deg (not theta = 0)
+    - Minimum at theta_relic = 18.43 deg (not theta = 0)
     - Barrier at theta = 0 (Z3 symmetry point)
 """)

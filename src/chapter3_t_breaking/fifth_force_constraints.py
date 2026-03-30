@@ -36,10 +36,10 @@ rho_L = 2.58e-47
 
 # BPs
 BPs = {
-    "BP1":       {"m_chi": 20.69e-3, "m_phi": 11.34e-3, "alpha": 1.048e-3},
-    "BP9":       {"m_chi": 42.53e-3, "m_phi": 10.92e-3, "alpha": 2.165e-3},
-    "MAP":       {"m_chi": 94.07e-3, "m_phi": 11.10e-3, "alpha": 5.734e-3},
-    "MAP_relic": {"m_chi": 85.84e-3, "m_phi": 15.35e-3, "alpha": 5.523e-3},
+    "BP1":       {"m_chi": 20.69, "m_phi": 11.34e-3, "alpha": 1.048e-3},
+    "BP9":       {"m_chi": 42.53, "m_phi": 10.92e-3, "alpha": 2.165e-3},
+    "MAP":       {"m_chi": 94.07, "m_phi": 11.10e-3, "alpha": 5.734e-3},
+    "MAP_relic": {"m_chi": 85.84, "m_phi": 15.35e-3, "alpha": 5.523e-3},
 }
 
 print("="*78)
@@ -97,7 +97,7 @@ print("V_σ ~ y⁴ m_χ⁶ / (32π² f²)")
 print("If f must be > 15 M_Pl (for β < 0.066), then V_σ is suppressed by (15)² = 225×")
 print()
 
-theta_relic = np.arctan(1/np.sqrt(8))
+theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 
 for name, bp in BPs.items():
     m_chi = bp["m_chi"]
@@ -223,9 +223,9 @@ for beta in [5.0, 1.0, 0.1]:
     print(f"    Sound horizon z=1100 ~ 0.15 Mpc (physical)")
     
     if lambda_rec_mpc < 0.15:
-        print(f"    → SCREENED at CMB: range ≪ sound horizon ✓")
+        print(f"    → SCREENED at CMB: range ≪ sound horizon [ok]")
     else:
-        print(f"    → NOT screened at CMB: range > sound horizon ✗")
+        print(f"    → NOT screened at CMB: range > sound horizon [x]")
     print()
 
 # =============================================================================
@@ -321,7 +321,7 @@ print()
 print("SCENARIO 2: Chameleon screening from DM density")
 print("  β = 5 but fifth force range ≪ CMB scales at z=1100")
 print("  CW mass ~ 10⁸⁻¹⁰ H₀ → range ~ 10⁻⁸⁻¹⁰ Mpc")
-print("  Sound horizon ~ 0.15 Mpc → SCREENED at CMB ✓")
+print("  Sound horizon ~ 0.15 Mpc → SCREENED at CMB [ok]")
 print("  But need to verify Bullet Cluster & local constraints")
 print()
 print("SCENARIO 3: Adiabatic suppression")

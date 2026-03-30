@@ -13,8 +13,8 @@ Both are standard tools — but where do they come from, really?
 This chapter shows that both emerge as exact evaluations of the path integral
 over the Lagrangian of Chapter~1. No approximation is introduced at any step.
 The payoff goes beyond rigor: the same path integral, evaluated at one loop,
-a) proves the ODE is exact (not a numerical method), and b) predicts $H_0 = 67.4$
-km/s/Mpc from dark QCD confinement.
+a) proves the ODE is exact (not a numerical method), and b) yields $H_0 = 67.4$
+km/s/Mpc from dark QCD confinement, consistent with Planck.
 
 The derivation proceeds in seven layers, each answering a specific physical question:
 
@@ -201,7 +201,7 @@ This is not a free parameter but an output of the one-loop calculation.
          \textbf{Left}: Full potential over $\theta \in [0^\circ, 180^\circ]$,
          showing the minimum near $\theta = 90^\circ$ (maximal CP violation).
          The $A_4$ symmetry discretizes the minimum to
-         $\theta_{relic} = 19.47^\circ$.
+         $\theta_{relic} = 18.43^\circ$.
          \textbf{Right}: Zoom near the relic angle. The green region
          ($\theta < \theta_{relic}$) is DM-dominated; the purple region
          ($\theta > \theta_{relic}$) contributes to dark energy.
@@ -272,7 +272,7 @@ of dark energy. The chain proceeds through five quantitative steps:
   arrow/.style={-{Stealth[length=2mm]}, thick}]
   \node (L)  {$\Lc_{SIDM}$};
   \node (CW) [right=of L] {$V_{CW}(\theta)$};
-  \node (th) [right=of CW] {$\theta_{relic} = 19.47^\circ$};
+  \node (th) [right=of CW] {$\theta_{relic} = 18.43^\circ$};
   \node (Om) [below=of th] {$\Omega_\sigma = 0.69$};
   \node (H0) [left=of Om]  {$H_0 = 67.4$};
   \draw[arrow] (L) -- node[above,draw=none,minimum width=0,minimum height=0]{\tiny 1-loop} (CW);
@@ -327,13 +327,13 @@ The chain uses one new parameter: $f \approx 0.24\,M_{\rm Pl}$, determined
 by the single condition $\rho_\sigma = \rho_\Lambda$. The initial angle
 $\theta_i$ is not free --- it is set by the CW minimum (Layer~4).
 The confinement scale $\Lambda_d$ is not free --- it is fixed by $f$ and
-$\rho_\Lambda$. Therefore, $H_0$ is a \emph{prediction}, not a fit.
+$\rho_\Lambda$. Therefore, $H_0$ is \emph{determined} (not a free parameter).
 
 \medskip\noindent
 It is important to state clearly what this does and does not explain.
-The prediction $H_0 = 67.4$ agrees with Planck (CMB-based) measurements
+The value $H_0 = 67.4$ agrees with Planck (CMB-based) measurements
 but does \emph{not} resolve the Hubble tension with local distance-ladder
-measurements ($H_0 \sim 73$). The model predicts a dark energy equation
+measurements ($H_0 \sim 73$). The model yields a dark energy equation
 of state $w \neq -1$ (see Chapter~3), which shifts the evolution at late
 times --- whether this shift accounts for the tension requires a full
 Boltzmann-code analysis beyond the scope of this work.

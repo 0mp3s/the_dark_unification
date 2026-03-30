@@ -41,10 +41,10 @@ m_sigma_target = H_0           # ~ 10⁻³³ eV — what we need
 
 # Benchmark points from SIDM pipeline
 BPs = {
-    "BP1":       {"m_chi": 20.69*MeV,  "m_phi": 11.34*MeV, "alpha": 1.048e-3},
-    "BP9":       {"m_chi": 42.53*MeV,  "m_phi": 10.92*MeV, "alpha": 2.165e-3},
-    "MAP":       {"m_chi": 94.07*MeV,  "m_phi": 11.10*MeV, "alpha": 5.734e-3},
-    "MAP_relic": {"m_chi": 85.84*MeV,  "m_phi": 15.35*MeV, "alpha": 5.523e-3},
+    "BP1":       {"m_chi": 20.69*GeV,  "m_phi": 11.34*MeV, "alpha": 1.048e-3},
+    "BP9":       {"m_chi": 42.53*GeV,  "m_phi": 10.92*MeV, "alpha": 2.165e-3},
+    "MAP":       {"m_chi": 94.07*GeV,  "m_phi": 11.10*MeV, "alpha": 5.734e-3},
+    "MAP_relic": {"m_chi": 85.84*GeV,  "m_phi": 15.35*MeV, "alpha": 5.523e-3},
 }
 
 print("="*75)
@@ -92,7 +92,7 @@ for name, bp in BPs.items():
     # For σ to generate V ~ ρ_Λ, need:
     # V(σ) ~ (1/2) m²_σ ⟨σ⟩² ~ ρ_Λ
     # With ⟨σ⟩ ~ M_Pl (slow-roll quintessence), m_σ ~ H₀:
-    #   ρ_Λ ~ (1/2) H₀² M_Pl² ~ 10⁻⁴⁷ ✓ (this is the Weinberg relation)
+    #   ρ_Λ ~ (1/2) H₀² M_Pl² ~ 10⁻⁴⁷ [ok] (this is the Weinberg relation)
     
     # Loop correction with M = M_Pl (gravitational strength):
     delta_m2_grav = 3 * m_chi**2 / (8 * np.pi**2 * M_Pl**2)

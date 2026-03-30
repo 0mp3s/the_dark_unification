@@ -30,10 +30,10 @@ M_Pl = 2.435e18  # reduced Planck mass [GeV]
 OMEGA_FACTOR = 2.742e8  # s₀/(ρ_c/h²) in GeV⁻¹
 
 # MAP benchmark (from MCMC)
-m_chi = 94.07 * MeV
+m_chi = 94.07 * GeV
 m_phi = 11.10 * MeV
 alpha = 5.734e-3
-theta_relic = np.arctan(1 / np.sqrt(8))
+theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 y = np.sqrt(4 * np.pi * alpha / np.cos(theta_relic)**2)
 
 # Dark sector temperature ratio ξ = T_d/T_SM
@@ -193,9 +193,9 @@ mu3_threshold = None
 
 for ratio, Y_inf, Omega, x_fo in results:
     if Omega < 1e6:
-        status = "✅ SAFE" if Omega < 0.12 else f"⚠ ×{Omega/0.12:.0f}"
+        status = "[PASS] SAFE" if Omega < 0.12 else f"[!] ×{Omega/0.12:.0f}"
     else:
-        status = f"❌ ×{Omega/0.12:.0f}"
+        status = f"[FAIL] ×{Omega/0.12:.0f}"
     
     if x_fo is not None and x_fo < 200:
         xfo_str = f"{x_fo:.1f}"
@@ -229,7 +229,7 @@ if mu3_threshold is not None:
     print(f"  ★ THRESHOLD: μ₃/m_φ = {mu3_threshold:.3f}")
     print(f"    μ₃ = {mu3_threshold * m_phi/MeV:.2f} MeV")
     print(f"    Perturbative? μ₃ < √(4π)m_φ = {np.sqrt(4*np.pi)*m_phi/MeV:.1f} MeV: "
-          f"{'YES ✅' if mu3_threshold < np.sqrt(4*np.pi) else 'NO ❌'}")
+          f"{'YES [PASS]' if mu3_threshold < np.sqrt(4*np.pi) else 'NO [FAIL]'}")
 else:
     print(f"  No safe region found in scan range.")
 
@@ -256,7 +256,7 @@ print(f"    V(φ) = ½m²_φ φ² + (μ₃/3!)φ³ + (λ₄/4!)φ⁴")
 print(f"    Perturbativity: μ₃ < √(4π) m_φ = {np.sqrt(4*np.pi)*m_phi/MeV:.1f} MeV")
 if mu3_threshold is not None:
     print(f"    Required:       μ₃ > {mu3_threshold:.2f} m_φ = {mu3_threshold*m_phi/MeV:.1f} MeV")
-    print(f"    Conclusion: {'NATURAL ✅ — well within perturbative range' if mu3_threshold < np.sqrt(4*np.pi) else 'MARGINAL'}")
+    print(f"    Conclusion: {'NATURAL [PASS] — well within perturbative range' if mu3_threshold < np.sqrt(4*np.pi) else 'MARGINAL'}")
 
 # =============================================================================
 # PART 5: BBN and ΔN_eff safety
@@ -277,14 +277,14 @@ if mu3_threshold is not None:
         T_d_fo = m_phi / xfo_safe
         T_SM_fo = T_d_fo / xi_default
         print(f"    T_SM at freeze-out = {T_SM_fo/MeV:.2f} MeV")
-        print(f"    BBN (T ~ 1 MeV): {'SAFE ✅ — φ freezes out before BBN' if T_SM_fo > 1*MeV else '⚠ CHECK'}")
+        print(f"    BBN (T ~ 1 MeV): {'SAFE [PASS] — φ freezes out before BBN' if T_SM_fo > 1*MeV else '[!] CHECK'}")
     
     # After cannibal freeze-out, residual φ are non-relativistic
     # Their energy density redshifts as matter: ρ_φ = m_φ n_φ ∝ a⁻³
     # ΔN_eff contribution from NR φ at BBN is negligible (ρ_φ ∝ a⁻³ vs ρ_rad ∝ a⁻⁴)
     # The cannibal heating ΔN_eff occurs during the cannibal epoch (T > T_fo)
     # but this is before BBN for our parameters
-    print(f"    Ω_φ h² = {Omega_safe:.4e} ≪ 0.12 ✅")
+    print(f"    Ω_φ h² = {Omega_safe:.4e} ≪ 0.12 [PASS]")
     print(f"    ΔN_eff from residual φ at BBN: negligible (NR, Boltzmann-suppressed)")
 
 # =============================================================================
@@ -311,7 +311,7 @@ for xi_test in [0.3, 0.4, 0.46, 0.5, 0.6]:
         else:
             lo = mid
     threshold_xi = hi
-    pert = "YES ✅" if threshold_xi < np.sqrt(4*np.pi) else "NO ❌"
+    pert = "YES [PASS]" if threshold_xi < np.sqrt(4*np.pi) else "NO [FAIL]"
     print(f"  {xi_test:5.2f} │ {Y_no:12.3e} │ {Omega_no:10.1f} │ {threshold_xi:12.3f} │ {pert:>14}")
 
 # =============================================================================
@@ -341,5 +341,5 @@ print(f"""
     • In SU(2)_d dark QCD: μ₃ arises from non-perturbative confinement effects
     • Cannibal epoch ends before BBN → cosmologically safe
     
-  STATUS: OVERCLOSURE FATAL GAP → CLOSED ✅
+  STATUS: OVERCLOSURE FATAL GAP → CLOSED [PASS]
 """)

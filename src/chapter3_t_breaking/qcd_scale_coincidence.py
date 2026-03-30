@@ -17,7 +17,7 @@ import numpy as np
 # 1. PARAMETERS
 # ============================================================
 # MAP values from MCMC
-m_chi   = 94.07   # MeV  — dark matter mass
+m_chi   = 94.07e3  # MeV (= 94.07 GeV) — dark matter mass
 m_phi   = 11.10   # MeV  — mediator mass
 alpha_D = 5.734e-3  # dark fine structure constant
 
@@ -51,7 +51,7 @@ ratios = {
 }
 
 for name, val in ratios.items():
-    flag = " ← O(1) ✓" if 0.3 < val < 3.0 else ""
+    flag = " ← O(1) [ok]" if 0.3 < val < 3.0 else ""
     print(f"  {name:30s} = {val:.4f}{flag}")
 
 print(f"\n  Note: m_χ ≈ Λ_QCD / 2.13  (suspiciously close to 1/2)")
@@ -145,8 +145,8 @@ for T_D, gstar, note in scenarios:
     delta_Neff = (4.0/7.0) * g_dark_total * xi**4
     
     # Status
-    consistent  = "✓" if delta_Neff < planck_2sigma else "✗ EXCLUDED"
-    detectable  = "✓ detect" if delta_Neff > cmbs4_threshold else "below S4"
+    consistent  = "[ok]" if delta_Neff < planck_2sigma else "[x] EXCLUDED"
+    detectable  = "[ok] detect" if delta_Neff > cmbs4_threshold else "below S4"
     
     print(f"  {T_D:>12.0f}  {gstar:>9.2f}  {xi:>9.4f}  {delta_Neff:>8.4f}  {detectable:>8}  {note}")
     results[T_D] = delta_Neff
@@ -285,7 +285,7 @@ print(f"""
   Claim: Λ_Z2 ~ Λ_QCD ~ 200 MeV → dark sector decoupled at T_D ~ 200 MeV
 
   Mass ratios:
-    m_χ / Λ_QCD  = {m_chi/Lambda_QCD:.3f}   (= 1/{Lambda_QCD/m_chi:.1f})   ← O(1) ✓
+    m_χ / Λ_QCD  = {m_chi/Lambda_QCD:.3f}   (= 1/{Lambda_QCD/m_chi:.1f})   ← O(1) [ok]
     m_φ / Λ_QCD  = {m_phi/Lambda_QCD:.3f}   (= 1/{Lambda_QCD/m_phi:.0f})   ← suppressed by A₄ structure
     m_χ / m_π⁰   = {m_chi/m_pion_neutral:.3f}   ← dark matter ≈ 0.7 × neutral pion mass
 
@@ -294,8 +294,8 @@ print(f"""
     T_dark/T_ν = {xi_200:.4f}  (if T_D = 200 MeV)
     ΔN_eff = {dNeff_200:.4f}
 
-    Status vs Planck 2018   (limit < 0.33):  {"CONSISTENT ✓" if dNeff_200 < 0.33 else "EXCLUDED ✗"}
-    Status vs CMB-S4        (σ ~ 0.027):     {"DETECTABLE at ~{:.1f}σ ✓".format(dNeff_200/0.027)}
+    Status vs Planck 2018   (limit < 0.33):  {"CONSISTENT [ok]" if dNeff_200 < 0.33 else "EXCLUDED [x]"}
+    Status vs CMB-S4        (σ ~ 0.027):     {"DETECTABLE at ~{:.1f}σ [ok]".format(dNeff_200/0.027)}
 
   Physical interpretation:
     If T_D = 200 MeV, SM receives QCD entropy dump → SM heats up

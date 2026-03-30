@@ -20,10 +20,10 @@ T_BBN = 1.0 * MeV   # BBN temperature ~ 1 MeV
 T_CMB = 2.725 * 8.617e-5 * eV  # 2.725 K in eV → GeV
 
 # MAP benchmark
-m_chi = 94.07e-3
+m_chi = 94.07
 m_phi = 11.10e-3
 alpha = 5.734e-3
-theta = np.arctan(1/np.sqrt(8))
+theta = np.arctan(1.0/3.0)  # 18.43°, sin²θ = 1/10
 y = np.sqrt(4*np.pi*alpha / np.cos(theta)**2)
 
 print("="*70)
@@ -95,7 +95,7 @@ print()
 print("  Option B (adjoint): χ in adjoint")
 print("    + Majorana OK")
 print("    - No chiral symmetry breaking → no dark pion")
-print("    ✗ RULED OUT for σ mass mechanism")
+print("    [x] RULED OUT for σ mass mechanism")
 print()
 print("  Option C (portal): χ not charged, separate ψ confines")
 print("    + Most flexible — no constraints on χ")
@@ -159,7 +159,7 @@ print("  • Group theory (A₄): θ = arcsin(1/3) from CG ratios")
 print("  • Dark QCD: θ = ⟨σ⟩/f_σ from vacuum alignment")
 print("  • Connection: A₄ vacuum alignment → dark vacuum angle")
 print()
-print("  VERDICT: ✅ g_p/g_s = 1/3 CAN survive in dark QCD,")
+print("  VERDICT: [PASS] g_p/g_s = 1/3 CAN survive in dark QCD,")
 print("  if A₄ acts as the flavor symmetry of the confining sector.")
 
 # ================================================================
@@ -192,7 +192,7 @@ for N_d in [2, 3]:
     # ΔN_eff = (4/7) × N_gluons × 2 × (T_d/T_γ)⁴
     # For same temperature: ΔN = (8/7) × N_gluons
     Delta_N_same_T = (8/7) * N_gluons
-    print(f"  If T_d = T_γ: ΔN_eff = {Delta_N_same_T:.1f} → {'✗ EXCLUDED' if Delta_N_same_T > 0.30 else '✓ OK'}")
+    print(f"  If T_d = T_γ: ΔN_eff = {Delta_N_same_T:.1f} → {'[x] EXCLUDED' if Delta_N_same_T > 0.30 else '[ok] OK'}")
     
     # What T_d/T_γ is allowed?
     T_ratio_max = (0.30 * 7 / (8 * N_gluons))**0.25
@@ -253,7 +253,7 @@ How to achieve this:
 
 For SU(2)_d with T_d/T_γ < 0.36:
   Production through gravity: T_d/T_γ ~ (T_RH/M_Pl)^{1/2}
-  For T_RH ~ 10⁹ GeV: T_d/T_γ ~ 10⁻⁴·⁵ → ΔN_eff ~ 10⁻¹⁸ → invisible ✓
+  For T_RH ~ 10⁹ GeV: T_d/T_γ ~ 10⁻⁴·⁵ → ΔN_eff ~ 10⁻¹⁸ → invisible [ok]
 
 For a Higgs portal (φ†φ H†H) with small coupling:
   Dark sector thermalizes below some T_dec
@@ -263,8 +263,8 @@ For a Higgs portal (φ†φ H†H) with small coupling:
   
   KEY: If dark gluons decouple from SM at T > 1 GeV,
   T_d/T_γ ~ (10.75/62)^{1/3} ~ 0.56 at BBN.
-  ΔN_eff(SU(2)) = 3 × 2 × (4/7) × 0.56⁴ = 0.34 → MARGINAL ⚠️
-  ΔN_eff(SU(3)) = 8 × 2 × (4/7) × 0.56⁴ = 0.90 → EXCLUDED ✗
+  ΔN_eff(SU(2)) = 3 × 2 × (4/7) × 0.56⁴ = 0.34 → MARGINAL [!]
+  ΔN_eff(SU(3)) = 8 × 2 × (4/7) × 0.56⁴ = 0.90 → EXCLUDED [x]
 """)
 
 print("VERDICT:")
@@ -303,7 +303,7 @@ for N_d in [2, 3]:
     
     print(f"  b₀ (with 3 Majorana quarks) = {b0:.2f}")
     print(f"  b₀ (pure gauge, Option C)   = {b0_pure:.2f}")
-    print(f"  Asymptotically free: {'✓' if b0 > 0 else '✗'}")
+    print(f"  Asymptotically free: {'[ok]' if b0 > 0 else '[x]'}")
     
     # What α_d(M_Pl) gives Λ_d = 10⁻³ eV?
     Lambda_target = 1e-3 * eV  # 10⁻³ eV in GeV
@@ -383,7 +383,7 @@ print(f"  Our Λ_d:      ~ {Lambda_coincidence/eV:.2e} eV")
 print(f"  Ratio: Λ_d/m_ν = {Lambda_coincidence/m_nu:.1f}")
 
 print("""
-  ⚡ REMARKABLE: Λ_d ~ m_ν (within an order of magnitude)!
+  [!] REMARKABLE: Λ_d ~ m_ν (within an order of magnitude)!
   
   Both scales arise as geometric means:
     m_ν ~ v_EW² / M_Pl  (type-I seesaw, v_EW ~ 246 GeV)
@@ -412,7 +412,7 @@ DARK SECTOR:
   │  φ (mediator)       │     │  G_d (dark gluon) │
   │  y_s, y_p couplings │     │  SU(N_d) gauge    │
   │                     │     │                    │
-  │  SIDM + Relic ✓     │     │  Confines at Λ_d  │
+  │  SIDM + Relic [ok]     │     │  Confines at Λ_d  │
   └────────┬────────────┘     └────────┬───────────┘
            │                           │
            │      σ = DARK PION        │
@@ -447,7 +447,7 @@ WHAT GENERATES DE:
   The energy density: ρ_σ = ½ m_σ² f² θ_i²
   where θ_i = (σ_i - σ₀)/f is the initial misalignment angle.
   
-  For θ_i ~ O(1): ρ_σ = ½ m_σ² f² ~ ½ H₀² M_Pl² ~ ρ_crit ✓
+  For θ_i ~ O(1): ρ_σ = ½ m_σ² f² ~ ½ H₀² M_Pl² ~ ρ_crit [ok]
   
   This is the MISALIGNMENT MECHANISM — same as QCD axion DM!
   But for us: σ is not DM, it's DE (because m_σ ~ H₀).
@@ -464,7 +464,7 @@ for theta_i in [0.1, 0.5, 1.0, np.pi/2]:
     
     print(f"  θ_i = {theta_i:.2f}: ρ_σ = {rho_sigma:.2e} GeV⁴, "
           f"Ω_σ = {Omega_sigma:.3f} "
-          f"({'~Ω_Λ ✓' if 0.5 < Omega_sigma < 0.9 else '✗' if Omega_sigma > 1 else 'too small'})")
+          f"({'~Ω_Λ [ok]' if 0.5 < Omega_sigma < 0.9 else '[x]' if Omega_sigma > 1 else 'too small'})")
 
 # For Ω_σ = 0.69:
 theta_i_needed = np.sqrt(2 * 0.69 * rho_crit / (m_sigma**2 * f_sigma**2))
@@ -497,35 +497,35 @@ print("  FINAL ASSESSMENT")
 print("="*70)
 print(f"""
 CHECK 1 (Group theory):
-  ✅ χ can be A₄ triplet + SU(2)_d fundamental (Majorana OK)
-  ✅ Or: χ is A₄ only, separate ψ confines (Option C, cleanest)
+  [PASS] χ can be A₄ triplet + SU(2)_d fundamental (Majorana OK)
+  [PASS] Or: χ is A₄ only, separate ψ confines (Option C, cleanest)
 
 CHECK 2 (CP ratio):
-  ✅ g_p/g_s = 1/3 from A₄ is PRESERVED
+  [PASS] g_p/g_s = 1/3 from A₄ is PRESERVED
   σ fluctuates around the A₄-determined θ₀ = arcsin(1/3)
 
 CHECK 3 (BBN/N_eff):
-  ⚠️ SU(2)_d: marginal if ever thermalized (ΔN_eff ~ 0.3)
-  ✅ SU(2)_d: OK if dark sector never reached thermal eq with SM
-  ✗ SU(3)_d: excluded if thermalized
+  [!] SU(2)_d: marginal if ever thermalized (ΔN_eff ~ 0.3)
+  [PASS] SU(2)_d: OK if dark sector never reached thermal eq with SM
+  [x] SU(3)_d: excluded if thermalized
 
 CHECK 4 (Naturalness of Λ_d):
-  ⚠️ Needs α_d(M_Pl) ~ 1/200 — smaller than SM couplings
+  [!] Needs α_d(M_Pl) ~ 1/200 — smaller than SM couplings
   This is an UNEXPLAINED INITIAL CONDITION (like Λ_QCD itself)
   Not fine-tuning (stable under RG), but not predicted
 
 CHECK 5 (The coincidence):
-  ⚡ Λ_d = √(H₀ M_Pl) ~ 10⁻³ eV ~ neutrino mass scale!
+  [!] Λ_d = √(H₀ M_Pl) ~ 10⁻³ eV ~ neutrino mass scale!
   If f ~ M_Pl, m_σ ~ H₀ by construction
   The meV scale appears in BOTH neutrino physics and dark energy
   Possible deep connection through seesaw-like mechanism
 
 CHECK 6 (DE from misalignment):
-  ✅ ρ_σ = ½ m_σ² f² θ_i² ~ ρ_Λ for θ_i ~ O(1)
-  ✅ w ≈ -1 if m_σ ≲ H₀ (slow-roll, CC-like)
-  ✅ No fine-tuning in θ_i — natural O(1) angle
+  [PASS] ρ_σ = ½ m_σ² f² θ_i² ~ ρ_Λ for θ_i ~ O(1)
+  [PASS] w ≈ -1 if m_σ ≲ H₀ (slow-roll, CC-like)
+  [PASS] No fine-tuning in θ_i — natural O(1) angle
   
-OVERALL: THE DARK QCD SCENARIO IS CONSISTENT ✅
+OVERALL: THE DARK QCD SCENARIO IS CONSISTENT [PASS]
   With caveats: 
   (a) Λ_d ~ 10⁻³ eV is an input, not a prediction
   (b) SU(2)_d preferred over SU(3)_d (BBN)

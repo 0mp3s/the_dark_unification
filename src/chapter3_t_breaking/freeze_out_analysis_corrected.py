@@ -19,10 +19,10 @@ M_Pl = 2.435e18; H_0 = 1.44e-42; rho_L = 2.58e-47
 g_star = 10.75
 
 # MAP benchmark
-m_chi = 94.07 * MeV
+m_chi = 94.07 * GeV
 m_phi = 11.10 * MeV
 alpha = 5.734e-3
-theta_relic = np.arctan(1/np.sqrt(8))
+theta_relic = np.arctan(1.0 / 3.0)  # 18.43°, sin²θ = 1/10
 y_sq = 4 * np.pi * alpha / np.cos(theta_relic)**2
 y = np.sqrt(y_sq)
 v_phi = 0.5 * m_phi

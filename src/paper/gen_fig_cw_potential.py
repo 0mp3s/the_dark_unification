@@ -25,10 +25,10 @@ V_norm = (V - V.min()) / (V.max() - V.min())  # normalize to [0,1]
 i_min = np.argmin(V)
 theta_min = theta[i_min]
 
-# A4 discrete value: theta = arcsin(1/3) ≈ 19.47 degrees ≈ 0.3398 rad
-theta_A4 = np.arcsin(1/3)
+# A4 CG prediction: tan²θ = 1/9 → θ = arctan(1/3) ≈ 18.43 degrees
+theta_A4 = np.arctan(1/3)
 # The relic angle
-theta_relic_deg = np.degrees(np.arctan(1/np.sqrt(8)))
+theta_relic_deg = np.degrees(np.arctan(1.0/3.0))
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
 
