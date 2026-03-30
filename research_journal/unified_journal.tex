@@ -1,0 +1,1015 @@
+\documentclass[12pt, a4paper]{article}
+
+%% ─────────────────────────────────────────────
+%%  Packages
+%% ─────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{epigraph}
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+\usepackage{parskip}
+
+%% ─────────────────────────────────────────────
+%%  Colour palette
+%% ─────────────────────────────────────────────
+\definecolor{journalblue}{RGB}{20,60,120}
+\definecolor{journalgray}{RGB}{85,85,85}
+\definecolor{warningred}{RGB}{180,40,40}
+\definecolor{successgreen}{RGB}{30,130,60}
+\definecolor{insightpurple}{RGB}{100,40,150}
+\definecolor{blockquotebg}{RGB}{245,245,250}
+
+%% ─────────────────────────────────────────────
+%%  Title styling
+%% ─────────────────────────────────────────────
+\titleformat{\section}[block]
+  {\large\bfseries\color{journalblue}}
+  {\thesection.}{0.5em}{}[\vspace{-0.2em}\rule{\linewidth}{0.4pt}]
+
+\titleformat{\subsection}[block]
+  {\normalsize\bfseries\color{journalgray}}
+  {\thesubsection.}{0.5em}{}
+
+\titleformat{\subsubsection}[runin]
+  {\normalsize\itshape\color{insightpurple}}
+  {}{0em}{}[. ---]
+
+%% ─────────────────────────────────────────────
+%%  Custom environments
+%% ─────────────────────────────────────────────
+\newmdenv[
+  backgroundcolor=blockquotebg,
+  linecolor=journalblue!40,
+  linewidth=0.6pt,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innerleftmargin=12pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{journalbox}
+
+\newmdenv[
+  backgroundcolor=red!5,
+  linecolor=warningred!60,
+  linewidth=1pt,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innerleftmargin=12pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{failbox}
+
+\newmdenv[
+  backgroundcolor=green!5,
+  linecolor=successgreen!60,
+  linewidth=1pt,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innerleftmargin=12pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{successbox}
+
+\newmdenv[
+  backgroundcolor=insightpurple!5,
+  linecolor=insightpurple!50,
+  linewidth=1pt,
+  leftmargin=10pt,
+  rightmargin=10pt,
+  innerleftmargin=12pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=8pt,
+  skipbelow=8pt
+]{insightbox}
+
+%% ─────────────────────────────────────────────
+%%  Header / footer
+%% ─────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{journalgray}\textit{Unified Research Journal}}
+\fancyhead[R]{\small\color{journalgray}\textit{Dark Unification --- Omer P., 2026}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%% ─────────────────────────────────────────────
+%%  Hyperref colours
+%% ─────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  linkcolor=journalblue,
+  urlcolor=journalblue!80,
+  citecolor=journalgray
+}
+
+%% ─────────────────────────────────────────────
+%%  Macros
+%% ─────────────────────────────────────────────
+\newcommand{\mchi}{m_\chi}
+\newcommand{\mphi}{m_\phi}
+\newcommand{\sigm}{\sigma/m}
+\newcommand{\lam}{\lambda}
+\newcommand{\Omh}{\Omega h^2}
+\newcommand{\chibar}{\bar{\chi}}
+\newcommand{\dateentry}[1]{\medskip\noindent{\footnotesize\color{journalgray}\textbf{Date:}~#1}\smallskip}
+
+%% ─────────────────────────────────────────────
+%%  Begin document
+%% ─────────────────────────────────────────────
+\begin{document}
+\onehalfspacing
+
+%% ═══════════════════════════════════════════
+%%  TITLE PAGE
+%% ═══════════════════════════════════════════
+\thispagestyle{empty}
+\begin{center}
+
+{\fontsize{28}{34}\selectfont\bfseries\color{journalblue}
+The Dark Unification}\\[0.4em]
+
+{\fontsize{16}{20}\selectfont\color{journalgray}
+A Research Journal}\\[2em]
+
+{\large\itshape
+From a Failed Supergravity Calculation\\
+to a Unified Theory of Dark Matter and Dark Energy}\\[3em]
+
+\rule{0.6\linewidth}{1pt}\\[1.5em]
+
+{\large Omer P.}\\[0.3em]
+{\normalsize January -- March 2026}\\[3em]
+
+\rule{0.6\linewidth}{0.4pt}\\[1.5em]
+
+\begin{minipage}{0.78\textwidth}
+\small\color{journalgray}
+\textit{
+This document is an honest account of a research journey.
+It records not only what worked, but what failed and why,
+what surprised us, and how one unexpected result led to the next.
+The intended reader is anyone who wants to understand the thinking
+process, not just the final equations.}
+\end{minipage}
+
+\vfill
+
+{\small
+\textbf{Journals integrated:}
+\begin{itemize}[noitemsep, leftmargin=3cm]
+  \item[\textbullet] \texttt{dark\_matter\_hypothesis/research\_journal.md} (49 KB) --- Origin
+  \item[\textbullet] \texttt{Secluded-Majorana-SIDM/The\_Lagernizant\_integral\_SIDM/.../research\_journal.md} (105 KB) --- Path Integral
+  \item[\textbullet] \texttt{dark-energy-T-breaking/research\_journal.md} (216 KB) --- T-breaking
+  \item[\textbullet] \texttt{Secluded-Majorana-SIDM/docs/research\_journal\_v10.md} (138 KB) --- V10 SIDM
+\end{itemize}
+\emph{Total source material: $\sim$508~KB / $\sim$10{,}000~lines of research notes.}}
+
+\end{center}
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  TABLE OF CONTENTS
+%% ═══════════════════════════════════════════
+\tableofcontents
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PROLOGUE
+%% ═══════════════════════════════════════════
+\section*{Prologue: The Wrong Calculation That Started Everything}
+\addcontentsline{toc}{section}{Prologue}
+
+\epigraph{``The most exciting phrase to hear in science, the one that heralds new discoveries, is not `Eureka!' but `That's funny\ldots'''}{--- Isaac Asimov}
+
+The work recorded in this journal began in early 2026 with a calculation that was completely wrong.
+
+I was computing the Casimir amplitude $A_7(t)$ on a squashed $S^7$ in 11-dimensional supergravity --- a technical exercise in Kaluza-Klein dimensional reduction. The calculation was clean, systematic, and conclusive: $A_7 > 0$ always, regardless of the squashing parameter. The extra dimensions were inherently unstable in this configuration.
+
+\begin{failbox}
+\textbf{The failure:} $A_7(t) > 0$ for all values of the squashing parameter $t \in (0, \infty)$ on squashed $S^7$ in 11D SUGRA. The Casimir energy does not stabilise the extra dimensions here. \textbf{This calculation is a dead end.}
+\end{failbox}
+
+But the failure raised a question I could not ignore.
+
+The question was not \emph{why did the calculation fail}. The question was: \textbf{why do we live in three spatial dimensions in the first place?} If extra dimensions are not stabilised this way, how did the universe choose 3D? And more pointedly: if we do not know \emph{why} we have three large dimensions, how can we be confident about the nature of what fills those dimensions --- including dark matter?
+
+This is how a failed supergravity exercise in the summer of 2026 became the seed of a completely different research programme.
+
+\medskip
+\noindent The journey that followed has four distinct phases, which correspond to the four source journals integrated here. Each phase produced a surprising result that forced the next phase.
+
+\begin{enumerate}
+  \item \textbf{The Hypothesis} (January 2026): Could dark matter be T-reversed matter? This naive idea turned out to be both tractable and predictive.
+  \item \textbf{Path Integral Foundations} (January--February 2026): To make the SIDM model work numerically, we needed to go beyond the Born approximation --- which forced a derivation from first principles.
+  \item \textbf{Dark Energy Connection} (February--March 2026): The same field that mediates dark matter self-interactions keeps appearing in the dark energy sector. Mathematical coincidences accumulate.
+  \item \textbf{The Full Model} (March 2026): A complete, peer-reviewed, numerically validated model with $\chi^2/\text{dof} = 0.13$ across 13 astrophysical systems. But two new FATALs are already in view.
+\end{enumerate}
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PART I
+%% ═══════════════════════════════════════════
+\section{Part I: The Hypothesis --- T-Reversed Matter}
+
+\subsection{How the Question Was Framed}
+
+\dateentry{January 2026}
+
+After the Casimir failure, I spent a few days asking: what \emph{do} we actually know about dark matter? We know it gravitates, it does not emit light, it has roughly five times the density of ordinary matter, and it must have existed since recombination. We do not know its spin, its interactions, its production mechanism, or whether it is a single species or many.
+
+The ratio $\rho_\text{DM}/\rho_\text{baryons} \approx 5$ is the most basic fact about dark matter, and it is deeply strange. Why \emph{five}? Not 50, not 0.5 --- five. This cannot be a coincidence; there must be a dynamical explanation.
+
+\begin{insightbox}
+\textbf{The key question, January 2026:}\\
+The 5:1 ratio between dark matter and baryons screams ``same origin.'' 
+Both species were presumably created in the Big Bang. 
+What if dark matter is literally the other side of baryogenesis?
+\end{insightbox}
+
+\subsection{T-Reversed Matter: The Proposal}
+
+The standard picture of baryogenesis goes like this: the hot Big Bang creates equal numbers of matter ($\mathcal{P}^+$) and antimatter ($\mathcal{P}^-$). CP violation creates a small asymmetry; annihilation destroys almost everything; the residual $\mathcal{P}^+$ is the visible universe.
+
+The proposal was: \textbf{dark matter is $\mathcal{P}^-$ --- T-reversed matter.} 
+
+Not antimatter in the usual sense (which would annihilate with ordinary matter), but matter with reversed time-polarity. The idea has an immediate payoff: if T-reversed matter survived the annihilation phase because it was \emph{genuinely} T-reversed (i.e., decoupled from the matter that it would otherwise have annihilated), then the 5:1 ratio has a natural explanation. Baryogenesis destroyed most of the $\mathcal{P}^+$ sector, leaving a residual. The $\mathcal{P}^-$ sector survived intact because it never annihilated with $\mathcal{P}^+$.
+
+The ratio then becomes:
+\begin{align}
+  \frac{\rho_\text{DM}}{\rho_\text{baryons}} &\sim \frac{N_{\mathcal{P}^-}}{N_{\mathcal{P}^+, \text{residual}}} \sim \frac{1}{\varepsilon_\text{CP}}
+\end{align}
+where $\varepsilon_\text{CP} \sim 10^{-9}$ from baryogenesis gives roughly the observed ratio.
+
+\subsection{The First Reality Check: GEM Fails}
+
+The obvious first test: if dark matter has T-reversed electromagnetism, it would interact with ordinary matter via gravitoelectromagnetism (GEM) --- the weak velocity-dependent analogue of electromagnetism in GR. GEM could provide the self-interaction cross section we need for SIDM.
+
+The calculation was immediate and fatal:
+
+\begin{failbox}
+\textbf{GEM fails.}\\
+The gravitomagnetic interaction goes as $v^2/c^2 \sim 10^{-7}$ for galactic velocities.
+This is eight orders of magnitude too weak to explain the observed SIDM cross sections
+($\sigma/m \sim 0.5$--$5~\text{cm}^2/\text{g}$ at dwarf velocities).
+\emph{T-reversed electromagnetism does not work as the SIDM mediator.}
+\end{failbox}
+
+This was the first important branching point in the project. The T-reversed matter idea had to be preserved (it was still the best explanation for the 5:1 ratio), but it needed a \emph{new} interaction to produce the self-scattering. This forced the move to a dedicated dark sector mediator.
+
+\subsection{The Transition to Secluded SIDM}
+
+If GEM is too weak, we need a new force in the dark sector. The minimal choice is a light scalar $\phi$ that couples to dark matter but not to visible matter (``secluded'' in the language of \cite{pospelov2008}). This gives:
+\begin{equation}
+  \mathcal{L} \supset \frac{y}{2}\,\bar\chi\chi\,\phi + \frac{1}{2}(\partial\phi)^2 - \frac{1}{2}m_\phi^2\,\phi^2
+\end{equation}
+with $\chi$ a Majorana fermion (motivated by T-reversal symmetry --- Majorana fields are their own antiparticles, a natural candidate for T-reversed matter).
+
+The Yukawa potential is:
+\begin{equation}
+  V(r) = -\frac{\alpha\,e^{-m_\phi r}}{r}, \qquad \alpha \equiv \frac{y^2}{4\pi}
+\end{equation}
+This is exactly the Yukawa potential. For $m_\phi \ll m_\chi$ and $\alpha \sim 10^{-3}$, one can get $\sigma/m \sim 1~\text{cm}^2/\text{g}$ at dwarf-galaxy velocities with the correct velocity dependence --- rising at low velocities (dwarfs and dwarf spheroidals) and falling at cluster velocities.
+
+\begin{insightbox}
+\textbf{Insight at transition:}\\
+The failure of GEM was not a dead end --- it was a \emph{specification}.
+We now know the SIDM mediator must be a light scalar in a secluded dark sector.
+The T-reversed matter idea is preserved; we just add the minimal dark-sector infrastructure.
+\end{insightbox}
+
+\subsection{Why the Born Approximation Will Fail (Foreshadowing)}
+
+At this stage, computing the self-interaction cross section seemed straightforward. The Born approximation gives:
+\begin{equation}
+  \sigma_\text{Born} = \frac{16\pi\alpha^2}{\left(m_\phi^2 + m_\chi^2 v^2\right)^2}
+\end{equation}
+This is fast to compute and widely used in the SIDM literature. But with the parameters required to fit the data ($\alpha \sim 10^{-3}$, $m_\chi \sim 20$~GeV, $m_\phi \sim 10$~MeV), the Born parameter is:
+\begin{equation}
+  \lambda \equiv \frac{\alpha m_\chi}{m_\phi} \sim \frac{10^{-3} \times 20~\text{GeV}}{10~\text{MeV}} \approx 2
+\end{equation}
+where $\lambda > 1$ signals strong coupling, and the Born approximation becomes unreliable. For some of our benchmark points, Born underestimates the true cross section by 88--135$\times$.
+
+We did not know this yet. We discovered it in Phase II.
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PART II
+%% ═══════════════════════════════════════════
+\section{Part II: Path Integral Foundations --- When Born Fails}
+
+\subsection{The Benchmark Extraction Problem}
+
+\dateentry{January -- February 2026}
+
+The first version of the code (V9 and earlier) used the Born approximation to compute $\sigma/m(v)$. It produced viable-looking benchmark points (BPs) with $\chi^2/\text{dof} \lesssim 1$ against the KTY16 observational data compilation.
+
+Then, during a routine validation run, we computed the ratio $\sigma_\text{VPM}/\sigma_\text{Born}$ for the benchmark points. The result was alarming:
+
+\begin{failbox}
+\textbf{Born validation failure (v21):}\\
+\begin{tabular}{lll}
+  \toprule
+  Benchmark & $\lambda$ & $\sigma_\text{VPM}/\sigma_\text{Born}$ at $v=30$~km/s \\
+  \midrule
+  BP1 & 2.19 & \textbf{88×} \\
+  MAP & 31.0 & \textbf{135×} \\
+  \bottomrule
+\end{tabular}\\[0.5em]
+The Born approximation underestimates the true cross section by factors of 88--135 at physically relevant velocities. All results computed with Born are quantitatively wrong.
+\end{failbox}
+
+This was the most important crisis in the project. Every benchmark point we had was computed with an approximation that was off by two orders of magnitude. None of the subsequent observational comparisons, $\chi^2$ fits, or MCMC results would be valid.
+
+The only solution: compute the exact quantum mechanical scattering amplitude using the variable phase method (VPM).
+
+\subsection{The Variable Phase Method: Seven Layers of Derivation}
+
+The VPM computes the exact partial wave phase shifts $\delta_l(k)$ by integrating the Calogero equation:
+\begin{equation}
+  \frac{d\delta_l}{dr} = -\frac{V(r)}{k}\,\hat{j}_l^2(kr)\,\sin^2\delta_l + \ldots
+\end{equation}
+from $r = 0$ outward, in the presence of the Yukawa potential $V(r) = -\alpha e^{-m_\phi r}/r$.
+
+The transfer cross section for identical Majorana fermions is then:
+\begin{equation}
+  \sigma_T = \frac{2\pi}{k^2}\sum_{l=0}^{l_\text{max}} (2l+1)\,w_l\,(1 - \cos\delta_l)\,\sin^2\delta_l
+\end{equation}
+where the weights $w_l$ encode Majorana (identical fermion) statistics:
+\begin{align}
+  w_l &= 1 \quad \text{for even } l \quad \text{(singlet, CP-even)} \\
+  w_l &= 3 \quad \text{for odd } l \quad \text{(triplet, CP-odd)}
+\end{align}
+
+This 3:1 weighting of odd (triplet) to even (singlet) partial waves is a direct consequence of Majorana statistics. It has a physical observable consequence, as we discovered in Phase IV.
+
+\subsubsection{The 7-Layer Derivation}
+
+The full derivation, recorded in the path integral journal (\texttt{The\_Lagernizant\_integral\_SIDM}), proceeds in seven conceptual layers:
+
+\begin{enumerate}[label=\textbf{Layer \arabic*.}]
+  \item $Z[J]$ --- the generating functional of the dark sector QFT with Yukawa coupling.
+  \item $\Gamma[\phi]$ --- the 1PI effective action obtained by Legendre transform.
+  \item The two-body interaction amplitude in momentum space, $\mathcal{M}(p_1, p_2 \to p_3, p_4)$.
+  \item The partial-wave decomposition in the CM frame.
+  \item The Born approximation as a first-order truncation --- here we \emph{proved} Born fails for $\lambda > 1$.
+  \item The VPM as the exact resummation of all partial waves: \textbf{VPM = det of the fluctuation operator.}
+  \item The connection to cosmology: relic density $\Omega h^2 = 0.120$ from the Boltzmann equation, and $H_0 = 67.4$~km/s/Mpc from Friedmann with dark QCD contribution.
+\end{enumerate}
+
+\begin{successbox}
+\textbf{PI-6 theorem (proven):}\\
+The VPM result is identical to the exact fluctuation determinant of the dark sector path integral. This is not an approximation --- it is the \emph{exact} non-perturbative quantum mechanical cross section for the Yukawa potential. The VPM solver is theoretically exact at tree level.
+\end{successbox}
+
+\subsection{The $\ell_\text{max}$ Bug: A Near-Catastrophe}
+
+The VPM solver had a subtle bug in the partial-wave truncation. The original code used:
+\begin{verbatim}
+l_max = min(max(3, int(kappa) + 3), 80)  # OLD: wrong
+\end{verbatim}
+where $\kappa = m_\phi v / m_\chi$ is the dimensionless velocity. This formula had no dependence on $\lambda$, and hard-capped at 80 partial waves --- far too few for the strongly resonant regime.
+
+The correct formula, derived from the resonance physics of the Yukawa potential (Ramsauer-Townsend oscillations), is:
+\begin{verbatim}
+l_max = min(max(3, min(int(kappa*x_max),
+               int(kappa) + int(lam) + 20)), 500)
+\end{verbatim}
+
+\begin{failbox}
+\textbf{Impact of the $\ell_\text{max}$ bug on the MAP benchmark:}\\
+At $v = 1000$~km/s, the old formula gave $\ell_\text{max} = 7$; the correct value is $\ell_\text{max} = 72$ --- a factor of $\sim 10\times$. The MAP cross section at cluster velocities changed from $0.203$ to $0.264$~cm$^2$/g after the fix ($+30\%$). All scan results obtained before the fix were invalid for the resonant regime.
+\end{failbox}
+
+After the fix, Stage 0 of the pipeline (the raw VPM scan) took $\sim 9.6$ hours on 12 workers instead of 78 minutes. The extra time is a physical signal: 12\% of the $m_\chi$ values are in the strongly resonant regime where many partial waves contribute. These are exactly the viable SIDM points.
+
+\subsection{The Sommerfeld Enhancement: Why Freeze-Out is Safe}
+
+An important consistency check: the Sommerfeld enhancement $S_0$ of the annihilation cross section at freeze-out.
+
+The concern is that if $S_0 \gg 1$ at freeze-out ($v \sim 0.3c$), the relic density calculation is wrong. We computed $S_0$ numerically (v36) by solving the $l=0$ Schrödinger equation:
+\begin{equation}
+  u''(x) + \left[\kappa^2 + \frac{\lambda\,e^{-x}}{x}\right]u(x) = 0
+\end{equation}
+
+\begin{successbox}
+\textbf{Sommerfeld result:}\\
+$S_0 \in [1.003, 1.025]$ at freeze-out for all 17 benchmark points.\\
+Maximum relic correction: $|\Delta\Omega h^2/\Omega h^2| < 2.5\%$.\\
+Tree-level Boltzmann solver is valid.
+\end{successbox}
+
+\subsection{The Coleman-Weinberg Minimum at $\theta = \pi/2$}
+
+While deriving the effective potential for the $\phi$ field in the dark sector, a surprising result appeared. The Coleman-Weinberg loop correction to the potential has its minimum not at $\theta = 0$ (which would be the classical vacuum), but at:
+\begin{equation}
+  \theta_\text{CW minimum} = \frac{\pi}{2}
+\end{equation}
+
+\begin{insightbox}
+\textbf{Why $\theta = \pi/2$?}\\
+The Majorana fermion loop contribution to the CW potential prefers the configuration
+where the fermion is maximally heavy ($M_\text{eff}$ maximised), which occurs at $\theta = \pi/2$.
+This is physically because the CW potential minimises the loop contribution to the vacuum energy,
+and the fermion loop contribution is most negative when $M_\text{eff}$ is largest.
+\end{insightbox}
+
+This $\theta = \pi/2$ preference does not immediately match the observational constraints on dark energy. It played a central role in Phase III.
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PART III
+%% ═══════════════════════════════════════════
+\section{Part III: The Dark Energy Connection}
+
+\subsection{How Dark Matter Met Dark Energy}
+
+\dateentry{February 2026}
+
+The same scalar field $\phi$ that mediates dark matter self-interactions keeps appearing in the potential energy of the universe. The dark sector potential after symmetry breaking takes the form:
+\begin{equation}
+  V(\theta) = \Lambda_d^4\left(1 - \cos\theta\right)
+\end{equation}
+where $\theta$ is the misalignment angle of the $\phi$ field and $\Lambda_d$ is the dark energy scale.
+
+This is the axion potential, familiar from the strong CP problem in QCD. But here, the field responsible for dark matter mediates the dark energy.
+
+The electromagnetic duality of the dark sector first appeared as a mathematical observation: the dark sector Lagrangian has a map $E \to B$ symmetry if one extends the Yukawa coupling to include both scalar and pseudoscalar components:
+\begin{equation}
+  \mathcal{L} \supset \bar\chi\left(y_s + iy_p\gamma_5\right)\chi\,\phi
+\end{equation}
+When $y_s \neq y_p$, CP is violated in the dark sector. This is a generic prediction of the Majorana framework (see Part IV), not an assumption.
+
+\subsection{The Five CW Bugs}
+
+The dark energy analysis required computing the Coleman-Weinberg potential to high accuracy. The code was carefully written, reviewed, and tested --- yet it contained five bugs:
+
+\begin{failbox}
+\textbf{Five Coleman-Weinberg bugs found (February 2026):}
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Rolling direction wrong (critical)}: Code computed $V'(\theta)$ with wrong sign; the field was rolling \emph{away} from the minimum, not toward it. All dynamical dark energy results were inverted.
+  \item \textbf{Fermion loop sign}: The Majorana fermion contributes $-\frac{1}{2}\text{Tr}\ln$ (not $+$) to the effective potential. Sign error in the trace.
+  \item \textbf{Mass matrix normalisation}: $M_\text{eff}^2 = m_\chi^2 + y^2\phi^2$ used with wrong normalisation for Majorana vs. Dirac convention.
+  \item \textbf{UV cutoff mismatch}: Renormalisation scale $\mu$ was set to $m_\phi$ instead of $m_\chi$ (leading contribution).
+  \item \textbf{Numerical underflow}: $e^{-m/T}$ suppression was computed without log-space protection, causing silent zeros for $m/T > 700$.
+\end{enumerate}
+After all five fixes, the CW minimum moved from $\theta = 0$ (wrong) to $\theta = \pi/2$ (correct). This matches the analytical result from Phase II.
+\end{failbox}
+
+\subsection{The Tetrahedral Angle}
+
+The most striking result of Phase III was the value of the relic misalignment angle.
+
+In the dark sector, the $\phi$ field starts oscillating when the Hubble rate falls below the dark axion mass. The initial misalignment angle $\theta_i$ determines the dark energy density. Requiring that the dark energy density today equals the observed value ($\Omega_\Lambda \approx 0.68$) gives a constraint on $\theta_i$.
+
+For our best-fit parameters, the relic angle was computed numerically:
+\begin{equation}
+  \theta_\text{relic} = 19.47° = \arcsin\!\left(\tfrac{1}{3}\right) = \arccos\!\left(\tfrac{2\sqrt{2}}{3}\right)
+\end{equation}
+
+This is the \textbf{tetrahedral angle} --- the angle between a vertex of a regular tetrahedron and its centroid. It is also the value of the Cabibbo angle in certain A$_4$-symmetric flavour models.
+
+\begin{insightbox}
+\textbf{The A$_4$ connection:}\\
+The A$_4$ discrete symmetry group is used in neutrino physics to explain the observed mixing pattern.
+Its Clebsch-Gordan coefficients give:
+$$\frac{g_p^2}{g_s^2} = \frac{1}{9}, \qquad 
+  \sin^2\theta = \frac{1}{9} \times \frac{v_p^2}{v_s^2}$$
+For $v_p/v_s = 1.061$ (derived from flavon potential minimisation), this gives 
+$\sin^2\theta = 1/8$, corresponding to $\theta = 19.47°$ exactly.\\[0.3em]
+\textbf{The tetrahedral angle is not a coincidence --- it is a prediction of A$_4$ symmetry.}
+\end{insightbox}
+
+\subsection{Why $\sigma$ Trapping Fails: The 21-Order Gap}
+
+If the $\sigma$ field (our notation for the CW field in the dark energy context) is dynamical, it should oscillate after freeze-out and produce dark energy density. We computed the CW-induced mass:
+\begin{equation}
+  m_\sigma^\text{CW} \sim 10^{-12}~\text{eV}
+\end{equation}
+For dynamical dark energy (quintessence), one needs:
+\begin{equation}
+  m_\text{quintessence} \sim H_0 \sim 10^{-33}~\text{eV}
+\end{equation}
+
+\begin{failbox}
+\textbf{The 21-order gap:}\\
+The CW mass ($10^{-12}$~eV) exceeds the quintessence mass ($10^{-33}$~eV) by 21 orders of magnitude.
+A dynamical $\sigma$ field with CW-generated mass will \emph{not} act as dark energy on cosmological timescales.
+The field must be topologically fixed, or explained by new physics.
+\end{failbox}
+
+This forced us to consider the dark axion scenario: the $\phi$ field is frozen near the hilltop of its cosine potential, behaving as a cosmological constant --- not a dynamical quintessence. This was less satisfying theoretically but phenomenologically more tractable.
+
+\subsection{Comparison with DESI DR2}
+
+With the dark energy model in hand, we compared the predicted dark energy equation of state $w(z)$ with the DESI DR2 BAO data.
+
+\begin{center}
+\begin{tabular}{lrrr}
+  \toprule
+  DESI dataset & $w_0$ (DESI) & $w_0$ (model, best) & Tension \\
+  \midrule
+  DESI+CMB+PP  & $-0.838 \pm 0.055$ & $-0.901$ & $1.1\sigma$ \\
+  DESI+CMB+DESY5 & $-0.752 \pm 0.057$ & $-0.901$ & $2.6\sigma$ \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The model qualitatively matches DESI's preference for $w > -1$ (quintessence-like), but underpredicts the evolution rate $|w_a|$ by $\sim 2\sigma$. The cosine potential thaws too slowly compared to what DESI prefers. This is a genuine tension --- not a show-stopper, but evidence that the simple cosine $V(\sigma)$ is too flat near the maximum.
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PART IV
+%% ═══════════════════════════════════════════
+\section{Part IV: The Full V10 Model}
+
+\subsection{The Higgs Portal Crisis}
+
+\dateentry{March 2026}
+
+Version 9 of the model used a Higgs portal coupling $\sin\theta$ to connect the dark sector to the Standard Model. The portal allowed $\phi$ to decay ($\phi \to e^+e^-$), which was needed for the dark sector to thermalise with the SM bath and avoid overclosure.
+
+Peer review (Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro) identified a fatal problem:
+
+\begin{failbox}
+\textbf{V9 FATAL: Higgs portal closed.}\\
+The nuclear spin-independent cross section with Higgs portal is:
+$$\sigma_\text{SI} \propto \frac{\sin^4\theta}{m_\phi^4}$$
+For $m_\phi = 11$~MeV, the LZ direct detection experiment requires $\sin\theta < 6 \times 10^{-10}$,
+while BBN requires $\sin\theta > 2 \times 10^{-5}$ (for $\phi$ to decay before BBN).\\
+\textbf{Gap: $\times 30{,}000$. The Higgs portal is completely excluded.}
+\end{failbox}
+
+\subsection{The Secluded Solution}
+
+The fix was immediate and radical: set $\sin\theta = 0$ exactly. The dark sector is completely secluded from visible matter. 
+
+This means:
+\begin{itemize}
+  \item $\phi$ is stable (no decay channel to SM)
+  \item $\sigma_\text{SI} = 0$ (a sharp prediction for direct detection)
+  \item $\Delta N_\text{eff} \approx 0$ (Boltzmann-suppressed: $e^{-m_\phi/T} \sim 10^{-12}$ at BBN)
+  \item CMB constraints on annihilation evaded (secluded dark sector)
+\end{itemize}
+
+The parameter space collapsed from $(m_\chi, m_\phi, \alpha, \sin\theta)$ to $(m_\chi, m_\phi, \alpha)$ --- three free parameters instead of four.
+
+\begin{insightbox}
+\textbf{Secluded = prediction, not just fitting:}\\
+The secluded nature was not chosen to hide from constraints. It follows from the FIMP analysis (T21):
+ANY Higgs portal coupling $\kappa \gtrsim 10^{-9}$ leads to dark matter overproduction by $\geq 8$ orders of magnitude
+(computed numerically in \texttt{test21\_fimp\_production.py}).
+\textbf{The model is secluded because it must be.}
+\end{insightbox}
+
+\subsection{The Pipeline: V22 through V38}
+
+The V10 pipeline is a systematic computational programme with 18 validation stages:
+
+\begin{center}
+\begin{longtable}{lll}
+  \toprule
+  Script & Purpose & Result \\
+  \midrule
+  v21 & Born approximation validation & 6/6 PASS \\
+  v22 & VPM raw scan (after $\ell_\text{max}$ fix) & 194,313 raw viable \\
+  v23 & Error budget & $2$--$7\%$ at $30$~km/s \\
+  v25 & Mediator cosmology & 5/5 PASS \\
+  v26 & Bound state formation & 6/6 PASS \\
+  v27 & Boltzmann solver & 6/6 PASS \\
+  v28/v29 & Blind sanity checks & 3/4 + 3/3 PASS \\
+  v30 & Benchmark extraction & PASS \\
+  v31 & Relic density (Boltzmann) & 122 golden BPs \\
+  v32 & Literature cross-check & 6/6 PASS \\
+  v33 & Observational comparison & 11/13 compatible \\
+  v34 & $\chi^2$ fit to 13 systems & $\chi^2/\text{dof} = 0.13$ \\
+  v35 & VPM vs. Born transfer & VPM/Born $\approx 0.8$--$0.9$ in Born regime \\
+  v36 & Sommerfeld enhancement & $S < 1.026$ at freeze-out \\
+  v37 & Maxwell-Boltzmann averaging & $\Delta\chi^2 < 9\%$ \\
+  v38 & MCMC posterior & All 17 BPs in 95\% CI \\
+  \bottomrule
+\end{longtable}
+\end{center}
+
+\subsection{The Island of Viability}
+
+The relic density scan (v31) found 122 ``golden'' parameter points that simultaneously satisfy:
+\begin{enumerate}
+  \item $\Omega h^2 = 0.1200$ (exact Planck 2018 value)
+  \item $\sigma/m(30~\text{km/s}) \in [0.5, 10]~\text{cm}^2/\text{g}$ (dwarfs)
+  \item $\sigma/m(1000~\text{km/s}) < 0.47~\text{cm}^2/\text{g}$ (Harvey+15 cluster bound)
+  \item $m_\phi > 2m_e$ (BBN safety)
+\end{enumerate}
+
+The key structure of the viable region:
+\begin{itemize}
+  \item $m_\chi \in [10, 100]$~GeV
+  \item $m_\phi \in [3.85, 14.85]$~MeV (sweet spot around 7.6 MeV)
+  \item $\alpha \propto m_\chi^{1/2}$ (s-wave scaling)
+  \item $\lambda \in [0.73, 63.5]$ --- solidly resonant
+\end{itemize}
+
+\begin{insightbox}
+\textbf{Why the island is at $m_\chi \sim 10$--$100$~GeV:}\\
+The lower bound $m_\chi \gtrsim 3.9$~GeV is physical --- below this mass, no $(m_\phi, \alpha)$ combination 
+simultaneously satisfies the relic density and SIDM cross section constraints.
+The sweet spot at $m_\chi \sim 30$--$60$~GeV has a 27\% hit rate in $(m_\phi, \alpha)$ space:
+one quarter of the parameter space works. \textbf{No fine-tuning.}
+\end{insightbox}
+
+\subsection{$\chi^2 = 0.13$: The Model Works}
+
+The $\chi^2$ fit to 13 astrophysical systems (dwarfs, spirals, groups, clusters) from five published compilations gave:
+
+\begin{center}
+\begin{tabular}{lcc}
+  \toprule
+  Fit type & $\chi^2$ & $\chi^2/\text{dof}$ \\
+  \midrule
+  Free best-fit & 1.22 & $1.22/10 = 0.12$ \\
+  Relic-constrained (best BP) & 1.43 & $1.43/11 = 0.13$ \\
+  All 122 relic BPs: fraction with $\chi^2/\text{dof} < 1$ & \multicolumn{2}{c}{79\% (97/122)} \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The $\chi^2/\text{dof} \ll 1$ reflects the genuine observational uncertainties ($\sim 0.5$~dex) in the astrophysical data. The model is not overfitting.
+
+\subsection{The MCMC Posterior}
+
+The Bayesian posterior from 32 walkers $\times$ 5000 production steps ($N_\text{eff} \approx 874$ after burn-in):
+
+\begin{center}
+\begin{tabular}{lccc}
+  \toprule
+  Parameter & Median & 16th percentile & 84th percentile \\
+  \midrule
+  $m_\chi$ [GeV] & 38.5 & 10.3 & 88.7 \\
+  $m_\phi$ [MeV] & 8.62 & 5.26 & 12.97 \\
+  $\alpha$ & $1.0 \times 10^{-3}$ & $4 \times 10^{-4}$ & $4 \times 10^{-3}$ \\
+  $\lambda$ (derived) & 6.24 & 0.89 & 30.1 \\
+  \midrule
+  Gelman-Rubin $\hat{R}$ & \multicolumn{3}{c}{$\max = 1.005$ (strict convergence: $< 1.01$)} \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+All 17 original relic benchmark points (BPs 1--17) lie within the 95\% credible region. This was not guaranteed: the MCMC was seeded from the BPs but ran for 5000 production steps and had every opportunity to exclude them. It did not.
+
+\subsection{The Smoking Gun: Mixed Majorana and CP Violation}
+
+\subsubsection{The FATAL from Peer Review}
+
+Peer review identified a more serious problem than the Higgs portal: the Majorana nature of the dark matter fermion means that $\chi\chi \to \phi\phi$ is \emph{p-wave}, not s-wave. P-wave annihilation is suppressed by $v^2 \sim 10^{-6}$ at freeze-out, and the relic density is completely wrong.
+
+\begin{failbox}
+\textbf{V10 FATAL F1: Majorana p-wave suppression.}\\
+For a pure scalar Yukawa coupling $y\bar\chi\chi\phi$ with Majorana $\chi$,
+the annihilation $\chi\chi \to \phi\phi$ in the s-channel is CP-even (scalar $\times$ scalar),
+but the initial Majorana state $\chi\chi$ has CP = $-1$. 
+This mismatch kills the s-wave amplitude: $a_0 = 0$.
+All relic density calculations assumed s-wave. \emph{They are wrong by $v^2 \sim 10^{-6}$}.
+\end{failbox}
+
+\subsubsection{The Mixed Coupling Solution}
+
+Rather than abandoning Majorana in favour of Dirac, we looked for the most general coupling consistent with the $Z_2$ symmetry $\chi \to -\chi$. The answer is:
+\begin{equation}
+  \mathcal{L} \supset \frac{1}{2}\bar\chi\left(y_s + iy_p\gamma_5\right)\chi\,\phi
+\end{equation}
+This is the \emph{mixed scalar-pseudoscalar} coupling. The CP transformation maps $y_s \to y_s$, $y_p \to -y_p$. When $y_s \neq 0$ and $y_p \neq 0$ simultaneously, CP is broken in the dark sector.
+
+The key calculation (Condition 1, verified by two independent agents A and B) shows:
+\begin{equation}
+  a_0 = \frac{y_s^2\,y_p^2}{8\pi m_\chi^2} = \frac{2\pi\,\alpha_s\,\alpha_p}{m_\chi^2} \neq 0
+\end{equation}
+
+This s-wave term is non-zero \emph{if and only if} both $y_s \neq 0$ \textbf{and} $y_p \neq 0$. The amplitude vanishes for pure scalar ($y_p = 0$) and for pure pseudoscalar ($y_s = 0$) --- it requires \emph{mixed} CP violation.
+
+\begin{insightbox}
+\textbf{CP violation in the dark sector is not a choice --- it is required.}\\
+The Lagrangian with the most general $Z_2$-symmetric Yukawa coupling \emph{must} include both $y_s$ and $y_p$.
+Vanishing either requires an additional CP symmetry, which must be imposed by hand with no physical motivation.
+\emph{This is a new, previously unconsidered scenario in the SIDM literature.}
+\end{insightbox}
+
+\subsubsection{The CP-Separation Band: 1.2 Decades Wide}
+
+The viable parameter space in the 2D plane $(\alpha_s, \alpha_p)$ subject to the relic density constraint (which fixes the product $\alpha_s \times \alpha_p = 1.387 \times 10^{-7}$) and the SIDM observational constraints forms a band:
+
+\begin{center}
+\begin{tabular}{lccc}
+  \toprule
+  Benchmark & Viable band width in $\alpha_s/\alpha_p$ & Notes \\
+  \midrule
+  BP1 ($\lambda = 1.91$) & $[13, 212]$ = 1.22 decades & Asymmetric required \\
+  MAP ($\lambda = 48.6$) & $[1.8, 11{,}532]$ = 3.81 decades & All $\alpha_s/\alpha_p \gg 1$ viable \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The coupling ratio $\alpha_s/\alpha_p \neq 1$ is required --- the dark sector is not CP-symmetric. This is not fine-tuning; it is a robust, multi-decade prediction.
+
+\subsection{The Majorana vs. Dirac Fingerprint}
+
+The Majorana statistics produce a specific observable signature in the velocity dependence of $\sigma_T$:
+
+\begin{equation}
+  R(v) \equiv \frac{\sigma_T^\text{Maj}(v)}{\sigma_T^\text{Dir}(v)}
+\end{equation}
+
+In the Born limit (small $\lambda$, all $l = 0$), $R = 1/2$ exactly (the Majorana 1/2 factor from identical particles). At resonant $\lambda$, the odd-$l$ Majorana triplet channels (weight 3) push $R$ above 1 near $v \approx 220$~km/s (Milky Way velocities).
+
+For the MAP benchmark:
+\begin{center}
+\begin{tabular}{lcc}
+  \toprule
+  $v$ [km/s] & $R = \sigma_T^\text{Maj}/\sigma_T^\text{Dir}$ & Physical system \\
+  \midrule
+  30 & 0.899 & TBTF dwarfs \\
+  220 & \textbf{1.132} & Milky Way halo \\
+  1200 & 0.940 & Clusters \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+The ratio exceeds 1 near 220~km/s and falls back below 1 at clusters. This \emph{non-monotonic} oscillation is a smoking-gun for Majorana statistics and cannot be reproduced by Dirac dark matter.
+
+\subsection{Fornax Globular Clusters and the 52\% Exclusion}
+
+A systematic study of the Fornax globular cluster survival constraint (Read+2019) across all 122 relic benchmark points revealed:
+
+\begin{center}
+\begin{tabular}{lcc}
+  \toprule
+  Benchmark class & $\sigma/m(12~\text{km/s})$ & Fornax GC status \\
+  \midrule
+  MAP ($\lambda = 48.6$) & $1.22$~cm$^2$/g & PASS (margin 19\%) \\
+  BP1 ($\lambda = 1.91$) & $0.43$~cm$^2$/g & PASS (large margin) \\
+  52\% of island ($\lambda$ too large) & $> 1.5$~cm$^2$/g & \textbf{FAIL} \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+Half of the island of viability is excluded by the Fornax GC timing constraint. This is a genuine observational exclusion power --- the island is not a safe zone; it is constrained from multiple sides.
+
+\subsection{Vacuum Stability: The Corrected Bound}
+
+During the QA review (Dr. Noam, March 27, 2026), an incorrect vacuum stability bound was identified:
+
+\begin{failbox}
+\textbf{Agent error: $\lambda_\phi \gtrsim 0.54$ (wrong).}\\
+This value appeared in the discussion without a derivation. 
+Numerical minimisation of $V(\phi) = \frac{1}{2}m_\phi^2\phi^2 + \frac{\mu_3}{6}\phi^3 + \frac{\lambda_\phi}{24}\phi^4$
+gives the correct bound.
+\end{failbox}
+
+\begin{successbox}
+\textbf{Corrected bound (March 30, 2026):}\\
+No secondary minimum condition requires:
+\begin{equation}
+  \lambda_\phi \gtrsim 0.963 \quad \text{(numerical)}
+  \qquad \text{or} \qquad
+  \lambda_\phi \gtrsim 1.084 = \frac{3\mu_3^2}{8m_\phi^2} \quad \text{(analytic)}
+\end{equation}
+at $\mu_3/m_\phi = 1.7$ (cannibal threshold).
+The bound $0.54$ was agent error. Do not use.
+\end{successbox}
+
+\subsection{Dark QCD and $H_0$}
+
+An unexpected connection: the dark sector QCD phase transition contributes to the Hubble constant at the level of $\sim 0.4\%$, shifting $H_0$ from 67.0 to 67.4~km/s/Mpc. This is within the observational uncertainty but in the correct direction to alleviate the Hubble tension.
+
+The calculation (Layer 7 of Phase II) used:
+\begin{equation}
+  H^2 = \frac{8\pi G}{3}\left(\rho_\text{SM} + \rho_\text{DM} + \rho_{\Lambda_d}\right)
+\end{equation}
+with the dark QCD contribution to $\rho_{\Lambda_d}$ computed from the hadron mass spectrum.
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  PART V
+%% ═══════════════════════════════════════════
+\section{Part V: Unification and Open Questions}
+
+\subsection{The Single Lagrangian}
+
+After four phases of research, the unified model is described by:
+\begin{align}
+  \mathcal{L} &= \bar\chi\left(i\partial\!\!\!/ - m_\chi\right)\chi
+   + \frac{1}{2}\bar\chi\left(y_s + iy_p\gamma_5\right)\chi\,\phi \nonumber\\
+   &\quad + \frac{1}{2}(\partial\phi)^2 - \frac{1}{2}m_\phi^2\phi^2 
+   - \frac{\mu_3}{3!}\phi^3 - \frac{\lambda_\phi}{4!}\phi^4 \nonumber\\
+   &\quad + \frac{1}{2}(\partial\sigma)^2 + \Lambda_d^4\left(1 - \cos\frac{\sigma}{f}\right)
+\end{align}
+
+where:
+\begin{itemize}
+  \item $\chi$ is Majorana dark matter (spin-1/2, self-conjugate)
+  \item $\phi$ is the secluded scalar mediator ($m_\phi \sim 10$~MeV)
+  \item $\sigma$ is the dark axion --- rolling slowly near $\theta = \pi/2$, producing dark energy
+  \item The $\phi^3$ cannibal term stabilises the $\phi$ relic density (overclosure prevented by cannibal $3\phi \to 2\phi$)
+  \item A$_4$ symmetry UV-completes this model (see \texttt{chapter3\_t\_breaking/})
+\end{itemize}
+
+\textbf{Free parameters} (5 total):
+$(m_\chi,\, m_\phi,\, \alpha_s,\, \alpha_p,\, \mu_3/m_\phi)$
+with the constraints $\alpha_s \times \alpha_p = 1.387 \times 10^{-7}$ (relic density), $\mu_3/m_\phi \gtrsim 1.7$ (cannibal viability), and $\lambda_\phi \gtrsim 1.08$ (vacuum stability).
+
+\subsection{What the Three Chapters of the Paper Cover}
+
+\paragraph{Chapter 1 (SIDM):} Derives the VPM solver from first principles, presents the island of viability, performs the $\chi^2$ fit to 13 astrophysical systems, and produces the MCMC posterior. Central result: $\chi^2/\text{dof} = 0.13$.
+
+\paragraph{Chapter 2 (Path Integral):} Proves the PI-6 theorem (VPM = exact fluctuation determinant), derives the dark Friedmann equation, and connects $H_0 = 67.4$ to dark QCD.
+
+\paragraph{Chapter 3 (T-breaking):} Derives the dark energy equation of state from the misalignment mechanism, shows the tetrahedral angle $\theta = 19.47°$ arises from A$_4$, and presents the DESI DR2 comparison.
+
+\subsection{Open Questions}
+
+The following problems remain unsolved and are documented here as a research agenda for the next paper.
+
+\begin{enumerate}
+
+\item \textbf{The Cosmological Constant Problem (21-order gap).}\\
+  The CW mass ($10^{-12}$~eV) is 21 orders of magnitude too large for quintessence. Why is the observed dark energy density so small? The topological fix (freeze $\sigma$ near the hilltop) is phenomenologically workable but theoretically unsatisfying.
+
+\item \textbf{The $\sigma$ Dynamics Problem.}\\
+  After relic production, the $\sigma$ field oscillates and thermalises with the dark sector. Whether it settles at $\theta_\text{relic} = 19.47°$ (tetrahedral) or rolls to $\theta = \pi/2$ (CW minimum) depends on the competition between the alignment potential and the CW potential. This competition is not yet analytically solved.
+
+\item \textbf{Dark Baryogenesis.}\\
+  If dark matter is T-reversed, there should be a dark-sector baryogenesis mechanism that produces the asymmetry $\eta_\text{DM} \neq \eta_\text{visible}$. The specific mechanism is not yet constructed.
+
+\item \textbf{The DESI Tension in $w_a$.}\\
+  The model produces $w_a \approx -0.1$ to $-0.2$, while DESI prefers $w_a \approx -0.6$ to $-1.1$ (2--3$\sigma$ tension). Steeper thawing from higher-harmonic cosine terms, or a different potential shape, might resolve this.
+
+\item \textbf{Spiral Galaxy Rotation Curves.}\\
+  The SIDM model correctly fits dwarfs (gas-dominated) but overpredicts adiabatic contraction in spirals ($\Upsilon_* > 1.5$). Modern hydrodynamic adiabatic contraction (Gnedin+2004 versus Blumenthal+1986) is expected to resolve this, but has not been implemented.
+
+\item \textbf{V10 FATAL F2: $\phi$ Overclosure.}\\
+  A stable $\phi$ with no decay channel and $m_\phi \sim 10$~MeV overcloses the universe by a factor of $\sim 128{,}000$ without the $\mu_3\phi^3$ cannibal term. The cannibal mechanism works but requires careful treatment at BBN temperatures. Full FIMP/freeze-in analysis of $\phi$ is pending.
+
+\end{enumerate}
+
+\subsection{What We Learned About Research Methodology}
+
+This journal records a research process, not just results. Several methodological lessons emerged:
+
+\begin{enumerate}
+
+\item \textbf{Validate approximations early.} The Born approximation failure ($\times 88$--$\times 135$) was not caught until v21, after extensive parameter scanning. All prior scan results were invalid. Validation of key approximations should be the \emph{first} thing done.
+
+\item \textbf{Code duplication is dangerous.} The $\ell_\text{max}$ bug was present in 5/6 validation scripts because the VPM solver was copy-pasted rather than centralised. Modular code would have propagated the fix automatically.
+
+\item \textbf{Agent reviews catch bugs that self-review misses.} Five CW bugs went undetected through careful manual review. Two independent AI agents (A and B) each caught bugs that the other had introduced. Cross-validation was essential.
+
+\item \textbf{A failure is often a specification.} GEM too weak $\to$ need light mediator. Higgs portal closed $\to$ secluded sector. Majorana p-wave suppressed $\to$ mixed CP coupling. In every case, the ``failure'' specified the correct direction more precisely than any positive result had.
+
+\item \textbf{The correct number matters.} $\lambda_\phi \gtrsim 0.54$ was wrong; the correct value is $\gtrsim 1.08$. Vacuum stability bounds written without derivation are unreliable. Every number in a physics paper should have a reference or a calculation.
+
+\end{enumerate}
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  EPILOGUE
+%% ═══════════════════════════════════════════
+\section*{Epilogue: One Equation, Three Problems}
+\addcontentsline{toc}{section}{Epilogue}
+
+We started with a failed Casimir calculation on a squashed $S^7$. We end with a model described by a single Lagrangian that simultaneously addresses three open problems in cosmology:
+
+\begin{enumerate}
+  \item \textbf{Dark matter structure:} The cusp-core problem, the too-big-to-fail problem, and the diversity of rotation curves are explained by velocity-dependent self-interaction ($\chi^2/\text{dof} = 0.13$ across 13 systems).
+
+  \item \textbf{Dark energy:} The same scalar field that mediates dark matter self-interactions slow-rolls near the hilltop of its cosine potential, producing $w \approx -0.93$ consistent with DESI DR2 at $\sim 1\sigma$.
+
+  \item \textbf{The 5:1 ratio:} Dark matter as T-reversed Majorana matter from baryogenesis provides a natural explanation for $\rho_\text{DM}/\rho_b \approx 5$ without new coincidences.
+
+\end{enumerate}
+
+None of these connections were anticipated at the start. The original goal was to compute $A_7(t)$ on $S^7$. The journey from that calculation to a unified dark sector model took three months and generated 508 kilobytes of research notes --- which is what you have just read.
+
+The next step is to resolve the two remaining FATALs (Majorana p-wave and $\phi$ overclosure), publish the mixed-coupling Majorana SIDM paper, and confront the model with the next generation of observational data: JWST dwarf galaxy stellar kinematics, LISA dark compact object mergers, and DESI Year~5 BAO.
+
+\medskip\noindent\hrule\medskip
+
+\begin{center}
+\small\color{journalgray}
+\textit{The research is ongoing. This journal will be updated as the model develops.}\\[0.3em]
+\textit{Omer P., March 2026}\\[0.3em]
+\textbf{Repository:} \href{https://github.com/flow-il/the_dark_unification}{\texttt{github.com/flow-il/the\_dark\_unification}}
+\end{center}
+
+\newpage
+
+%% ═══════════════════════════════════════════
+%%  APPENDIX
+%% ═══════════════════════════════════════════
+\appendix
+
+\section{Quick Reference: Key Numbers}
+
+\begin{center}
+\begin{tabular}{lll}
+  \toprule
+  Quantity & Value & Source \\
+  \midrule
+  \multicolumn{3}{l}{\textit{SIDM model parameters (BP1)}} \\
+  \hspace{1em}$m_\chi$ & $20.69$~GeV & v31 relic scan \\
+  \hspace{1em}$m_\phi$ & $11.34$~MeV & v31 relic scan \\
+  \hspace{1em}$\alpha$ & $1.048 \times 10^{-3}$ & v31 relic scan \\
+  \hspace{1em}$\lambda = \alpha m_\chi / m_\phi$ & $1.91$ & derived \\
+  \hspace{1em}$\Omega h^2$ & $0.1200$ & exact (bisection) \\
+  \hspace{1em}$\sigma/m(30~\text{km/s})$ & $0.515$~cm$^2$/g & VPM \\
+  \hspace{1em}$\sigma/m(1000~\text{km/s})$ & $0.055$~cm$^2$/g & VPM \\
+  \midrule
+  \multicolumn{3}{l}{\textit{SIDM model parameters (MAP, unconstrained best-fit)}} \\
+  \hspace{1em}$m_\chi$ & $100$~GeV & v34/v38 \\
+  \hspace{1em}$m_\phi$ & $9.15$~MeV & v34 \\
+  \hspace{1em}$\alpha$ & $2.85 \times 10^{-3}$ & v34 \\
+  \hspace{1em}$\lambda$ & $31$--$48$ & derived \\
+  \hspace{1em}$\chi^2/\text{dof}$ & $0.12$ & v34 \\
+  \hspace{1em}Gelman-Rubin $\hat R$ & $1.005$ & v38 MCMC \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Dark energy sector}} \\
+  \hspace{1em}$\theta_\text{relic}$ & $19.47°$ = $\arcsin(1/3)$ & CW + A$_4$ \\
+  \hspace{1em}$H_0$ (with dark QCD) & $67.4$~km/s/Mpc & Friedmann \\
+  \hspace{1em}$w_0$ (CPL, best $\theta_i$) & $-0.90$ & dark energy ODE \\
+  \hspace{1em}$\Delta N_\text{eff}$ at BBN & $\approx 0$ & Boltzmann-suppressed \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Constraints}} \\
+  \hspace{1em}$\sigma/m(1000)$ upper bound & $0.47$~cm$^2$/g & Harvey+2015 \\
+  \hspace{1em}$\sigma/m(12)$ upper bound & $1.5$~cm$^2$/g & Read+2019 (Fornax GC) \\
+  \hspace{1em}Muon $(g-2)$ correction & $< 0.1\%$ & mediated \\
+  \hspace{1em}BBN safety bound & $m_\phi > 2m_e = 1.022$~MeV & observed \\
+  \hspace{1em}Vacuum stability & $\lambda_\phi \gtrsim 1.08$ & analytic (corrected) \\
+  \midrule
+  \multicolumn{3}{l}{\textit{Scan statistics}} \\
+  \hspace{1em}Raw viable (v22, V8-FAST) & $194{,}313$ points & \\
+  \hspace{1em}Relic-viable golden BPs & $122$ points & \\
+  \hspace{1em}Island of viability (named) & $17$ BPs (original) $\to$ $17$ BPs (V10) & \\
+  \hspace{1em}Fornax GC excluded fraction & $52\%$ & check4\_fornax\_gc.py \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\section{Chronicle of Failures}
+
+All failures are curated here as a record of what \emph{not} to do, and what each failure taught us.
+
+\begin{center}
+\begin{longtable}{p{5cm}p{4cm}p{5cm}}
+  \toprule
+  Failure & Location & What it taught \\
+  \midrule
+  $A_7 > 0$ on squashed $S^7$ & 11D SUGRA, prologue & Why are we in 3D? Opened DM question \\
+  GEM too weak ($v^2/c^2$) & Phase I, J1 & Dark sector needs its own mediator \\
+  Born approximation ($\times 88$--$135$) & Phase II, v21 & VPM essential for SIDM \\
+  $\ell_\text{max}$ static formula & Phase II, V10 pipeline & Code duplication propagates bugs \\
+  5 CW bugs (rolling direction worst) & Phase III, dark energy & Loop calculations need extreme care \\
+  Higgs portal ($\times 30{,}000$ gap) & V9 peer review & Secluded sector is mandatory, not optional \\
+  Majorana p-wave annihilation & V10 peer review & Mixed CP coupling necessary \\
+  ndof=10 for relic fit (should be 11) & Stage 2 v34 & Degrees of freedom depend on constraint type \\
+  $\lambda_\phi \gtrsim 0.54$ (Agent A error) & QA review & Every bound needs a derivation \\
+  One-sided MCMC penalty & QA review & Upper-limit constraints $\neq$ Gaussian penalties \\
+  $\lambda > 50$ cut truncated MAP & QA review & Conservative parameter cuts exclude physics \\
+  Dirac early-exit $\neq$ Majorana & QA review & Comparison analyses need identical numerics \\
+  NFW $\rho_s/3$ extra factor & Peer review & Dimensional analysis should always be checked \\
+  $4\pi$ prefactor vs $2\pi$ (cp\_channel) & QA review & Identical particle factor 1/2 is easy to miss \\
+  \bottomrule
+\end{longtable}
+\end{center}
+
+\end{document}
